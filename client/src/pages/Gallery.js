@@ -1,10 +1,9 @@
 import React from "react";
-import "./style.css";
 import Gallery from "../Gallery";
 
-function Gallery() {
+function Gallery(props) {
     return (
-      < Gallery/>
+      < Gallery {...props.children} />
       );
   }
   
