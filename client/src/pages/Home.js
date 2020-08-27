@@ -1,11 +1,11 @@
 import React from "react";
-import Home from "../Home";
+import Home from "../components/Home";
 
-function Home() {
+function HomePage() {
     return (
       < Home/>
       );
   }
   
-  export default Home;
+  export default HomePage;
 

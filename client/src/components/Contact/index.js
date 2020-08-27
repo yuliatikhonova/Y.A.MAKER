@@ -4,6 +4,7 @@ import "./style.css";
 
 function Contact() {
     return (
+        <p>contact page</p>
 
     );
 }
