@@ -12,7 +12,6 @@ const db = require("./models");
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.set("view engine", "handlebars");
 app.use(express.static("public"));
 // We need to use sessions to keep track of our user's login status
 app.use(
