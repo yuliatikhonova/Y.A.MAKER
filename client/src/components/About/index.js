@@ -4,7 +4,7 @@ import "./style.css";
 
 function About() {
     return (
-
+        <p> about page</p>
     );
 }
 

@@ -7,13 +7,13 @@ function Galleryimgs() {
     return (
         <div>
             {/* Map through data from database to display on the gallery page */}
-            {data.map(gallery =>(
+            {/* {data.map(gallery =>(
                 <Gallery
                 id = {gallery.id}
                 key = {gallery.key}
                 img = {gallery.img}
                 />
-            ))}
+            ))} */}
         </div>
     );
 }
