@@ -1,11 +1,11 @@
 import React from "react";
-import Gallery from "../Gallery";
+import Gallery from "../components/Gallery";
 
-function Gallery(props) {
+function GalleryPage(props) {
     return (
       < Gallery {...props.children} />
       );
   }
   
-  export default Gallery;
+  export default GalleryPage;
 
