@@ -1,0 +1,18 @@
+
+.modal-title {
+   font-family: athelas, serif;
+   font-weight: 400;
+   font-style: normal;
+   text-decoration: none;
+ 
+}
+
+.img-fluid {
+   max-width: 100%;
+   height: auto;
+   width: 25%;
+   margin: 40px;
+}
+.gallery-btn {
+   border-radius: 0;
+}
