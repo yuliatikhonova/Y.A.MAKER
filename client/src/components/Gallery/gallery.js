@@ -6,7 +6,7 @@ function Gallery(props) {
         <section className="container">
             {/* !--Modal-- */}
             {/* !-- Button trigger modal -- */}
-            <button type="button" className="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" className="gallery-btn btn-dark" data-toggle="modal" data-target="#exampleModal">
                 Upload New Product
           </button>
 
