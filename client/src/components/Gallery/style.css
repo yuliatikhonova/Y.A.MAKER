@@ -1,0 +1,10 @@
+
+.img-fluid {
+   max-width: 100%;
+   height: auto;
+   width: 25%;
+   margin: 40px;
+}
+.btn {
+   border-radius: 0;
+}
