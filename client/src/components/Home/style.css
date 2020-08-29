@@ -1,6 +1,6 @@
 
  .main-img {
-    background-image: url(./images/web-main.jpg);
+    background-image: url(/images/web-main.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -10,7 +10,7 @@
   
    width: 50%;
    margin-left: 20%;
-   margin-top: 10%
+   /* margin-top: 10% */
 }
 .bespoke, .hand-crafted, .goods, .by {
    font-family: athelas, serif;

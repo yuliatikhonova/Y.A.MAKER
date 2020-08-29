@@ -20,7 +20,7 @@ a:link, a:visited, a:hover, a:active {
     margin-left: 40px;
  }
  .hero-image {
-     background-image: url(./images/contact-hero.jpg);
+     background-image: url(/images/contact-hero.jpg);
      background-repeat: no-repeat;
      height: 129%;
      background-size: cover;
