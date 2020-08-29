@@ -24,8 +24,9 @@ function Services() {
                             Cost and Turn time can vary base on the scope of the project. Hit the contact button below
                             to schedule a consultation.
                             <br/>
-                        <h5>We look forward to hearing from you</h5>
+                        
                         </p>
+                        <h5>We look forward to hearing from you</h5>
                         <button type="submit" className="btn mt-4">Contact Us</button>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 
  .main-img {
-    background-image: url(./images/web-main.jpg);
+    background-image: "url(./images/web-main.jpg)";
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
