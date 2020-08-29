@@ -9,7 +9,7 @@ a:link, a:visited, a:hover, a:active {
     text-decoration: none;
   }
  .nav-logo {
-    height: 130px;
+    height: 110px;
  }
  .nav-area {
      width: 300px;
@@ -17,5 +17,6 @@ a:link, a:visited, a:hover, a:active {
      margin-left: 30px;
  }
  .nav {
-    margin-left: 51px;
+    margin-left: 40px;
  }
+ 
