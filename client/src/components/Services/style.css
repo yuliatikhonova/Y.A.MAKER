@@ -1,0 +1,37 @@
+ li, p, h1, h5 {
+    font-family: athelas, serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+}
+
+.hero-img-services {
+    background-image: url(/images/thingy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40rem;
+    width: 68rem;
+}
+
+.text-area {
+    margin: 0 auto;
+}
+h1 {
+    font-size: 4rem;
+    margin-left:10%;
+}
+p{
+    line-height: inherit;
+    font-size: 17px;
+}
+h5 {
+    text-align: center;
+    font-size: 2rem;
+}
+.btn {
+    background-color: white;
+    width: 120px;
+    height: 45px;
+    margin-left: 39%;
+}
