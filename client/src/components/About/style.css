@@ -1,16 +1,16 @@
-.text {
+.text-about {
     font-family: athelas, serif;
     font-weight: 400;
     font-style: normal;
     text-decoration: none;
+    color: black;
+    line-height: 40px;
+    text-align: justify;
  }
  .about-txt{
      margin-left: -11%;
  }
- .hero-image {
+ .hero-image-about {
     height: 76%;
- }
- p {
-    line-height: 40px;
-    text-align: justify;
+    
  }
