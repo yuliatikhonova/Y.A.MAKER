@@ -33,15 +33,15 @@ function Gallery(props) {
             {/* <!--Gallery--> */}
             <div className="col-12 mt-5">
 
-                <img src="./images/table.jpg" alt="table" className="img-fluid" />
-                <img src="./images/table.jpg" alt="table" className="img-fluid" />
-                <img src="./images/table.jpg" alt="table" className="img-fluid" />
-                <img src="./images/table.jpg" alt="table" className="img-fluid" />
-                <img src="./images/table.jpg" alt="table" className="img-fluid" />
-                <img src="./images/table.jpg" alt="table" className="img-fluid" />
-                <img src="./images/table.jpg" alt="table" className="img-fluid" />
-                <img src="./images/table.jpg" alt="table" className="img-fluid" />
-                <img src="./images/table.jpg" alt="table" className="img-fluid" />
+                <img src="/images/table.jpg" alt="table" className="img-fluid" />
+                <img src="/images/table.jpg" alt="table" className="img-fluid" />
+                <img src="/images/table.jpg" alt="table" className="img-fluid" />
+                <img src="/images/table.jpg" alt="table" className="img-fluid" />
+                <img src="/images/table.jpg" alt="table" className="img-fluid" />
+                <img src="/images/table.jpg" alt="table" className="img-fluid" />
+                <img src="/images/table.jpg" alt="table" className="img-fluid" />
+                <img src="/images/table.jpg" alt="table" className="img-fluid" />
+                <img src="/images/table.jpg" alt="table" className="img-fluid" />
 
             </div>
 
