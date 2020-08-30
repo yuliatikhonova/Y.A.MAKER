@@ -9,6 +9,8 @@ import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
 import Gallery from "./components/Gallery/gallery";
 import Services from "./pages/Services";
+import NoMatch from "./pages/NoMatch";
+
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         </div>
         <div className="col-sm-10">
           <Wrapper>
+          <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/checkout" component={Checkout} />
@@ -26,11 +29,13 @@ function App() {
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/services" component={Services} />
             {/* <Route exact path= "" component={}/> */}
-
+            <Route>
+            <NoMatch />
+          </Route>
+          </Switch>
           </Wrapper>
         </div>
       </div>
-
 
       {/* <Footer /> */}
     </Router>
