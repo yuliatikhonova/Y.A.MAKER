@@ -8,10 +8,13 @@ const apiSecret = process.env.CLOUDINARY_SECRET;
 const cloudinary = require("cloudinary");
 const mime = require("mime");
 const multer = require("multer");
+
+const nodemailer = require('nodemailer');
+
 const upload = multer({
   storage: multer.diskStorage({
     destination: "public/uploads",
-    filename: function(req, file, cb) {
+    filename: function (req, file, cb) {
       crypto.pseudoRandomBytes(16, (err, raw) => {
         cb(
           null,
@@ -21,6 +24,7 @@ const upload = multer({
     }
   })
 });
+
 const uploadcdny = (req, res, next) => {
   if (req.file) {
     console.log(req.file.filename);
@@ -44,6 +48,7 @@ const uploadcdny = (req, res, next) => {
     return next();
   }
 };
+
 const db = require("../models");
 const passport = require("../config/passport");
 cloudinary.config({
@@ -51,7 +56,7 @@ cloudinary.config({
   api_key: apiKey,
   api_secret: apiSecret
 });
-module.exports = function(app) {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -99,6 +104,51 @@ module.exports = function(app) {
       });
     }
   });
+
+  //===========================================================Form to send to the email
+
+  app.post('/api/form', (req, res) => {
+    let data = req.body;
+    let smtpTransport = nodemailer.createTransport({
+      service: 'Gmail',
+      port: 465,
+      auth: {
+        user: 'test4project3@gmail.com',
+        pass: 'testPassword'
+      }
+    })
+
+    let mailOptions = {
+      from: data.email,
+      to: 'test4project3@gmail.com',
+      subject: `Message from ${data.name}`,
+
+      html: `
+        <h3> Information </h3>
+            <ul>
+                <li>Name: ${data.name}</li>
+                <li>Phone number: ${data.phone}</li>
+                <li>Email: ${data.email}</li>
+            </ul>
+
+            <h3>Message</h3>
+            <p>${data.message}</p>
+        `
+    };
+
+    smtpTransport.sendMail(mailOptions, (error, response) => {
+
+      if (error) {
+        res.send(error)
+      }
+      else {
+        res.send("Success")
+      }
+    });
+
+    smtpTransport.close();
+
+  })
 
   //===========================================================Adding to bucket list
 
