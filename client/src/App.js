@@ -10,6 +10,8 @@ import Gallery from "./components/Gallery/gallery";
 import Services from "./pages/Services";
 import NoMatch from "./pages/NoMatch";
 import Footer from "./pages/Footer";
+import Loggin from "./pages/Loggin";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -20,18 +22,20 @@ function App() {
         </div>
         <div className="col-sm-10">
           <Wrapper>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/checkout" component={Checkout} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/gallery" component={Gallery} />
-            <Route exact path="/services" component={Services} />
-            {/* <Route exact path= "" component={}/> */}
-            <Route>
-            <NoMatch />
-          </Route>
-          </Switch>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/checkout" component={Checkout} />
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/gallery" component={Gallery} />
+              <Route exact path="/services" component={Services} />
+              <Route exact path="/loggin" component={Loggin} />
+              <Route exact path="/register" component={Register} />
+
+              <Route>
+                <NoMatch />
+              </Route>
+            </Switch>
           </Wrapper>
           <Footer />
         </div>
