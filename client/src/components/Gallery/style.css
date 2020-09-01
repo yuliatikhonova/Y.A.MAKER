@@ -16,3 +16,6 @@
 .gallery-btn {
    border-radius: 0;
 }
+.gallery {
+   overflow-y: visible;
+}

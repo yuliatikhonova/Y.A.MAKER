@@ -11,7 +11,7 @@ function About() {
                     className="hero-image-about"/>
             </div>
             <div className="col mt-5 about-txt">
-                <h1 className="text-about">Since 1984</h1>
+                <h1 className="text-about">Since 1986</h1>
                 <p className="text-about">
                     Hand Crafted Heirloom continues to pride itself with, on time delivery and exemplary
                     craftsmanship. Please browse through our gallery to see the wide array of ready handmade

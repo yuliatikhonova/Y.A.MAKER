@@ -4,6 +4,7 @@ import "./style.css";
 
 function Navbar() {
     return (
+        
         <nav className="nav-area">
             <Link to = "/">
                 <img alt="logo for HandCrafted Heirloom LLC " src="./images/logo-black.svg" className="nav-logo mt-4"/>
@@ -23,6 +24,8 @@ function Navbar() {
                     </li>
                 </ul>
         </nav>
+
+      
     );
 }
 
