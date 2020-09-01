@@ -27,7 +27,11 @@ function Services() {
                         
                         </p>
                         <h5>We look forward to hearing from you</h5>
-                        <button type="submit" className="btn mt-4">Contact Us</button>
+                        <Link to="/contact">
+                            <button type="submit" className="btn mt-4">Contact Us
+                            </button>
+
+                        </Link>
                     </div>
                 </div>
             </section>
