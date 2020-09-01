@@ -10,6 +10,7 @@ import Gallery from "./components/Gallery/gallery";
 import Services from "./pages/Services";
 import NoMatch from "./pages/NoMatch";
 import Footer from "./pages/Footer";
+import Loggin from "./pages/Loggin";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/services" component={Services} />
-            {/* <Route exact path= "" component={}/> */}
+            <Route exact path= "/loggin" component={Loggin}/>
             <Route>
             <NoMatch />
           </Route>
