@@ -1,9 +1,8 @@
-
 import React from "react";
-import { Link } from "react-router-dom";
 import "./style.css";
 
-
+function Footer() {
+  return (
         <footer className="footer mt-auto py-3">
         {/* <div className="container"> */}
         <ul className="d-flex list-inline justify-content-end">
@@ -25,5 +24,7 @@ import "./style.css";
           </ul>
  {/* </div> */}
       </footer>
+  );
+}
 
 export default Footer;

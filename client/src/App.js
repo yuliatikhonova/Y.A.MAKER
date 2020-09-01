@@ -9,7 +9,7 @@ import Contact from "./pages/Contact";
 import Gallery from "./components/Gallery/gallery";
 import Services from "./pages/Services";
 import NoMatch from "./pages/NoMatch";
-
+import Footer from "./pages/Footer";
 
 function App() {
   return (
@@ -33,10 +33,10 @@ function App() {
           </Route>
           </Switch>
           </Wrapper>
+          <Footer />
         </div>
       </div>
 
- 
     </Router>
   );
 }
