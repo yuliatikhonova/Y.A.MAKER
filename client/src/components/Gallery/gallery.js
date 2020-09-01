@@ -3,7 +3,7 @@ import "./style.css";
 
 function Gallery(props) {
     return (
-        <section className="container">
+        <section className="container gallery">
             {/* !--Modal-- */}
             {/* !-- Button trigger modal -- */}
             <button type="button" className="gallery-btn btn-dark" data-toggle="modal" data-target="#exampleModal">

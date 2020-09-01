@@ -5,7 +5,7 @@ import "./style.css";
 function Home() {
     return (
 
-        <main class="main-img">
+        <div className="main-img">
 
             <div className="hero-text">
                 <h1 className="bespoke">BESPOKE</h1>
@@ -15,7 +15,7 @@ function Home() {
                 <img src="/images/Logo-white.svg" alt="logo for HandCrafted Heirloom LLC" className="logo-white" />
             </div>
 
-        </main>
+        </div>
 
 
     );

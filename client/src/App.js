@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
-// import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Checkout from "./pages/Checkout";
@@ -37,7 +36,7 @@ function App() {
         </div>
       </div>
 
-      {/* <Footer /> */}
+ 
     </Router>
   );
 }
