@@ -81,6 +81,7 @@ export default class Contact extends Component {
             <section className="container">
                 <form className="row hero-image" onSubmit={this.formSubmit}>
                     <div className="col form-area">
+                        
                         <div className="form-group">
                             <input type="text"
                                 name="name"
