@@ -94,7 +94,7 @@ export default class Contact extends Component {
                             />
                         </div>
                         <div className="form-group">
-                            <input type="phone"
+                            <input type="tel"
                                 name="phone"
                                 className="form-control"
                                 id="phoneInput"
