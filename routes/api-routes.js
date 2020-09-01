@@ -127,7 +127,7 @@ module.exports = function (app) {
         <h3> Information </h3>
             <ul>
                 <li>Name: ${data.name}</li>
-                <li>Last name: ${data.lastname}</li>
+                <li>Phone number: ${data.phone}</li>
                 <li>Email: ${data.email}</li>
             </ul>
 
