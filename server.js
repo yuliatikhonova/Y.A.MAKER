@@ -6,7 +6,6 @@ const session = require("express-session");
 const passport = require("./config/passport");
 
 // Requiring from nodemailer
-const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 
