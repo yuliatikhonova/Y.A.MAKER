@@ -19,3 +19,9 @@ a:link, a:visited, a:hover, a:active {
  .nav {
     margin-left: 40px;
  }
+ @media only screen and (max-width: 991px) {
+    .nav-area {
+      display: none;
+    }
+  }
+  
