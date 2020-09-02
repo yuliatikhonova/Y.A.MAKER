@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
-
+import Footer from "../Footer";
 
 function MobileNav() {
     return (
@@ -29,8 +29,9 @@ function MobileNav() {
                         <Link className="nav-link navLinks mb-5" to="/contact">CONTACT</Link>
                     </li>
                 </ul>
+                <Footer />
                 </div>
-
+               
         </nav>
     );
 }

@@ -2,7 +2,7 @@
  .hero-image {
      background-image: url(/images/contact-hero.jpg);
      background-repeat: no-repeat;
-     height: 129%;
+     height: 90vh;
      background-size: cover;
     margin: 25px;
     width: 98%;

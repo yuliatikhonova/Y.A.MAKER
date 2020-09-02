@@ -1,6 +1,14 @@
 html, body {
     height: 100vh;
     /* height: 100%; */
-    /* gitoverflow: hidden; */
+    /* overflow: hidden; */
 
 }
+@media only screen and (max-width: 991px) {
+    .side-area {
+      display: none;
+    }
+  }
+  .side-area, .main-area{
+    padding: 0;
+  }

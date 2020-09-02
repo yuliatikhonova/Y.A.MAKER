@@ -1,3 +1,8 @@
+.footer {
+    position: absolute; 
+    bottom: 0;
+    left: 106px;
+}
 .nav-icons {
-    height: 22px;
+    height: 15px;
 }

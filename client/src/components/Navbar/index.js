@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import Footer from "../Footer";
 
 function Navbar() {
     return (
@@ -23,6 +24,7 @@ function Navbar() {
                         <Link className="nav-link navLinks mb-5" to="/contact">CONTACT</Link>
                     </li>
                 </ul>
+                <Footer />
         </nav>
 
       
