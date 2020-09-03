@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require("express");
 const session = require("express-session");
 const path = require('path');
-
+const http = require('http');
 
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
@@ -18,6 +18,12 @@ const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+
+const httpServer = http.createServer(app);
+// For http
+if (process.env.NODE_ENV = "production") {
+  httpServer.listen(80);
+}
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
