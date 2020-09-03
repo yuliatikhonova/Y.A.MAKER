@@ -114,14 +114,14 @@ module.exports = function (app) {
       service: 'Gmail',
       port: 465,
       auth: {
-        user: 'test4project3@gmail.com',
-        pass: 'testPassword'
+        user: process.env.USER,
+        pass: process.env.PASSWORD
       }
     })
 
     let mailOptions = {
       from: data.email,
-      to: 'test4project3@gmail.com',
+      to: process.env.USER,
       subject: `Message from ${data.name}`,
   
 
