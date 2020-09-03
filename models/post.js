@@ -1,20 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
   const post = sequelize.define("post", {
-    city: {
+    itemName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    countryName: {
-      type: DataTypes.STRING,
+    itemPrice: {
+      type: DataTypes.DECIMAL,
       allowNull: true,
       validate: {
         len: [1]
       }
     },
-    blogPost: {
+    itemDescription: {
       type: DataTypes.STRING,
       allowNull: true
     },
