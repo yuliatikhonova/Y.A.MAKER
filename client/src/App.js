@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
-import Gallery from "./components/Gallery/gallery";
+import Gallery from "./components/Gallery";
 import Services from "./pages/Services";
 import NoMatch from "./pages/NoMatch";
 import Cart from "./pages/Cart";

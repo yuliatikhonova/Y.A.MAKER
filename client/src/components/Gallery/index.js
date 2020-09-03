@@ -18,7 +18,8 @@ function Galleryimgs(props) {
             <section>
             <div className="col-12 mt-5">
 
-                <Link to="/item"><img src="/images/playThing.png" alt="climbing structure for children" className="img-fluid gallery-images" />
+                <Link to="/item">
+                    <img src="/images/playThing.png" alt="climbing structure for children" className="img-fluid gallery-images" />
                     <img src="/images/shelf.png" alt="custom shelf" className="img-fluid gallery-images" />
                     <img src="/images/bunkBed.png" alt="bunk bed" className="img-fluid gallery-images" />
                     <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images" />

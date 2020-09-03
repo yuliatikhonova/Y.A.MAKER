@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-function Item() {
+function Item(props) {
     return (
         <div className="item-deets">
         <div className="icon-area">
