@@ -1,13 +1,10 @@
 import React from "react";
-import { Link, ReactDOM } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
-import Paypal from "../Paypal/Paypal";
 
-
-function Checkout() {
-  return (
-    <div>
-              <div className="cart-body">
+function Cart() {
+    return (
+        <div className="cart-body">
             <div className="icon-area">
                 <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
             </div>
@@ -41,12 +38,11 @@ function Checkout() {
                 </div>
             </div>
             <div className="cart-button-area">
-            <Paypal />
+                <Link to="/checkout"><button type="submit" className="button-cart">CHECKOUT</button>
+                </Link>
             </div>
         </div>
-
-    </div>
-  );
+    );
 }
 
-export default Checkout;
+export default Cart;
