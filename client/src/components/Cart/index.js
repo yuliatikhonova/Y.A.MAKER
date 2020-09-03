@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function Cart() {
@@ -9,10 +9,7 @@ function Cart() {
                 <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
             </div>
             <div className="row">
-                <div className="col-lg-2">
-
-                </div>
-
+                <div className="col-lg-2"></div>
                 <div className="col-lg-10 d-flex product-area">
                     <div className="col-8">
 
@@ -41,7 +38,8 @@ function Cart() {
                 </div>
             </div>
             <div className="cart-button-area">
-                <button type="submit" className="button-cart">CHECKOUT</button>
+                <Link to="/checkout"><button type="submit" className="button-cart">CHECKOUT</button>
+                </Link>
             </div>
         </div>
     );

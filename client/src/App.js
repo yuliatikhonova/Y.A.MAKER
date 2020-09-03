@@ -6,11 +6,11 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
-import Gallery from "./components/Gallery/gallery";
+import Gallery from "./components/Gallery";
 import Services from "./pages/Services";
 import NoMatch from "./pages/NoMatch";
 import Cart from "./pages/Cart";
-import Loggin from "./pages/Loggin";
+import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Item from "./pages/Item";
 import MobileNav from "./components/MobileNav"
@@ -37,7 +37,7 @@ function App() {
 
 
               {/* client routes to update website */}
-              <Route exact path="/loggin" component={Loggin} />
+              <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
 
               <Route>

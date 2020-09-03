@@ -1,12 +1,12 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 
-function Item() {
+function Item(props) {
     return (
         <div className="item-deets">
         <div className="icon-area">
-            <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
+        <Link to= "/cart"> <img src="/images/bag-icon.png" alt="shopping bag" className="icon" /></Link>
         </div>
         {/* <div className="row"> */}
             {/* <div className="col-lg-2">
@@ -31,7 +31,7 @@ function Item() {
                     eos est nisi nostrum excepturi, atque doloremque ullam sapiente asperiores neque. Modi odit ipsam
                     aliquam, voluptatibus saepe ullam quisquam possimus!</p>
                     <div className="button-spot mt-5">
-                        <button type="submit" className="btn cart-button item-deets">ADD TO CART</button>
+                      <button type="submit" className="btn cart-button item-deets">ADD TO CART</button>
                     </div>
                 </div>
             </div>
