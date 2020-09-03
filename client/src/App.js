@@ -9,7 +9,7 @@ import Contact from "./pages/Contact";
 import Gallery from "./components/Gallery/gallery";
 import Services from "./pages/Services";
 import NoMatch from "./pages/NoMatch";
-
+import Cart from "./pages/Cart";
 import Loggin from "./pages/Loggin";
 import Register from "./pages/Register";
 import Item from "./pages/Item";
@@ -33,6 +33,8 @@ function App() {
               <Route exact path="/gallery" component={Gallery} />
               <Route exact path="/services" component={Services} />
               <Route exact path="/item" component={Item} />
+              <Route exact path="/cart" component={Cart} />
+
 
               {/* client routes to update website */}
               <Route exact path="/loggin" component={Loggin} />
