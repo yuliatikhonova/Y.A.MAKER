@@ -79,12 +79,12 @@ export default class Contact extends Component {
     render() {
         return (
             <section className="container">
-                <form className="row hero-image" onSubmit={this.formSubmit}>
-                    <div className="col form-area">
-                        <div className="form-group">
+                <form className="row hero-image-contact" onSubmit={this.formSubmit}>
+                    <div className="col form-area formContact">
+                        <div className="form-group groupContact">
                             <input type="text"
                                 name="name"
-                                className="form-control"
+                                className="form-control contact"
                                 id="nameInput"
                                 placeholder="Name here"
                                 title="Please enter your Name"
@@ -92,10 +92,10 @@ export default class Contact extends Component {
                                 onChange={this.handleName}
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="form-group groupContact">
                             <input type="phone"
                                 name="phone"
-                                className="form-control"
+                                className="form-control contact"
                                 id="phoneInput"
                                 placeholder="Phone Number here"
                                 title="Please enter your phone number"
@@ -103,10 +103,10 @@ export default class Contact extends Component {
                                 onChange={this.handlePhone}
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="form-group groupContact">
                             <input type="email"
                                 name="email"
-                                className="form-control"
+                                className="form-control contact"
                                 id="emailAddressInput"
                                 placeholder="Email here"
                                 title="Please enter your email address"
@@ -115,8 +115,8 @@ export default class Contact extends Component {
                                 required
                             />
                         </div>
-                        <div className="form-group">
-                            <textarea className="form-control"
+                        <div className="form-group groupContact">
+                            <textarea className="form-control contact"
                                 name='message'
                                 id="messageTextAreaInput"
                                 placeholder="Message"
@@ -126,7 +126,7 @@ export default class Contact extends Component {
                             ></textarea>
                         </div>
 
-                        <button type="submit" className="btn">Submit</button>
+                        <button type="submit" className="btn contact-button">Submit</button>
                         {/* </form> */}
                     </div>
                 </form>

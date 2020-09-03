@@ -1,16 +1,16 @@
 
- .main-img {
+ .main-img-home {
     background-image: url(/images/web-main.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     overflow: hidden;
 }
-.hero-text{
+.hero-text-home{
   
    width: 50%;
    margin-left: 20%;
-   /* margin-top: 10% */
+   
 }
 .bespoke, .hand-crafted, .goods, .by {
    font-family: athelas, serif;

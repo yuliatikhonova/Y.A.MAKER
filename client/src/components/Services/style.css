@@ -1,4 +1,4 @@
- li, p, h1, h5 {
+ .service-list, .para-style, .header-one-style, .head-five {
     font-family: athelas, serif;
     font-weight: 400;
     font-style: normal;
@@ -14,22 +14,22 @@
     width: 68rem;
 }
 
-.text-area {
+.services {
     margin: 0 auto;
 }
-h1 {
+.header-one-style {
     font-size: 4rem;
     margin-left:10%;
 }
-p{
+.para-style {
     line-height: inherit;
     font-size: 17px;
 }
-h5 {
+.head-five {
     text-align: center;
     font-size: 2rem;
 }
-.btn {
+.services-button {
     background-color: white;
     width: 120px;
     height: 45px;

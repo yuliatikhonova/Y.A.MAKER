@@ -1,5 +1,5 @@
 
- .hero-image {
+ .hero-image-contact {
      background-image: url(/images/contact-hero.jpg);
      background-repeat: no-repeat;
      height: 90vh;
@@ -7,19 +7,19 @@
     margin: 25px;
     width: 98%;
  }
-.form-area {
+.formContact {
     margin-top: 12%;
 }
-.form-group {
+.groupContact {
     width: 600px;
     text-align: center;
     margin-left: 20%;
     
 }
-.form-control {
+.contact {
     border-radius: 0;
 }
-.btn {
+.contact-button {
     background-color: white;
     width: 100px;
     margin-left: 67%;
