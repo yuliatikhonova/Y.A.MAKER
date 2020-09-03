@@ -3,14 +3,19 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import Footer from "../Footer";
 
-function Navbar() {
+function MobileNav() {
     return (
-        
-        <nav className="nav-area" >
-            <Link to = "/">
-                <img alt="logo for HandCrafted Heirloom LLC " src="./images/logo-black.svg" className="nav-logo mt-4"/>
+
+
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <Link to="/">
+                <img alt="logo for HandCrafted Heirloom LLC " src="./images/logo-black.svg" className="nav-logo mt-4" />
             </Link>
-                <ul className="nav flex-column mt-5 ">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mobile-nav">
+            <ul className="nav flex-column mt-5 " >
                     <li className="nav-item">
                         <Link className="nav-link navLinks mb-5" to="/gallery">GALLERY</Link>
                     </li>
@@ -25,10 +30,10 @@ function Navbar() {
                     </li>
                 </ul>
                 <Footer />
+                </div>
+               
         </nav>
-
-      
     );
 }
 
-export default Navbar;
+export default MobileNav;

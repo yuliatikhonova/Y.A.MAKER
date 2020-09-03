@@ -1,0 +1,38 @@
+.item-deets {
+    font-family: athelas, serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.icon-area {
+    text-align: right;
+    }
+    .icon {
+        width: 16px;
+        margin-right: 40px;
+        margin-top: 21px;
+    }
+    .product-area {
+        margin-top: 135px;
+    }
+    .title-cost {
+        margin-right: 216px;
+        margin-left: -18px;
+    }
+    .button-spot {
+        text-align: center;
+    }
+    
+    .cart-button {
+        background-color: white;
+        color: black;
+        border-color: black;
+        width: 160px;
+        height: 48px;
+        font-size: 20px;
+        border-radius: 0;
+    }
+    .product-description {
+        line-height: 40px;
+    }

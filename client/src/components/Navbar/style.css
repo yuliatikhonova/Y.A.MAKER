@@ -9,13 +9,12 @@ a:link, a:visited, a:hover, a:active {
     text-decoration: none;
   }
  .nav-logo {
-    height: 110px;
+    height: 80px;
  }
  .nav-area {
-     width: 300px;
-     margin: 0px;
-     margin-left: 30px;
+    text-align: center;
+    padding-left: 15px;
  }
- .nav {
-    margin-left: 40px;
- }
+
+
+  

@@ -9,18 +9,21 @@ import Contact from "./pages/Contact";
 import Gallery from "./components/Gallery/gallery";
 import Services from "./pages/Services";
 import NoMatch from "./pages/NoMatch";
-import Footer from "./pages/Footer";
+
 import Loggin from "./pages/Loggin";
 import Register from "./pages/Register";
+import Item from "./pages/Item";
+import MobileNav from "./components/MobileNav"
 
 function App() {
   return (
     <Router>
+      <MobileNav></MobileNav>
       <div className="row">
-        <div className="col-sm-2">
+        <div className="col-lg-2 side-area">
           <Navbar />
         </div>
-        <div className="col-sm-10">
+        <div className="col-lg-10 col-md-12 main-area">
           <Wrapper>
             <Switch>
               <Route exact path="/" component={Home} />
@@ -29,6 +32,9 @@ function App() {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/gallery" component={Gallery} />
               <Route exact path="/services" component={Services} />
+              <Route exact path="/item" component={Item} />
+
+              {/* client routes to update website */}
               <Route exact path="/loggin" component={Loggin} />
               <Route exact path="/register" component={Register} />
 
@@ -37,7 +43,7 @@ function App() {
               </Route>
             </Switch>
           </Wrapper>
-          <Footer />
+       
         </div>
       </div>
 
