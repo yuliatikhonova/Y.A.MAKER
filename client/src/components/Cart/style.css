@@ -1,0 +1,30 @@
+.cart-body {
+    font-family: athelas, serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.icon-area {
+    text-align: right;
+}
+
+.icon {
+    width: 16px;
+    margin-right: 40px;
+    margin-top: 21px;
+}
+.cart-item {
+    height: 220px;
+}
+.cart-button-area{
+    text-align: center;
+}
+.button-cart {
+    background-color: black;
+    color: white;
+    border-radius: 0;
+    font-size: 28px;
+    width: 183px;
+    cursor: pointer;
+}  
