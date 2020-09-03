@@ -7,7 +7,7 @@ const styles = {
   }
 };
 
-function Loggin() {
+function Login() {
 
   $(document).ready(function () {
     // Getting references to our form and inputs
@@ -76,4 +76,4 @@ function Loggin() {
   );
 }
 
-export default Loggin;
+export default Login;
