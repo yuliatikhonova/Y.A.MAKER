@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function Cart() {
@@ -41,7 +41,8 @@ function Cart() {
                 </div>
             </div>
             <div className="cart-button-area">
-                <button type="submit" className="button-cart">CHECKOUT</button>
+                <Link to= "/checkout"><button type="submit" className="button-cart">CHECKOUT</button>
+                </Link>
             </div>
         </div>
     );
