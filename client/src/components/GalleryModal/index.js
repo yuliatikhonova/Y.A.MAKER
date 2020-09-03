@@ -1,11 +1,8 @@
 import React from "react";
 import "./style.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function GalleryModal(props) {
+function GalleryModal() {
     return (
-            
-
             <div className="modal fade" id="newPostModal_" data-backdrop="static" data-keyboard="false" tabindex="-1"
                 role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <form className="modal-dialog" id="newPostForm" action="/api/update" method="POST" enctype="multipart/form-data">
@@ -37,8 +34,6 @@ function GalleryModal(props) {
                     </div>
                 </form>
             </div>
-
-
     );
 }
 
