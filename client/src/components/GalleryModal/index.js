@@ -2,12 +2,9 @@ import React from "react";
 import "./style.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function Gallery(props) {
+function GalleryModal(props) {
     return (
-        <section className="container gallery">
-            <button type="button" className="gallery-btn btn-dark" data-toggle="modal" data-target="#newPostModal_">
-                <FontAwesomeIcon icon="edit" />
-            </button>
+            
 
             <div className="modal fade" id="newPostModal_" data-backdrop="static" data-keyboard="false" tabindex="-1"
                 role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -40,23 +37,9 @@ function Gallery(props) {
                     </div>
                 </form>
             </div>
-            <div className="col-12 mt-5">
 
-                <img src="/images/playThing.png" alt="climbing structure for children" className="img-fluid gallery-images" />
-                <img src="/images/shelf.png" alt="custom shelf" className="img-fluid gallery-images" />
-                <img src="/images/bunkBed.png" alt="bunk bed" className="img-fluid gallery-images" />
-                <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images" />
-                <img src="/images/playThing2.png" alt="climbing structure for childrenable" className="img-fluid gallery-images" />
-                <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images" />
-                <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images" />
-                <img src="/images/playThing3.png" alt="climbing structure for children" className="img-fluid gallery-images" />
-                <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images" />
-
-            </div>
-
-        </section>
 
     );
 }
 
-export default Gallery;
+export default GalleryModal;
