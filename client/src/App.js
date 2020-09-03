@@ -12,7 +12,7 @@ import NoMatch from "./pages/NoMatch";
 
 import Loggin from "./pages/Loggin";
 import Register from "./pages/Register";
-// import Item from "./pages/Item";
+import Item from "./pages/Item";
 import MobileNav from "./components/MobileNav"
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/gallery" component={Gallery} />
               <Route exact path="/services" component={Services} />
-              {/* <Route exact path="/item" component={Item} /> */}
+              <Route exact path="/item" component={Item} />
 
               {/* client routes to update website */}
               <Route exact path="/loggin" component={Loggin} />
