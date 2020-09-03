@@ -111,7 +111,7 @@ module.exports = function (app) {
     let data = req.body;
     console.log(data);
     let smtpTransport = nodemailer.createTransport({
-      service: process.env.SERVICE,
+      service: process.env.SERVICE || "Gmail",
       port: 465,
       auth: {
         user: process.env.USER,
