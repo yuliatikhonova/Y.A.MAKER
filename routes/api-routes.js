@@ -109,6 +109,7 @@ module.exports = function (app) {
 
   app.post('/api/form', (req, res) => {
     let data = req.body;
+    console.log(data);
     let smtpTransport = nodemailer.createTransport({
       service: 'Gmail',
       port: 465,
@@ -122,12 +123,13 @@ module.exports = function (app) {
       from: data.email,
       to: 'test4project3@gmail.com',
       subject: `Message from ${data.name}`,
+  
 
       html: `
         <h3> Information </h3>
             <ul>
                 <li>Name: ${data.name}</li>
-                <li>Last name: ${data.lastname}</li>
+                <li>Phone number: ${data.phone}</li>
                 <li>Email: ${data.email}</li>
             </ul>
 

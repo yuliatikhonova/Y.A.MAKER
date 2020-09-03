@@ -81,6 +81,7 @@ export default class Contact extends Component {
             <section className="container">
                 <form className="row hero-image" onSubmit={this.formSubmit}>
                     <div className="col form-area">
+                        
                         <div className="form-group">
                             <input type="text"
                                 name="name"
@@ -93,7 +94,7 @@ export default class Contact extends Component {
                             />
                         </div>
                         <div className="form-group">
-                            <input type="phone"
+                            <input type="tel"
                                 name="phone"
                                 className="form-control"
                                 id="phoneInput"
