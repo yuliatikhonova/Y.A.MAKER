@@ -28,3 +28,6 @@
     width: 183px;
     cursor: pointer;
 }  
+.table-data {
+    vertical-align: middle;
+}
