@@ -8,6 +8,30 @@ html, body {
     .side-area {
       display: none;
     }
+    .main-img-home {
+      background-image: url(/images/home-mobile.jpg);
+    }
+    .bespoke {
+      font-size: 5rem;
+      letter-spacing: -5px;
+      line-height: 70px;
+    }
+    .hand-crafted {
+      font-size: 40px;
+    }
+    .goods {
+      font-size: 3rem;
+      line-height: 35px;
+    }
+    .hero-text-home {
+      margin-top: 200px
+    }
+    .logo-white {
+      width: 35%
+    } 
+    .by {
+      line-height: 70px
+    }
   }
   .side-area, .main-area{
     padding: 0;

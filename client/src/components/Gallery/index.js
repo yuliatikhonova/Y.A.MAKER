@@ -16,18 +16,18 @@ function Galleryimgs(props) {
             {/* write card to hold galley images retrieved from database */}
 
             <section>
-            <div className="col-12 mt-5">
+            <div className="row mt-5">
 
                 <Link to="/item">
-                    <img src="/images/playThing.png" alt="climbing structure for children" className="img-fluid gallery-images" />
-                    <img src="/images/shelf.png" alt="custom shelf" className="img-fluid gallery-images" />
-                    <img src="/images/bunkBed.png" alt="bunk bed" className="img-fluid gallery-images" />
-                    <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images" />
-                    <img src="/images/playThing2.png" alt="climbing structure for childrenable" className="img-fluid gallery-images" />
-                    <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images" />
-                    <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images" />
-                    <img src="/images/playThing3.png" alt="climbing structure for children" className="img-fluid gallery-images" />
-                    <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images" />
+                    <img src="/images/playThing.png" alt="climbing structure for children" className="img-fluid gallery-images col-md-6 col-12" />
+                    <img src="/images/shelf.png" alt="custom shelf" className="img-fluid gallery-images col-md-6 col-12" />
+                    <img src="/images/bunkBed.png" alt="bunk bed" className="img-fluid gallery-images col-md-6 col-12" />
+                    <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images col-md-6 col-12" />
+                    <img src="/images/playThing2.png" alt="climbing structure for childrenable" className="img-fluid gallery-images col-md-6 col-12" />
+                    <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images col-md-6 col-12" />
+                    <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images col-md-6 col-12" />
+                    <img src="/images/playThing3.png" alt="climbing structure for children" className="img-fluid gallery-images col-md-6 col-12" />
+                    <img src="/images/table.jpg" alt="table" className="img-fluid gallery-images col-md-6 col-12" />
                 </Link>
             </div>
 

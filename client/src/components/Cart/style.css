@@ -28,3 +28,6 @@
     width: 183px;
     cursor: pointer;
 }  
+.cart-data {
+    vertical-align: middle;
+}
