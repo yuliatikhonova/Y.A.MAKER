@@ -5,7 +5,7 @@ function GalleryModal() {
     return (
             <div className="modal fade" id="newPostModal_" data-backdrop="static" data-keyboard="false" tabindex="-1"
                 role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <form className="modal-dialog" id="newPostForm" action="/api/update" method="POST" enctype="multipart/form-data">
+                <form className="modal-dialog" id="newPostForm" action="/api/post" method="POST" enctype="multipart/form-data">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title">Add New Item</h5>
@@ -23,7 +23,11 @@ function GalleryModal() {
                                 <input type="text" className="form-control" id="itemName" name="itemName" placeholder="Item Name"></input>
                             </div>
                             <div className="form-group">
-                                <label for="itemName">Item Description</label>
+                                <label for="itemPrice">Item Price</label>
+                                <input type="text" className="form-control" id="itemPrice" name="itemPrice" placeholder="Item Price"></input>
+                            </div>
+                            <div className="form-group">
+                                <label for="itemDescription">Item Description</label>
                                 <textarea type="text" className="form-control" id="itemDescription" name="itemDescription"></textarea>
                             </div>
                         </div>
