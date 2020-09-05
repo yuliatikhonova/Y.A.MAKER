@@ -8,11 +8,11 @@ function Home() {
         <div className="main-img-home">
 
             <div className="hero-text-home">
-                <h1 className="bespoke">BESPOKE</h1>
-                <h2 className="hand-crafted">Hand Crafted</h2>
-                <h1 className="goods">GOODS</h1>
-                <h4 className="by">By</h4>
-                <img src="/images/Logo-white.svg" alt="logo for HandCrafted Heirloom LLC" className="logo-white" />
+                <span className="bespoke">BESPOKE</span>
+                <span className="hand-crafted">Hand Crafted</span>
+                <span className="goods">GOODS</span>
+                <span className="by">By</span>
+                <img src="/images/Logo-white.svg" alt="logo for HandCrafted Heirloom LLC" className="logo-white mx-auto" />
             </div>
 
         </div>

@@ -7,10 +7,10 @@
     overflow: hidden;
 }
 .hero-text-home{
-  
-   width: 50%;
-   margin-left: 20%;
-   
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   margin-top: 100px;
 }
 .bespoke, .hand-crafted, .goods, .by {
    font-family: athelas, serif;
@@ -20,26 +20,23 @@
    color: white;
 }
 .bespoke {
-   font-size: 12rem;
-   letter-spacing: -15px;
-   height: 175px;
+   font-size: 9rem;
+   letter-spacing: -7px;
+   line-height: 90px;
 }
 .hand-crafted {
-   font-size: 84px;
-   margin-left: 21%;
-   height: 52px;
-   width: 500px;
+   font-size: 70px;
 }
 .goods {
-   font-size: 7rem;
-   margin-left: 28%;
+   font-size: 5rem;
+   line-height: 47px;
 }
 .logo-white {
-   width: 30%;
-   margin-left: 45%;
+   width: 27%
+
 }
 .by {
-   font-size: 3rem;
-   text-align: center;
-   margin-left: 20%;
+   font-size: 2rem;
+   line-height: 3;
+
 }

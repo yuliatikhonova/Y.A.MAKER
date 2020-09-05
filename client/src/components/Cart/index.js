@@ -26,9 +26,9 @@ function Cart() {
                                 <tr>
                                     <th scope="row"><img src="./images/table.jpg" alt="table" className="cart-item" /></th>
 
-                                    <td className="table-data">250</td>
-                                    <td className="table-data">1</td>
-                                    <td className="table-data">250</td>
+                                    <td className="cart-data">250</td>
+                                    <td className="cart-data">1</td>
+                                    <td className="cart-data">250</td>
                                 </tr>
                                 <tr>  </tr>
                             </tbody>
