@@ -21,7 +21,7 @@ module.exports = function(app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/main", isAuthenticated, (req, res) => {
+  app.get("/woodworking/gallery", isAuthenticated, (req, res) => {
     db.post.findAll({ where: { UserId: req.user.id } }).then(dbPost => {
       console.log(dbPost);
       const posts = dbPost.map(value => {

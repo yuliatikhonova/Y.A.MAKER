@@ -27,7 +27,7 @@ if (process.env.NODE_ENV = "production") {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
-app.get('/*', function (req, res) {
+app.get('/woodworking/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 app.use(cors());
