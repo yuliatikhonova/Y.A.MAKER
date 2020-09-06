@@ -44,6 +44,7 @@
 @media only screen and (max-width: 991px) {
     .hero-img-services {
         background-image: url(/images/service-mobile.jpg);
+        margin-top: 0px;
   
     }
     .header-one-style, .para-style, .head-five, .service-list {
@@ -57,5 +58,29 @@
         font-style: normal;
         text-decoration: none;
     }
-
+    .header-one-style {
+        font-size: 3rem;
+        
+    }
+    .para-style {
+        line-height: inherit;
+        font-size: 17px;
+    }
+    .head-five {
+        text-align: center;
+        font-size: 2rem;
+    }
+    .services-button {
+        font-family: athelas, serif;
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+        
+        width: 120px;
+        height: 45px;
+        margin-left: 39%;
+    }
+    .services {
+        margin: 0px;
+    }
 }
