@@ -4,7 +4,7 @@ import "./style.css";
 
 function Services() {
     return (
-        <section className="container hero-img-services mt-5">
+        <section className="hero-img-services mx-auto">
                 <div className="row">
                     <div className="col-8 mt-5 text-area services mb-4">
                         <h1 className="header-one-style">Special Commisions</h1>

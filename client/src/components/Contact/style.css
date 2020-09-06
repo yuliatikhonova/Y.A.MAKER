@@ -12,8 +12,7 @@
 }
 .groupContact {
     width: 600px;
-    text-align: center;
-    margin-left: 20%;
+
     
 }
 .contact {
@@ -25,5 +24,7 @@
     margin-left: 67%;
 }
 @media only screen and (max-width: 991px) {
-    
+    .hero-image-contact {
+        background-image: url(/images/mobile-main.jpg);
+    }
 }
