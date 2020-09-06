@@ -113,6 +113,7 @@ module.exports = function (app) {
     let smtpTransport = nodemailer.createTransport({
       service: process.env.SERVICE || "Gmail",
       port: 465,
+      secure: true,
       auth: {
         user: process.env.USER,
         pass: process.env.PASSWORD
@@ -144,7 +145,7 @@ module.exports = function (app) {
         res.send(error)
       }
       else {
-        res.send("Success")
+        res.send("Success" + response)
       }
     });
 
@@ -154,7 +155,7 @@ module.exports = function (app) {
 
   //===========================================================Adding to bucket list
 
-  app.get("/api/post", isLoggedIn, (req, res) => {
+  app.get("/api/post", (req, res) => {
     //Reading the data from the data base
     db.post.findAll({ where: { UserId: req.user.id } }).then(dbPost => {
       //database get my Post model and find me all of them then with the data (dbPost)
@@ -162,27 +163,7 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/api/post", isLoggedIn, (req, res) => {
-    // POST route for saving a new post
-    console.log(req.body);
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property (req.body)
-    db.post
-      .create({
-        // create takes an argument of an object describing the item we want to
-        city: req.body.city,
-        UserId: req.user.id
-      })
-      .then(dbPost => {
-        // We have access to the new todo as an argument inside of the callback function
-        res.json(dbPost);
-      })
-      .catch(err => {
-        // Whenever a validation or flag fails, an error is thrown
-        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-        res.json(err);
-      });
-  });
+  
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
@@ -194,7 +175,7 @@ module.exports = function (app) {
   });
 
   app.post(
-    "/api/update",
+    "/api/post",
     isLoggedIn,
     upload.single("imageUpload"),
     uploadcdny,
@@ -211,18 +192,12 @@ module.exports = function (app) {
         req.file.filename = req.file.filename;
       }
       db.post
-        .update(
+        .create(
           {
-            city: req.body.city,
-            countryName: req.body.countryName,
+            itemName: req.body.itemName,
+            itemPrice: req.body.itemPrice,
             imageUpload: req.file.filename,
-            blogPost: req.body.blogPost,
-            hasCard: true
-          },
-          {
-            where: {
-              id: req.body.id
-            }
+            itemDescription: req.body.itemDescription
           }
         )
         .then(() => {

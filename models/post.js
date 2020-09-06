@@ -20,20 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     imageUpload: {
       type: DataTypes.STRING
-    },
-    hasCard: {
-      type: DataTypes.BOOLEAN,
-      value: false
     }
   });
-
-  post.associate = models => {
-    post.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
 
   return post;
 };

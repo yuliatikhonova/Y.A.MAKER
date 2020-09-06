@@ -58,6 +58,7 @@ export default class Contact extends Component {
             .catch(() => {
                 console.log("message not sent");
             })
+            
     }
 
     //Resetting the initial data
