@@ -16,7 +16,7 @@ function MobileNav() {
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mobile-nav">
+            <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="nav flex-column mt-5 " >
                     <li className="nav-item">
                         <Link className="nav-link navLinks mb-5" to="/gallery">GALLERY</Link>

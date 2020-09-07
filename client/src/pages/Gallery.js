@@ -3,18 +3,23 @@ import Gallery from "../components/Gallery";
 
 function GalleryPage(props) {
     return (
-      < Gallery {...props.children} />
-                  {/* Map through data from database to display on the gallery page */}
-            {/* {data.map(gallery =>(
-                <Gallery
-                id = {gallery.id}
-                key = {gallery.key}
-                img = {gallery.img}
-                />
-            ))} */}
+        <div>
+            < Gallery {...props.children} />
+            {/* Map through data from database to display on the gallery page */}
 
-      );
-  }
-  
-  export default GalleryPage;
+            {items.map(item => (
+                <Gallery
+                    id={item.id}
+                    key={item.key}
+                    itemName={item.itemName}
+                    itemPrice={item.itemPrice}
+                    itemDescription={item.itemDescription}
+                    imageUpload={item.imageUpload}
+                />
+            ))}
+        </div>
+    );
+}
+
+export default GalleryPage;
 
