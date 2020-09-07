@@ -30,8 +30,13 @@ function Item(props) {
                     <p className="product-description item-deets">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae corporis,
                     eos est nisi nostrum excepturi, atque doloremque ullam sapiente asperiores neque. Modi odit ipsam
                     aliquam, voluptatibus saepe ullam quisquam possimus!</p>
-                    <div className="button-spot mt-5">
-                      <button type="submit" className="btn cart-button item-deets">ADD TO CART</button>
+                    <div className="button-spot mt-5"
+                        onChange={props.handleFormSubmit}
+                        value={props.add}
+                        name="add to cart"
+                        id="add"
+                        >
+                      <button onClick={props.handleFormSubmit} className="btn cart-button item-deets">ADD TO CART</button>
                     </div>
                 </div>
             </div>

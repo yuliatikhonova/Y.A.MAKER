@@ -4,9 +4,9 @@ import "./style.css";
 
 function Services() {
     return (
-        <section className="container hero-img-services mt-5">
+        <section className="hero-img-services mx-auto">
                 <div className="row">
-                    <div className="col-8 mt-5 text-area services mb-4">
+                    <div className="col-8 text-area services mt-5">
                         <h1 className="header-one-style">Special Commisions</h1>
                         <p className="para-style">
                             At HandCrafted Heirloom servicing our customers is our top priority. If you don’t find what

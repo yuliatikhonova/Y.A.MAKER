@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-function Cart() {
+removeItem (props.id) {
+    
+}
+
+function Cart(props) {
     return (
         <div className="cart-body">
             <div className="icon-area">
@@ -24,7 +28,12 @@ function Cart() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row"><img src="./images/table.jpg" alt="table" className="cart-item" /></th>
+                                    <th scope="row"><img src="./images/table.jpg" alt="table" className="cart-item" />
+                                        <span onClick={() => props.removeItem(props.id)} className="remove">
+                                            𝘅
+                                        </span>
+
+                                    </th>
 
                                     <td className="cart-data">250</td>
                                     <td className="cart-data">1</td>

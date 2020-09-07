@@ -82,7 +82,7 @@ export default class Contact extends Component {
             <section className="container">
                 <form className="row hero-image-contact" onSubmit={this.formSubmit}>
                     <div className="col form-area formContact">
-                        <div className="form-group groupContact">
+                        <div className="form-group mx-auto groupContact">
                             <input type="text"
                                 name="name"
                                 className="form-control contact"
@@ -93,7 +93,7 @@ export default class Contact extends Component {
                                 onChange={this.handleName}
                             />
                         </div>
-                        <div className="form-group groupContact">
+                        <div className="form-group mx-auto groupContact">
                             <input type="phone"
                                 name="phone"
                                 className="form-control contact"
@@ -104,7 +104,7 @@ export default class Contact extends Component {
                                 onChange={this.handlePhone}
                             />
                         </div>
-                        <div className="form-group groupContact">
+                        <div className="form-group mx-auto groupContact">
                             <input type="email"
                                 name="email"
                                 className="form-control contact"
@@ -116,7 +116,7 @@ export default class Contact extends Component {
                                 required
                             />
                         </div>
-                        <div className="form-group groupContact">
+                        <div className="form-group mx-auto groupContact">
                             <textarea className="form-control contact"
                                 name='message'
                                 id="messageTextAreaInput"
