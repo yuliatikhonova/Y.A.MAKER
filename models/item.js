@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const post = sequelize.define("post", {
+  const Item = sequelize.define("Item", {
     itemName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -23,5 +23,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  return post;
+  Item.associate = models => {
+    Item.hasMany(models.Cart, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+  return Item;
 };
