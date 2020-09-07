@@ -32,13 +32,13 @@ module.exports = function(sequelize, DataTypes) {
     );
   });
   
-  User.associate = models => {
-    User.hasMany(models.post, {
-      foreignKey: {
-        onDelete: "cascade"
-      }
-    });
-  };
+  // User.associate = models => {
+  //   User.hasMany(models.post, {
+  //     foreignKey: {
+  //       onDelete: "cascade"
+  //     }
+  //   });
+  // };
 
   return User;
 };
