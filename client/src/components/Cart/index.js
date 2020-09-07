@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-removeItem (props.id) {
+// removeItem (props.id) {
     
-}
+// }
 
 function Cart(props) {
     return (
