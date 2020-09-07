@@ -9,7 +9,11 @@ function GalleryPage(props) {
                 <Gallery
                 id = {gallery.id}
                 key = {gallery.key}
-                img = {gallery.img}
+                itemName= {.itemName}
+                itemPrice= {.itemPrice}
+                itemDescription= {.itemDescription}
+                imageUpload= {.imageUpload}
+
                 />
             ))} */}
 
