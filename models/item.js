@@ -1,25 +1,25 @@
-module.exports = (sequelize, DataTypes) => {
-  const Item = sequelize.define("Item", {
+module.exports = (sequelize, Sequelize) => {
+  const Item = sequelize.define("item", {
     itemName: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
     itemPrice: {
-      type: DataTypes.DECIMAL,
+      type: Sequelize.DECIMAL,
       allowNull: true,
       validate: {
         len: [1]
       }
     },
     itemDescription: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: true
     },
     imageUpload: {
-      type: DataTypes.STRING
+      type: Sequelize.STRING
     }
   });
 

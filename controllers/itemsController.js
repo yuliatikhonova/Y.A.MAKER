@@ -1,6 +1,6 @@
 const db = require("../models");
 const Item = db.items;
-const Op = db.Sequelize.Op;
+const Op = require('sequelize')
 
 // Create and Save a new Item
 exports.create = (req, res) => {
@@ -35,12 +35,19 @@ exports.create = (req, res) => {
 
 // Retrieve all Items from the database.
 exports.findAll = (req, res) => {
-  Item.findAll().then(items => {
-    // Send all customers to Client
-    res.send(items);
-  }).catch(err => {
-    res.status(500).send("Error -> " + err);
-  })
+  const itemName = req.query.itemName;
+  var condition = itemName ? { itemName: { [Op.like]: `%${itemName}%` } } : null;
+
+  Item.findAll({ where: condition })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving tutorials."
+      });
+    });
 };
 
 // Find a single Item with an id

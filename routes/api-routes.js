@@ -155,21 +155,6 @@ module.exports = function (app) {
 
   //===========================================================Adding to bucket list
 
-  app.get("/api/post", (req, res) => {
-    console.log("hi");
-    //Reading the data from the data base
-    db.post.findAll().then(dbPost => {
-      //database get my Post model and find me all of them then with the data (dbPost)
-      res.json(dbPost); //send the data back to what ever requested it in json format
-      
-    });
-  });
-  
-  app.post("/api/test", (req, res) => {
-    //Reading the data from the data base
-    res.send("Welcome to the api!");
-  });
-
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
@@ -177,7 +162,7 @@ module.exports = function (app) {
     res.json({ error: "401:Not authenticated" });
   }
 
-  app.get("/", isLoggedIn, (req, res) => {
+  app.get("/", (req, res) => {
     res.send("Welcome to the api!");
   });
 

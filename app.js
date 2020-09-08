@@ -4,7 +4,7 @@ const express = require("express");
 const session = require("express-session");
 const path = require('path');
 const http = require('http');
-
+const bodyParser = require("body-parser");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
@@ -12,11 +12,21 @@ const passport = require("./config/passport");
 const cors = require('cors');
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 const db = require("./models");
+
+var corsOptions = {
+  origin: "http://localhost:8081"
+}
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const httpServer = http.createServer(app);
 // For http
@@ -26,10 +36,10 @@ if (process.env.NODE_ENV = "production") {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
-app.get('/woodworking/*', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
-app.use(cors());
+app.use(cors(corsOptions));
 
 // We need to use sessions to keep track of our user's login status
 app.use(
