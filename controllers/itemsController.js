@@ -17,8 +17,7 @@ exports.create = (req, res) => {
     itemName: req.body.itemName,
     itemPrice: req.body.itemPrice,
     itemDescription: req.body.itemDescription,
-    imageUpload: req.body.imageUpload,
-    published: req.body.published ? req.body.published : false
+    imageUpload: req.body.imageUpload
   };
 
   // Save Item in the database

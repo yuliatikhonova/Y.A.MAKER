@@ -26,7 +26,7 @@ class ItemDataService {
   }
 
   findByTitle(itemName) {
-    return http.get(`/item?itemName=${itemName}`);
+    return http.get(`/items?itemName=${itemName}`);
   }
 }
 
