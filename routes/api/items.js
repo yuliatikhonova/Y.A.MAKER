@@ -1,16 +1,22 @@
-const router = require("express").Router();
-const itemsController = require("../../controllers/itemsController");
+module.exports = app => {
+  const items = require("../../controllers/itemsController.js");
 
-// Matches with "/api/books"
-router.route("/")
-  .get(itemsController.findAll)
-  .post(itemsController.create);
+  var router = require("express").Router();
 
-// Matches with "/api/books/:id"
-router
-  .route("/:id")
-  .get(itemsController.findById)
-  .put(itemsController.update)
-  .delete(itemsController.remove);
+  // Create a new Tutorial
+  router.post("/", items.create);
 
-module.exports = router;
+  // Retrieve all Items
+  router.get("/", items.findAll);
+
+  // Retrieve a single Tutorial with id
+  router.get("/:id", items.findOne);
+
+  // Update a Tutorial with id
+  router.put("/:id", items.update);
+
+  // Delete a Tutorial with id
+  router.delete("/:id", items.delete);
+
+  app.use('/api/items', router);
+};

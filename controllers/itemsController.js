@@ -14,8 +14,10 @@ exports.create = (req, res) => {
 
   // Create a Item
   const item = {
-    title: req.body.title,
-    description: req.body.description,
+    itemName: req.body.itemName,
+    itemPrice: req.body.itemPrice,
+    itemDescription: req.body.itemDescription,
+    imageUpload: req.body.imageUpload,
     published: req.body.published ? req.body.published : false
   };
 
@@ -34,19 +36,12 @@ exports.create = (req, res) => {
 
 // Retrieve all Items from the database.
 exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
-
-  Item.findAll({ where: condition })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving items."
-      });
-    });
+  Item.findAll().then(items => {
+    // Send all customers to Client
+    res.send(items);
+  }).catch(err => {
+    res.status(500).send("Error -> " + err);
+  })
 };
 
 // Find a single Item with an id
@@ -112,35 +107,4 @@ exports.delete = (req, res) => {
         message: "Could not delete Item with id=" + id
       });
     });
-};
-
-// Delete all Items from the database.
-exports.deleteAll = (req, res) => {
-  Item.destroy({
-    where: {},
-    truncate: false
-  })
-    .then(nums => {
-      res.send({ message: `${nums} Items were deleted successfully!` });
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all items."
-      });
-    });
-};
-
-// Find all published Items
-exports.findAllPublished = (req, res) => {
-  Item.findAll({ where: { published: true } })
-  .then(data => {
-    res.send(data);
-  })
-  .catch(err => {
-    res.status(500).send({
-      message:
-        err.message || "Some error occurred while retrieving items."
-    });
-  });
 };

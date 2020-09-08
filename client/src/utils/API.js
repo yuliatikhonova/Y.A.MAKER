@@ -1,19 +1,33 @@
-import axios from "axios";
+import http from "../http-common";
 
-export default {
-    getItems: function() {
-        return axios.get("/api/items");
-      },
-      // Gets the book with the given id
-      getItem: function(id) {
-        return axios.get("/api/items/" + id);
-      },
-      // Deletes the book with the given id
-      deleteItem: function(id) {
-        return axios.delete("/api/items/" + id);
-      },
-      // Saves a book to the database
-      saveItem: function(itemData) {
-        return axios.post("/api/items", itemData);
-      }
-};
+class ItemDataService {
+  getAll() {
+    return http.get("/items");
+  }
+
+  get(id) {
+    return http.get(`/items/${id}`);
+  }
+
+  create(data) {
+    return http.post("/items", data);
+  }
+
+  update(id, data) {
+    return http.put(`/items/${id}`, data);
+  }
+
+  delete(id) {
+    return http.delete(`/items/${id}`);
+  }
+
+  deleteAll() {
+    return http.delete(`/items`);
+  }
+
+  findByTitle(itemName) {
+    return http.get(`/item?itemName=${itemName}`);
+  }
+}
+
+export default new ItemDataService();

@@ -8,16 +8,17 @@ import DeleteBtn from "../components/DeleteBtn";
 function GalleryPage() {
     const [items, setItems] = useState([])
     const [formObject, setFormObject] = useState({
-        title: "",
-        author: "",
-        synopsis: ""
-      })
+        itemName: "",
+        itemPrice: "",
+        itemDescription: "",
+
+    })
     // Load all books and store them with setBooks
     useEffect(() => {
         loadItems()
     }, [])
     function loadItems() {
-        API.getItems()
+        API.findAll()
             .then(res =>
                 setItems(res.data)
             )
@@ -40,11 +41,11 @@ function GalleryPage() {
     // Then reload books from the database
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (formObject.itemName && formObject.itemPrice ) {
+        if (formObject.itemName && formObject.itemPrice) {
             API.saveItem({
                 itemName: formObject.itemName,
                 itemPrice: formObject.itemPrice,
-                imageUpload: formObject.imageUpload, 
+                imageUpload: formObject.imageUpload,
             })
                 .then(() => setFormObject({
                     itemName: "",
@@ -59,87 +60,78 @@ function GalleryPage() {
     return (
         <div>
             <button type="button" className="gallery-btn btn-dark" data-toggle="modal" data-target="#newPostModal_">
-              
+
             </button>
             <div>
-            <div className="modal fade" id="newPostModal_" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <form className="modal-dialog" id="newPostForm" action="/api/post" method="POST" enctype="multipart/form-data">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title">Add New Item</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            <div className="form-group">
-                                <label for="imageUpload">Add Image</label>
-                                <Input
-                onChange={handleInputChange}
-                name="itemName"
-                placeholder="Title (required)"
-              />
+                <div className="modal fade" id="newPostModal_" data-backdrop="static" data-keyboard="false" tabIndex="-1"
+                    role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <form className="modal-dialog" id="newPostForm">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Add New Item</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div className="form-group">
-                                <label for="itemName">Item Name</label>
-                                <Input
-                onChange={handleInputChange}
-                name="itemName"
-                placeholder="Item Name (required)"
-              />
+                            <div className="modal-body">
+                                <div className="form-group">
+                                </div>
+                                <div className="form-group">
+                                    <Input
+                                        onChange={handleInputChange}
+                                        name="itemName"
+                                        placeholder="Item Name (required)"
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <Input
+                                        onChange={handleInputChange}
+                                        name="itemPrice"
+                                        placeholder="item Price (required)"
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <TextArea
+                                        onChange={handleInputChange}
+                                        name="itemDescription"
+                                        placeholder="Item Description (Optional)"
+                                    />
+                                </div>
                             </div>
-                            <div className="form-group">
-                                <label for="itemPrice">Item Price</label>
-                                <Input
-                onChange={handleInputChange}
-                name="itemPrice"
-                placeholder="item Price (required)"
-              />
-                            </div>
-                            <div className="form-group">
-                                <label for="itemDescription">Item Description</label>
-                                <TextArea
-                onChange={handleInputChange}
-                name="itemDescription"
-                placeholder="itemDescription (Optional)"
-              />
-                            </div>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal" id="close-btn">Cancel</button>
-                            <FormBtn
-                disabled={!(formObject.itemName && formObject.itemPrice)}
-                onClick={handleFormSubmit}
-              >
-                Submit Book
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal" id="close-btn">Cancel</button>
+                                <FormBtn
+                                    disabled={!(formObject.itemName && formObject.itemPrice)}
+                                    onClick={handleFormSubmit}
+                                >
+                                    Submit Item
               </FormBtn>
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
             </div>
             {items.length ? (
-              <List>
-                {items.map(item => (
-                  <ListItem key={item._id}>
-                    <Link to={"/items/" + item._id}>
-                      <Galleryimgs
-                        id={item.id}
-                        key={item.key}
-                        itemName={item.itemName}
-                        itemPrice={item.itemPrice}
-                        itemDescription={item.itemDescription}
-                        imageUpload={item.imageUpload}
-                    />
-                    </Link>
-                    <DeleteBtn onClick={() => deleteItem(item._id)} />
-                  </ListItem>
-                ))}
-              </List>
+                <List>
+                    {items.map(item => (
+                        <ListItem key={item._id}>
+                            <Link to={"/items/" + item._id}>
+                                <Galleryimgs
+                                    id={item.id}
+                                    key={item.key}
+                                    itemName={item.itemName}
+                                    itemPrice={item.itemPrice}
+                                    itemDescription={item.itemDescription}
+                                    imageUpload={item.imageUpload}
+                                />
+                            </Link>
+                            <DeleteBtn onClick={() => deleteItem(item._id)} />
+                        </ListItem>
+                    ))}
+                </List>
             ) : (
-              <h3>No Results to Display</h3>
-            )}
+                    <h3>No Results to Display</h3>
+                )}
         </div>
     );
 }

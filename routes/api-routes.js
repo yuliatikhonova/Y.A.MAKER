@@ -164,6 +164,7 @@ module.exports = function (app) {
       
     });
   });
+  
   app.post("/api/test", (req, res) => {
     //Reading the data from the data base
     res.send("Welcome to the api!");

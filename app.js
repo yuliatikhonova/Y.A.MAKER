@@ -9,7 +9,6 @@ const http = require('http');
 const passport = require("./config/passport");
 
 // Requiring from nodemailer
-const nodemailer = require('nodemailer');
 const cors = require('cors');
 
 // Setting up port and requiring models for syncing
@@ -40,6 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Requiring our routes
+require("./routes/api/items")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
