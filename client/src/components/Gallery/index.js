@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export default class ItemsList extends Component {
   constructor(props) {
     super(props);
-    this.onChangeSearchName = this.onChangeSearchName.bind(this);
     this.retrieveItems = this.retrieveItems.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveItem = this.setActiveItem.bind(this);
@@ -73,7 +72,7 @@ export default class ItemsList extends Component {
   }
 
   render() {
-    const { searchName, tutorials, currentTutorial, currentIndex } = this.state;
+    const { searchName, items, currentItem, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -82,7 +81,7 @@ export default class ItemsList extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by title"
+              placeholder="Search by itemName"
               value={searchName}
               onChange={this.onChangeSearchName}
             />
@@ -98,50 +97,44 @@ export default class ItemsList extends Component {
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Tutorials List</h4>
+          <h4>Items List</h4>
 
           <ul className="list-group">
-            {tutorials &&
-              tutorials.map((tutorial, index) => (
+            {items &&
+              items.map((item, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveTutorial(tutorial, index)}
+                  onClick={() => this.setActiveItem(item, index)}
                   key={index}
                 >
-                  {tutorial.title}
+                  {item.itemName}
                 </li>
               ))}
           </ul>
 
         </div>
         <div className="col-md-6">
-          {currentTutorial ? (
+          {currentItem ? (
             <div>
-              <h4>Tutorial</h4>
+              <h4>Item</h4>
               <div>
                 <label>
                   <strong>Name:</strong>
                 </label>{" "}
-                {currentTutorial.title}
+                {currentItem.itemName}
               </div>
               <div>
                 <label>
                   <strong>Description:</strong>
                 </label>{" "}
-                {currentTutorial.description}
-              </div>
-              <div>
-                <label>
-                  <strong>Status:</strong>
-                </label>{" "}
-                {currentTutorial.published ? "Published" : "Pending"}
+                {currentItem.itemDescription}
               </div>
 
               <Link
-                to={"/tutorials/" + currentTutorial.id}
+                to={"/items/" + currentItem.id}
                 className="badge badge-warning"
               >
                 Edit
@@ -150,7 +143,7 @@ export default class ItemsList extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a Tutorial...</p>
+              <p>Please click on a Item...</p>
             </div>
           )}
         </div>
