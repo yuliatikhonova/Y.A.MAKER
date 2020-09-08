@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
+//needs to get the Item that was clicked on by id and then display the info for that item
+
+// add to cart button needs to send a post request to the cart API
+
 function Item(props) {
     return (
         <div className="item-deets">
