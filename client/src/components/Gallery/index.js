@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ItemDataService from "../../utils/API.js";
 import { Link } from "react-router-dom";
-import "./style.css";
 
 export default class ItemsList extends Component {
   constructor(props) {
@@ -100,21 +99,28 @@ export default class ItemsList extends Component {
         <div className="col-md-6">
           <h4>Items List</h4>
 
-          <ul className="list-group">
+          <div className="card-deck">
             {items &&
               items.map((item, index) => (
-                <li
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => this.setActiveItem(item, index)}
-                  key={index}
+                <Link
+                  to={"/items/" + item.id}
+                  className="badge badge-warning"
                 >
-                  {item.itemName}
-                </li>
+                  <div
+                    className={
+                      "card " +
+                      (index === currentIndex ? "active" : "")
+                    }
+                    key={item.key}
+                  >
+                    <img src={item.imageUpload} class="card-img-top" alt={item.itemName}>
+                    </img>
+                    
+                  </div>
+                </Link>
+
               ))}
-          </ul>
+          </div>
 
         </div>
         <div className="col-md-6">
@@ -142,11 +148,11 @@ export default class ItemsList extends Component {
               </Link>
             </div>
           ) : (
-            <div>
-              <br />
-              <p>Please click on a Item...</p>
-            </div>
-          )}
+              <div>
+                <br />
+                <p>Please click on a Item...</p>
+              </div>
+            )}
         </div>
       </div>
     );
