@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Galleryimgs from "../components/Gallery";
-import GalleryModal from "../GalleryModal/";
-import API from "../../utils/API";
+import { Input, TextArea, FormBtn } from "../components/GalleryModal/";
+import { Link } from "react-router-dom";
+import API from "../utils/API";
+import { List, ListItem } from "../components/List";
+import DeleteBtn from "../components/DeleteBtn";
 function GalleryPage() {
     const [items, setItems] = useState([])
     const [formObject, setFormObject] = useState({
@@ -72,24 +75,45 @@ function GalleryPage() {
                         <div className="modal-body">
                             <div className="form-group">
                                 <label for="imageUpload">Add Image</label>
-                                <input type="file" className="form-control-file" name="imageUpload"></input>
+                                <Input
+                onChange={handleInputChange}
+                name="itemName"
+                placeholder="Title (required)"
+              />
                             </div>
                             <div className="form-group">
                                 <label for="itemName">Item Name</label>
-                                <input type="text" className="form-control" id="itemName" name="itemName" placeholder="Item Name"></input>
+                                <Input
+                onChange={handleInputChange}
+                name="itemName"
+                placeholder="Item Name (required)"
+              />
                             </div>
                             <div className="form-group">
                                 <label for="itemPrice">Item Price</label>
-                                <input type="text" className="form-control" id="itemPrice" name="itemPrice" placeholder="Item Price"></input>
+                                <Input
+                onChange={handleInputChange}
+                name="itemPrice"
+                placeholder="item Price (required)"
+              />
                             </div>
                             <div className="form-group">
                                 <label for="itemDescription">Item Description</label>
-                                <textarea type="text" className="form-control" id="itemDescription" name="itemDescription"></textarea>
+                                <TextArea
+                onChange={handleInputChange}
+                name="itemDescription"
+                placeholder="itemDescription (Optional)"
+              />
                             </div>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal" id="close-btn">Cancel</button>
-                            <button type="submit" className="btn btn-primary" id="submit-btn">Add</button>
+                            <FormBtn
+                disabled={!(formObject.itemName && formObject.itemPrice)}
+                onClick={handleFormSubmit}
+              >
+                Submit Book
+              </FormBtn>
                         </div>
                     </div>
                 </form>
@@ -100,7 +124,6 @@ function GalleryPage() {
                 {items.map(item => (
                   <ListItem key={item._id}>
                     <Link to={"/items/" + item._id}>
-                      <strong>
                       <Galleryimgs
                         id={item.id}
                         key={item.key}
@@ -109,7 +132,6 @@ function GalleryPage() {
                         itemDescription={item.itemDescription}
                         imageUpload={item.imageUpload}
                     />
-                      </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteItem(item._id)} />
                   </ListItem>
