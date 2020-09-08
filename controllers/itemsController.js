@@ -1,9 +1,61 @@
 const db = require("../models");
 const Item = db.items;
-const Op = require('sequelize')
+const Op = require('sequelize');
 
+const fs = require("fs");
+const cloudName = process.env.CLOUDINARY_NAME;
+const crypto = require("crypto");
+const apiKey = process.env.CLOUDINARY_KEY;
+const apiSecret = process.env.CLOUDINARY_SECRET;
+const cloudinary = require("cloudinary");
+const mime = require("mime");
+const multer = require("multer");
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: "public/uploads",
+    filename: function (req, file, cb) {
+      crypto.pseudoRandomBytes(16, (err, raw) => {
+        cb(
+          null,
+          raw.toString("hex") + Date.now() + "." + mime.extension(file.mimetype)
+        );
+      });
+    }
+  })
+});
+
+const uploadcdny = (req, res, next) => {
+  if (req.file) {
+    console.log(req.file.filename);
+
+    cloudinary.uploader.upload(
+      "public/uploads/" + req.file.filename,
+      result => {
+        console.log(result);
+
+        fs.unlink("public/uploads/" + req.file.filename, err => {
+          if (err) {
+            throw err;
+          }
+          console.log("path/file.txt was deleted");
+        });
+        req.file.filename = result.url;
+        return next();
+      }
+    );
+  } else {
+    return next();
+  }
+};
+
+cloudinary.config({
+  cloud_name: cloudName,
+  api_key: apiKey,
+  api_secret: apiSecret
+});
 // Create and Save a new Item
-exports.create = (req, res) => {
+exports.create = upload.single("imageUpload"),
+uploadcdny,(req, res) => {
   // Validate request
   if (!req.body.itemName) {
     res.status(400).send({
@@ -11,13 +63,22 @@ exports.create = (req, res) => {
     });
     return;
   }
-
+  let hasImage = true;
+  if (req.file === undefined) {
+    req.file = {};
+    req.file.filename = null;
+  }
+  if (req.file.filename === null) {
+    hasImage = false;
+  } else {
+    req.file.filename = req.file.filename;
+  }
   // Create a Item
   const item = {
     itemName: req.body.itemName,
     itemPrice: req.body.itemPrice,
     itemDescription: req.body.itemDescription,
-    imageUpload: req.body.imageUpload
+    imageUpload: req.body.filename
   };
 
   // Save Item in the database

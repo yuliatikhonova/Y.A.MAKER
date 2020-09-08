@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ItemDataService from "../../utils/API.js";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 export default class ItemsList extends Component {
   constructor(props) {

@@ -32,7 +32,7 @@ function App() {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/gallery" component={GalleryPage} />
               <Route exact path="/services" component={Services} />
-              <Route exact path="/item" component={Itempage} />
+              <Route path="/items/:id" component={Itempage} />
               <Route exact path="/cart" component={Cart} />
 
 
