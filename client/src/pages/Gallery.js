@@ -1,24 +1,18 @@
 import React from "react";
-import Gallery from "../components/Gallery";
+import ItemsList from "../components/Gallery";
+import GalleryModal from "../components/GalleryModal/";
+function GalleryPage() {
 
-function GalleryPage(props) {
+
     return (
         <div>
-            < Gallery {...props.children} />
-            {/* Map through data from database to display on the gallery page */}
-
-            {items.map(item => (
-                <Gallery
-                    id={item.id}
-                    key={item.key}
-                    itemName={item.itemName}
-                    itemPrice={item.itemPrice}
-                    itemDescription={item.itemDescription}
-                    imageUpload={item.imageUpload}
-                />
-            ))}
+            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Launch demo modal
+            </button>
+            <GalleryModal />
+            <ItemsList />
         </div>
-    );
+    )
 }
 
 export default GalleryPage;

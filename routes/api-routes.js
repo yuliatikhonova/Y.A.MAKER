@@ -124,7 +124,7 @@ module.exports = function (app) {
       from: data.email,
       to: process.env.USER,
       subject: `Message from ${data.name}`,
-  
+
 
       html: `
         <h3> Information </h3>
@@ -155,28 +155,19 @@ module.exports = function (app) {
 
   //===========================================================Adding to bucket list
 
-  app.get("/api/post", (req, res) => {
-    //Reading the data from the data base
-    db.post.findAll({ where: { UserId: req.user.id } }).then(dbPost => {
-      //database get my Post model and find me all of them then with the data (dbPost)
-      res.json(dbPost); //send the data back to what ever requested it in json format
-    });
-  });
-
-  
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
     }
     res.json({ error: "401:Not authenticated" });
   }
-  app.get("/", isLoggedIn, (req, res) => {
+
+  app.get("/", (req, res) => {
     res.send("Welcome to the api!");
   });
 
   app.post(
     "/api/post",
-    isLoggedIn,
     upload.single("imageUpload"),
     uploadcdny,
     (req, res) => {
@@ -200,9 +191,6 @@ module.exports = function (app) {
             itemDescription: req.body.itemDescription
           }
         )
-        .then(() => {
-          res.redirect("/main");
-        });
     }
   );
   //app.delete("/api", isLoggedIn, controller.deleteCheckpoint);
