@@ -74,12 +74,6 @@ export default class ItemsList extends Component {
   render() {
     const { searchName, items, currentItem, currentIndex } = this.state;
 
-<<<<<<< HEAD
-/// has to make an API call (getAll) from items table in db. Then we have to map each item and display the images in the gallery page. Kaelyn has already started the map function in the gallery page. 
-
-function Galleryimgs(props) {
-=======
->>>>>>> 1f406c4bf9cb6f8c65d7fc8afe17e3f62041b94a
     return (
       <div className="list row">
         <div className="col-md-8">

@@ -1,28 +1,18 @@
 import React from "react";
 import $ from "jquery";
 
-const styles = {
-    text: {
-        color: "black",
-        textAlign: "left"
-    },
-    error: {
-        display: "none"
-    }
-};
-
 function Register() {
 
     $(document).ready(function () {
         // Getting references to our form and input
-        var signUpForm = $("form.signup");
-        var emailInput = $("input#email-input");
-        var passwordInput = $("input#password-input");
+        let signUpForm = $("form.signup");
+        let emailInput = $("input#email-input");
+        let passwordInput = $("input#password-input");
 
         // When the signup button is clicked, we validate the email and password are not blank
         signUpForm.on("submit", function (event) {
             event.preventDefault();
-            var userData = {
+            let userData = {
                 email: emailInput.val().trim(),
                 password: passwordInput.val().trim()
             };
@@ -57,36 +47,36 @@ function Register() {
     });
 
     return (
-        <main class="container-fluid">
+        <main className="container-fluid">
             <br />
-            <div class="col-md-12">
-                <h3 style={styles.text}>Sign up with your email and password</h3>
+            <div className="col-md-12">
+                <h3 >Sign up with your email and password</h3>
             </div>
 
-            <form class="signup">
+            <form className="signup">
                 <br />
-                <div class="form-row">
-                    <div class="col">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="email-input" placeholder="E-mail Address" />
+                <div className="form-row">
+                    <div className="col">
+                        <label htmlFor="exampleInputEmail1">Email address</label>
+                        <input type="email" className="form-control" id="email-input" placeholder="E-mail Address" />
                     </div>
 
-                    <div class="col">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control mb-5" id="password-input" placeholder="password" />
+                    <div className="col">
+                        <label htmlFor="exampleInputPassword1">Password</label>
+                        <input type="password" className="form-control mb-5" id="password-input" placeholder="password" />
                     </div>
 
-                    <div style={styles.error} id="alert" class="alert alert-danger" role="alert">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <span class="sr-only">Error:</span> <span class="msg"></span>
-                    </div>
+                    {/* <div  id="alert" className="alert alert-danger" role="alert">
+                        <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span className="sr-only">Error:</span> <span className="msg"></span>
+                    </div> */}
                 </div>
 
-                <div class="sign-up row-md-4">
-                    <div class="col-md-12">
-                        <button type="submit" href class="sign-up btn btn-outline-dark btn-lg mt-3">Sign Up</button>
+                <div className="sign-up row-md-4">
+                    <div className="col-md-12">
+                        <button type="submit"  className="sign-up btn btn-outline-dark btn-lg mt-3">Sign Up</button>
                     </div>
-                    {/* <div class="col-md-12">
+                    {/* <div className="col-md-12">
                     <p style={styles.text}>Or log in <a href="/login">here</a></p>
                     </div> */}
                 </div>
