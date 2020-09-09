@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
         });
     };
 
-    Cart.associate = models => {
-        Cart.hasMany(models.Item, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
+    // Cart.associate = models => {
+    //     Cart.hasMany(models.Item, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
 
 
     return Cart;
