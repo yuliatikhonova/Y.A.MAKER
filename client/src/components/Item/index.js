@@ -15,8 +15,7 @@ export default class Item extends Component {
         itemDescription: "",
         itemPrice: "",
         imageUpload: "",
-      },
-      message: ""
+      }
     };
   }
 
