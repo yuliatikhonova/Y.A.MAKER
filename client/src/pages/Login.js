@@ -1,9 +1,23 @@
 import React from "react";
 import $ from "jquery";
+//import Pic from "./client/public/images/pic.png";
 
 const styles = {
   button: {
-    margin: "350px"
+    margin: "350px",
+    fontFamily: "athelas, serif",
+    fontWeight: 400,
+    fontStyle: "normal",
+    textDecoration: "none"
+  },
+  pageStyle: {
+    fontFamily: "athelas, serif",
+    fontWeight: 400,
+    fontStyle: "normal",
+    textDecoration: "none"
+  },
+  backdrop: {
+    //backgroundImage: `url(${Pic})`
   }
 };
 
@@ -50,10 +64,10 @@ function Login() {
   });
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 col-md-offset-3 centered-area">
-          <h3>Login Form</h3>
+    <div className="container mt-5">
+      <div style={styles.backdrop} className="row mt-5">
+        <div style={styles.pageStyle} className="col-md-6 col-md-offset-3 centered-area mx-auto mt-5">
+          <h3 style={styles.pageStyle}>Login Form</h3>
 
           <form className="login">
             <div className="form-group">

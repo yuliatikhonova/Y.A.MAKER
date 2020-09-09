@@ -32,7 +32,10 @@ html, body {
     .by {
       line-height: 70px
     }
+    .main-area {
+      padding: 0;
+    }
   }
-  .side-area, .main-area{
+  .side-area{
     padding: 0;
   }

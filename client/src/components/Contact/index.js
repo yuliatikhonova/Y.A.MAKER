@@ -58,7 +58,7 @@ export default class Contact extends Component {
             .catch(() => {
                 console.log("message not sent");
             })
-            
+
     }
 
     //Resetting the initial data
@@ -79,44 +79,38 @@ export default class Contact extends Component {
 
     render() {
         return (
-            <section className="container">
+            <section className="container-fluid">
                 <form className="row hero-image-contact" onSubmit={this.formSubmit}>
                     <div className="col form-area formContact">
-                        <div className="form-group mx-auto groupContact">
+                        <div className="form-group mx-auto groupContact w-75">
                             <input type="text"
                                 name="name"
                                 className="form-control contact"
                                 id="nameInput"
-                                placeholder="Name here"
+                                placeholder="Name"
                                 title="Please enter your Name"
                                 value={this.state.name}
                                 onChange={this.handleName}
                             />
-                        </div>
-                        <div className="form-group mx-auto groupContact">
                             <input type="phone"
                                 name="phone"
                                 className="form-control contact"
                                 id="phoneInput"
-                                placeholder="Phone Number here"
+                                placeholder="Phone Number"
                                 title="Please enter your phone number"
                                 value={this.state.phone}
                                 onChange={this.handlePhone}
                             />
-                        </div>
-                        <div className="form-group mx-auto groupContact">
                             <input type="email"
                                 name="email"
                                 className="form-control contact"
                                 id="emailAddressInput"
-                                placeholder="Email here"
+                                placeholder="Email"
                                 title="Please enter your email address"
                                 value={this.state.email}
                                 onChange={this.handleEmail}
                                 required
                             />
-                        </div>
-                        <div className="form-group mx-auto groupContact">
                             <textarea className="form-control contact"
                                 name='message'
                                 id="messageTextAreaInput"
@@ -127,13 +121,15 @@ export default class Contact extends Component {
                             ></textarea>
                         </div>
 
-                        <button type="submit" className="btn contact-button">Submit</button>
-                        {/* </form> */}
+                 
+
+                    <button type="submit" className="btn contact-button">Submit</button>
+
                     </div>
                 </form>
 
 
-            </section>
+            </section >
 
         );
     }

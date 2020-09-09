@@ -23,7 +23,7 @@ function App() {
         <div className="col-lg-2 side-area">
           <Navbar />
         </div>
-        <div className="col-lg-10 col-md-12 main-area">
+        <div className="col-lg-10 col-md-12">
           <Wrapper>
             <Switch>
               <Route exact path="/" component={Home} />
