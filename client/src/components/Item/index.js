@@ -2,6 +2,18 @@ import React, { Component } from "react";
 import ItemDataService from "../../utils/API.js";
 import "./style.css";
 
+<<<<<<< HEAD
+//needs to get the Item that was clicked on by id and then display the info for that item
+
+// add to cart button needs to send a post request to the cart API
+
+function Item(props) {
+    return (
+        <div className="item-deets">
+            <div className="icon-area">
+                <Link to="/cart"> <img src="/images/bag-icon.png" alt="shopping bag" className="icon" /></Link>
+            </div>
+=======
 export default class Item extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +35,7 @@ export default class Item extends Component {
   componentDidMount() {
     this.getItem(this.props.match.params.id);
   }
+>>>>>>> 1f406c4bf9cb6f8c65d7fc8afe17e3f62041b94a
 
   getItem(id) {
     ItemDataService.get(id)
