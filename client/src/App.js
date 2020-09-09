@@ -6,13 +6,13 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
-import Gallery from "./components/Gallery";
+import GalleryPage from "./pages/Gallery";
 import Services from "./pages/Services";
 import NoMatch from "./pages/NoMatch";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Item from "./pages/Item";
+import Itempage from "./pages/Item";
 import MobileNav from "./components/MobileNav"
 
 function App() {
@@ -30,9 +30,9 @@ function App() {
               <Route exact path="/about" component={About} />
               <Route exact path="/checkout" component={Checkout} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/gallery" component={Gallery} />
+              <Route exact path="/gallery" component={GalleryPage} />
               <Route exact path="/services" component={Services} />
-              <Route exact path="/item" component={Item} />
+              <Route path="/items/:id" component={Itempage} />
               <Route exact path="/cart" component={Cart} />
 
 
