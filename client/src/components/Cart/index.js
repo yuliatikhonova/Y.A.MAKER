@@ -6,6 +6,8 @@ import "./style.css";
     
 // }
 
+
+
 function Cart(props) {
     return (
         <div className="cart-body">
@@ -46,6 +48,7 @@ function Cart(props) {
 
                 </div>
             </div>
+            
             <div className="cart-button-area">
                 <Link to="/checkout"><button type="submit" className="button-cart">CHECKOUT</button>
                 </Link>

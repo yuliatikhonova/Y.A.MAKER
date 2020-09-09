@@ -1,98 +1,99 @@
-import React from "react";
-import $ from "jquery";
+import React, { Component } from 'react'
+import $ from 'jquery'
+import axios from 'axios'
 
-const styles = {
-    text: {
-        color: "black",
-        textAlign: "left"
-    },
-    error: {
-        display: "none"
-    }
-};
 
-function Register() {
+export default class Register extends Component {
 
-    $(document).ready(function () {
-        // Getting references to our form and input
-        var signUpForm = $("form.signup");
-        var emailInput = $("input#email-input");
-        var passwordInput = $("input#password-input");
+    jQuery = () => {
+        $(document).ready(() => {
+            // Getting references to our form and input
+            const signUpForm = $("form.signup");
+            const emailInput = $("input#email-input");
+            const passwordInput = $("input#password-input");
 
-        // When the signup button is clicked, we validate the email and password are not blank
-        signUpForm.on("submit", function (event) {
-            event.preventDefault();
-            var userData = {
-                email: emailInput.val().trim(),
-                password: passwordInput.val().trim()
-            };
+            // When the signup button is clicked, we validate the email and password are not blank
+            signUpForm.on("submit", event => {
+                event.preventDefault();
+                const userData = {
+                    email: emailInput.val().trim(),
+                    password: passwordInput.val().trim()
+                };
 
-            if (!userData.email || !userData.password) {
-                return;
-            }
-            // If we have an email and password, run the signUpUser function
-            signUpUser(userData.email, userData.password);
-            emailInput.val("");
-            passwordInput.val("");
-        });
+                if (!userData.email || !userData.password) {
+                    return;
+                }
+                // If we have an email and password, run the signUpUser function
+                signUpUser(userData.email, userData.password);
+                emailInput.val("");
+                passwordInput.val("");
+            });
 
-        // Does a post to the signup route. If successful, we are redirected to the members page
-        // Otherwise we log any errors
-        function signUpUser(email, password) {
-            $.post("/api/signup", {
-                email: email,
-                password: password
-            })
-                .then(function (data) {
-                    window.location.replace("/gallery");
-                    // If there's an error, handle it by throwing up a bootstrap alert
+            // Does a post to the signup route. If successful, we are redirected to the members page
+            // Otherwise we log any errors
+            function signUpUser(email, password) {
+                axios.post("/api/signup", {
+                    email: email,
+                    password: password
                 })
-                .catch(handleLoginErr);
-        }
+                    .then(res => {
+                        console.log(res);
+                        // If there's an error, handle it by throwing up a bootstrap alert
+                    })
+                    .catch(handleLoginErr);
+            }
 
-        function handleLoginErr(err) {
-            $("#alert .msg").text(err.responseJSON);
-            $("#alert").fadeIn(500);
-        }
-    });
+            function handleLoginErr(err) {
+                $("#alert .msg").text(err.responseJSON);
+                $("#alert").fadeIn(500);
+            }
+        });
+    }
 
-    return (
-        <main class="container-fluid">
-            <br />
-            <div class="col-md-12">
-                <h3 style={styles.text}>Sign up with your email and password</h3>
-            </div>
+    componentDidMount() {
+        this.jQuery();
+    }
 
-            <form class="signup">
+
+    render() {
+        return (
+            <main className="container-fluid">
                 <br />
-                <div class="form-row">
-                    <div class="col">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="email-input" placeholder="E-mail Address" />
-                    </div>
-
-                    <div class="col">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control mb-5" id="password-input" placeholder="password" />
-                    </div>
-
-                    <div style={styles.error} id="alert" class="alert alert-danger" role="alert">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <span class="sr-only">Error:</span> <span class="msg"></span>
-                    </div>
+                <div className="col-md-12">
+                    <h3 >Sign up with your email and password</h3>
                 </div>
 
-                <div class="sign-up row-md-4">
-                    <div class="col-md-12">
-                        <button type="submit" href class="sign-up btn btn-outline-dark btn-lg mt-3">Sign Up</button>
+                <form className="signup">
+                    <br />
+                    <div className="form-row">
+                        <div className="col">
+                            <label htmlFor="exampleInputEmail1">Email address</label>
+                            <input type="email" className="form-control" id="email-input" placeholder="E-mail Address" />
+                        </div>
+
+                        <div className="col">
+                            <label htmlFor="exampleInputPassword1">Password</label>
+                            <input type="password" className="form-control mb-5" id="password-input" placeholder="password" />
+                        </div>
+
+                        {/* <div  id="alert" className="alert alert-danger" role="alert">
+                        <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span className="sr-only">Error:</span> <span className="msg"></span>
+                    </div> */}
                     </div>
-                    {/* <div class="col-md-12">
+
+                    <div className="sign-up row-md-4">
+                        <div className="col-md-12">
+                            <button type="submit" className="sign-up btn btn-outline-dark btn-lg mt-3">Sign Up</button>
+                        </div>
+                        {/* <div className="col-md-12">
                     <p style={styles.text}>Or log in <a href="/login">here</a></p>
                     </div> */}
-                </div>
+                    </div>
 
-            </form>
-        </main>
-    );
+                </form>
+            </main>
+        );
+    }
 }
-export default Register;
+
