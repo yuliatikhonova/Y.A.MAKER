@@ -51,18 +51,20 @@ const uploadcdny = (req, res, next) => {
 
 const db = require("../models");
 const passport = require("../config/passport");
+const item = require("../models/item");
 cloudinary.config({
   cloud_name: cloudName,
   api_key: apiKey,
   api_secret: apiSecret
 });
+
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
+    res.json({//res.json(req.user);
       email: req.user.email,
       id: req.user.id
     });
@@ -194,5 +196,23 @@ module.exports = function (app) {
     }
   );
   //app.delete("/api", isLoggedIn, controller.deleteCheckpoint);
+
+
+
+  //routes for cart/checkout===================================
+    app.get("/api/cart", (req, res) => {
+      db.cart.findAll({where: {UserId: req.userId}})
+      .then(data=> {
+        res.json(data);
+      });
+    });
+
+    app.post("/api/cart", (req, res) =>{
+      db.cart.create({
+        UserId: User.id,
+        ItemId: Item.id
+      })
+    })
+
 };
 //===========================================================
