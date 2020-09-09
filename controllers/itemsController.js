@@ -1,7 +1,6 @@
 const db = require("../models");
 const Item = db.items;
 const Op = require('sequelize');
-
 const fs = require("fs");
 const cloudName = process.env.CLOUDINARY_NAME;
 const crypto = require("crypto");
