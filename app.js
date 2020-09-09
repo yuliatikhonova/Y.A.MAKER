@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const httpServer = http.createServer(app);
 // For http
 if (process.env.NODE_ENV = "production") {
-  httpServer.listen(80);
+  httpServer.listen(process.env.PORT2 || 80);
 }
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -48,9 +48,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // Requiring our routes
 require("./routes/api/items")(app);
-require("./routes/html-routes.js")(app);
+// require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success

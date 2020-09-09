@@ -1,6 +1,7 @@
 const db = require("../models");
 const Item = db.items;
 const Op = require('sequelize');
+
 const fs = require("fs");
 const cloudName = process.env.CLOUDINARY_NAME;
 const crypto = require("crypto");
@@ -53,45 +54,48 @@ cloudinary.config({
   api_secret: apiSecret
 });
 // Create and Save a new Item
-exports.create = [upload.single("imageUpload"),
-uploadcdny,(req, res) => {
-  // Validate request
-  if (!req.body.itemName) {
-    res.status(400).send({
-      message: "Content can not be empty!"
-    });
-    return;
-  }
-  let hasImage = true;
-  if (req.file === undefined) {
-    req.file = {};
-    req.file.filename = null;
-  }
-  if (req.file.filename === null) {
-    hasImage = false;
-  } else {
-    req.file.filename = req.file.filename;
-  }
-  // Create a Item
-  const item = {
-    itemName: req.body.itemName,
-    itemPrice: req.body.itemPrice,
-    itemDescription: req.body.itemDescription,
-    imageUpload: req.body.filename
-  };
-
-  // Save Item in the database
-  Item.create(item)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Item."
+exports.create = [
+  upload.single("imageUpload"),
+  uploadcdny,
+  (req, res) => {
+    // Validate request
+    if (!req.body.itemName) {
+      res.status(400).send({
+        message: "Content can not be empty!"
       });
-    });
-}];
+      return;
+    }
+    let hasImage = true;
+    if (req.file === undefined) {
+      req.file = {};
+      req.file.filename = null;
+    }
+    if (req.file.filename === null) {
+      hasImage = false;
+    } else {
+      req.file.filename = req.file.filename;
+    }
+    // Create a Item
+    const item = {
+      itemName: req.body.itemName,
+      itemPrice: req.body.itemPrice,
+      itemDescription: req.body.itemDescription,
+      imageUpload: req.file.filename
+    };
+
+    // Save Item in the database
+    Item.create(item)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while creating the Item."
+        });
+      });
+  }
+];
 
 // Retrieve all Items from the database.
 exports.findAll = (req, res) => {

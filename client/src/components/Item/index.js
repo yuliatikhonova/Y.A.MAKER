@@ -15,12 +15,13 @@ export default class Item extends Component {
         itemDescription: "",
         itemPrice: "",
         imageUpload: "",
-      }
+      },
+      message: ""
     };
   }
 
   componentDidMount() {
-    this.getItem(this.props.match.params.id);
+    this.getItem(this.props.itemId);
   }
 
   getItem(id) {
