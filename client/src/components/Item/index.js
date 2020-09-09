@@ -21,7 +21,7 @@ export default class Item extends Component {
   }
 
   componentDidMount() {
-    this.getItem(this.props.match.params.id);
+    this.getItem(this.props.itemId);
   }
 
   getItem(id) {

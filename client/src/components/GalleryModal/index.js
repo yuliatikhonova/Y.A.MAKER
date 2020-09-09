@@ -39,18 +39,21 @@ export default class GalleryModal extends Component {
   }
   onChangeImage(e) {
     this.setState({
-      imageUpload: e.target.value
+      imageUpload: e.target.files[0]
     });
   }
-  saveItem() {
-    var data = {
-      itemName: this.state.itemName,
-      itemDescription: this.state.itemDescription,
-      itemPrice: this.state.itemPrice,
-      imageUpload: this.state.imageUpload
-    };
-
-    ItemDataService.create(data)
+  saveItem(e) {
+    e.preventDefault();
+    const formData = new FormData(); 
+    formData.append( 
+      "imageUpload", 
+      this.state.imageUpload, 
+      this.state.imageUpload.name 
+    );
+    formData.append("itemName", this.state.itemName);
+    formData.append("itemDescription", this.state.itemDescription);
+    formData.append("itemPrice", this.state.itemPrice);
+    ItemDataService.create(formData)
       .then(response => {
         this.setState({
           id: response.data.id,
@@ -60,7 +63,8 @@ export default class GalleryModal extends Component {
           imageUpload: response.data.imageUpload,
           submitted: true
         });
-        console.log(response.data);
+        // this.props.fetchImages();
+        // this.props.closeModal();
       })
       .catch(e => {
         console.log(e);
@@ -85,7 +89,6 @@ export default class GalleryModal extends Component {
             <input type="file"
               className="form-control-file"
               name="imageUpload"
-              value={this.state.imageUpload}
               onChange={this.onChangeImage}></input>
           </div>
           <div className="form-group">
