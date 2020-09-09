@@ -53,7 +53,7 @@ cloudinary.config({
   api_secret: apiSecret
 });
 // Create and Save a new Item
-exports.create = upload.single("imageUpload"),
+exports.create = [upload.single("imageUpload"),
 uploadcdny,(req, res) => {
   // Validate request
   if (!req.body.itemName) {
@@ -91,7 +91,7 @@ uploadcdny,(req, res) => {
           err.message || "Some error occurred while creating the Item."
       });
     });
-};
+}];
 
 // Retrieve all Items from the database.
 exports.findAll = (req, res) => {

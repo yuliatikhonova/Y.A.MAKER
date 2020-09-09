@@ -42,13 +42,6 @@ export default class ItemsList extends Component {
     });
   }
 
-  setActiveItem(item, index) {
-    this.setState({
-      currentItem: item,
-      currentIndex: index
-    });
-  }
-
   render() {
     const { items } = this.state;
 
