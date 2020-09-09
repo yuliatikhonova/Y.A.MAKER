@@ -24,7 +24,7 @@ module.exports = (sequelize, Sequelize) => {
   });
 
   Item.associate = models => {
-    Item.hasMany(models.Cart, {
+    Item.belongsTo(models.Cart, {
       foreignKey: {
         allowNull: false
       }
