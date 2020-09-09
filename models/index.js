@@ -3,10 +3,12 @@
 const fs = require('fs');//package
 const path = require('path');//package
 const basename = path.basename(module.filename);//returns the last portion of a path
-const env       = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];// connecting to config.json
-let sequelize;
+const dbConfig = require("../config/db.config.js");
 const Sequelize = require("sequelize");
+
+const db = {};
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
@@ -20,12 +22,6 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     idle: dbConfig.pool.idle
   }
 });
-
-if (config.use_env_letiable) {//deployed, what data base you want to use
-  sequelize = new Sequelize(process.env[config.use_env_letiable]);
-} else {//not deployed
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
 
 fs
   //used to synchronously read the contents of a given directory. The method returns an array with all the file names or objects in the directory.
@@ -49,7 +45,7 @@ Object.keys(db).forEach(function (modelName) {
   }
 });
 
-const db = {};
+
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
