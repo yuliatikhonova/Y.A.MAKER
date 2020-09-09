@@ -104,7 +104,6 @@ export default class ItemsList extends Component {
               items.map((item, index) => (
                 <Link
                   to={"/items/" + item.id}
-                  className="badge badge-warning"
                 >
                   <div
                     className={
@@ -113,46 +112,12 @@ export default class ItemsList extends Component {
                     }
                     key={item.key}
                   >
-                    <img src={item.imageUpload} class="card-img-top" alt={item.itemName}>
+                    <img src={item.imageUpload} className="card-img-top" alt={item.itemName}>
                     </img>
-                    
                   </div>
                 </Link>
-
               ))}
           </div>
-
-        </div>
-        <div className="col-md-6">
-          {currentItem ? (
-            <div>
-              <h4>Item</h4>
-              <div>
-                <label>
-                  <strong>Name:</strong>
-                </label>{" "}
-                {currentItem.itemName}
-              </div>
-              <div>
-                <label>
-                  <strong>Description:</strong>
-                </label>{" "}
-                {currentItem.itemDescription}
-              </div>
-
-              <Link
-                to={"/items/" + currentItem.id}
-                className="badge badge-warning"
-              >
-                Edit
-              </Link>
-            </div>
-          ) : (
-              <div>
-                <br />
-                <p>Please click on a Item...</p>
-              </div>
-            )}
         </div>
       </div>
     );
