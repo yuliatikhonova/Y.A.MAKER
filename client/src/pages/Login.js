@@ -1,10 +1,26 @@
 import React, { Component } from 'react'
 import $ from "jquery";
+
+//import Pic from "./client/public/images/pic.png";
 import axios from 'axios'
+
 
 const styles = {
   button: {
-    margin: "350px"
+    margin: "350px",
+    fontFamily: "athelas, serif",
+    fontWeight: 400,
+    fontStyle: "normal",
+    textDecoration: "none"
+  },
+  pageStyle: {
+    fontFamily: "athelas, serif",
+    fontWeight: 400,
+    fontStyle: "normal",
+    textDecoration: "none"
+  },
+  backdrop: {
+    //backgroundImage: `url(${Pic})`
   }
 };
 
@@ -58,24 +74,24 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 col-md-offset-3 centered-area">
-            <h3>Login Form</h3>
+      <div className="container mt-5">
+      <div style={styles.backdrop} className="row mt-5">
+        <div style={styles.pageStyle} className="col-md-6 col-md-offset-3 centered-area mx-auto mt-5">
+          <h3 style={styles.pageStyle}>Login Form</h3>
 
-            <form className="login">
-              <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" id="email-input" placeholder="Email" />
-              </div>
+          <form className="login">
+            <div className="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" className="form-control" id="email-input" placeholder="Email" />
+            </div>
 
-              <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password</label>
-                <input type="password" className="form-control" id="password-input" placeholder="Password" />
-              </div>
+            <div className="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" className="form-control" id="password-input" placeholder="Password" />
+            </div>
 
-              <button style={styles.button} type="submit"  className="sign-up btn btn-outline-dark btn-lg mt-3">Login</button>
-            </form>
+            <button style={styles.button} type="submit" href className="sign-up btn btn-outline-dark btn-lg mt-3">Login</button>
+          </form>
 
           </div>
         </div>
