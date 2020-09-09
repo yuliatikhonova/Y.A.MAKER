@@ -99,53 +99,25 @@ export default class ItemsList extends Component {
         <div className="col-md-6">
           <h4>Items List</h4>
 
-          <ul className="list-group">
+          <div className="card-deck">
             {items &&
               items.map((item, index) => (
-                <li
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => this.setActiveItem(item, index)}
-                  key={index}
+                <Link
+                  to={"/items/" + item.id}
                 >
-                  {item.itemName}
-                </li>
+                  <div
+                    className={
+                      "card " +
+                      (index === currentIndex ? "active" : "")
+                    }
+                    key={item.key}
+                  >
+                    <img src={item.imageUpload} className="card-img-top" alt={item.itemName}>
+                    </img>
+                  </div>
+                </Link>
               ))}
-          </ul>
-
-        </div>
-        <div className="col-md-6">
-          {currentItem ? (
-            <div>
-              <h4>Item</h4>
-              <div>
-                <label>
-                  <strong>Name:</strong>
-                </label>{" "}
-                {currentItem.itemName}
-              </div>
-              <div>
-                <label>
-                  <strong>Description:</strong>
-                </label>{" "}
-                {currentItem.itemDescription}
-              </div>
-
-              <Link
-                to={"/items/" + currentItem.id}
-                className="badge badge-warning"
-              >
-                Edit
-              </Link>
-            </div>
-          ) : (
-            <div>
-              <br />
-              <p>Please click on a Item...</p>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     );

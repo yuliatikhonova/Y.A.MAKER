@@ -3,52 +3,25 @@ import ItemDataService from "../../utils/API.js";
 import "./style.css";
 
 export default class Item extends Component {
-  constructor(currentItem) {
-    super(currentItem);
-    this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
+  constructor(props) {
+    super(props);
     this.getItem = this.getItem.bind(this);
-    this.updatePublished = this.updatePublished.bind(this);
-    this.updateItem = this.updateItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
 
     this.state = {
       currentItem: {
         id: null,
         itemName: "",
-        description: "",
-        published: false
+        itemDescription: "",
+        itemPrice: "",
+        imageUpload: "",
       },
       message: ""
     };
   }
 
   componentDidMount() {
-    this.getItem(this.currentItem.match.params.id);
-  }
-
-  onChangeName(e) {
-    const itemName = e.target.value;
-
-    this.setState(function (prevState) {
-      return {
-        currentItem: {
-          ...prevState.currentItem,
-          itemName: itemName
-        }
-      };
-    });
-  }
-
-  onChangeDescription(e) {
-    const description = e.target.value;
-
-    this.setState(prevState => ({
-      currentItem: {
-        ...prevState.currentItem,
-        description: description
-      }
-    }));
+    this.getItem(this.props.match.params.id);
   }
 
   getItem(id) {
@@ -58,22 +31,6 @@ export default class Item extends Component {
           currentItem: response.data
         });
         console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
-
-  updateItem() {
-    ItemDataService.update(
-      this.state.currentItem.id,
-      this.state.currentItem
-    )
-      .then(response => {
-        console.log(response.data);
-        this.setState({
-          message: "The item was updated successfully!"
-        });
       })
       .catch(e => {
         console.log(e);
@@ -90,14 +47,12 @@ export default class Item extends Component {
         console.log(e);
       });
   }
-  
+
   render() {
     const { currentItem } = this.state;
     return (
       <div className="item-deets">
-
         <div className="d-flex product-area">
-
           <div className="col-5 product">
             <img src={currentItem.imageUpload} alt="table" />
           </div>
