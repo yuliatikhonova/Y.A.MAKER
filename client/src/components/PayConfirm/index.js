@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-function PayConfrim() {
+function PayConfirm() {
   return (
     <section className="container">
       <div className="row">
@@ -27,4 +27,4 @@ function PayConfrim() {
   );
 }
 
-export default PayConfrim;
+export default PayConfirm;

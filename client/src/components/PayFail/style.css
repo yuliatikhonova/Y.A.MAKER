@@ -1,9 +1,13 @@
 .exclamation {
-    width: 80px;
+    width: 60px;
 
 }
 
-.payment {
+.payIcon{
+    text-align: center;
+}
+
+.payment, .payment-sorry {
     align-self: center;
     margin: 20px;
     font-family: athelas, serif;
@@ -12,3 +16,21 @@
     text-decoration: none;
     
     }
+
+    .payment-sorry{
+    letter-spacing: 3px;
+    font-size: 68px;
+}
+
+.transaction {
+    text-align: center;
+}
+
+.retry{
+    font-size: 32px;
+}
+
+.paypal-retry{
+    text-align: center;
+
+}
