@@ -1,5 +1,5 @@
 'use strict';//strict mode. 
-const dbConfig = require("../config/db.config.js");
+// const dbConfig = require("../config/db.config.js");
 const fs = require('fs');//package
 const path = require('path');//package
 const basename = path.basename(module.filename);//returns the last portion of a path
@@ -7,18 +7,19 @@ const env       = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];// connecting to config.json
 let sequelize;
 const Sequelize = require("sequelize");
-// const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-//   host: dbConfig.HOST,
-//   dialect: dbConfig.dialect,
-//   operatorsAliases: false,
 
-//   pool: {
-//     max: dbConfig.pool.max,
-//     min: dbConfig.pool.min,
-//     acquire: dbConfig.pool.acquire,
-//     idle: dbConfig.pool.idle
-//   }
-// });
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+  host: dbConfig.HOST,
+  dialect: dbConfig.dialect,
+  operatorsAliases: false,
+
+  pool: {
+    max: dbConfig.pool.max,
+    min: dbConfig.pool.min,
+    acquire: dbConfig.pool.acquire,
+    idle: dbConfig.pool.idle
+  }
+});
 
 if (config.use_env_letiable) {//deployed, what data base you want to use
   sequelize = new Sequelize(process.env[config.use_env_letiable]);
