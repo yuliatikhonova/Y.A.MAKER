@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const httpServer = http.createServer(app);
 // For http
 if (process.env.NODE_ENV = "production") {
-  httpServer.listen(80);
+  httpServer.listen(process.env.PORT2 || 80);
 }
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
