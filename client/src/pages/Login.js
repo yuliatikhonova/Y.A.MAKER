@@ -25,7 +25,7 @@ function Login(props) {
   function loginUser(email, password) {
     axios.post("/api/login", { email, password })
       .then((data) => {
-        // window.location.replace("/gallery");
+       window.location.replace("/gallery");
        props.setIsLoggedin(true)
         console.log(data);
       })
