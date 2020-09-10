@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
@@ -15,8 +15,16 @@ import Register from "./pages/Register";
 import Itempage from "./pages/Item";
 import MobileNav from "./components/MobileNav";
 
-function App() {
+function App(props) {
+  const [isLoggedin, setIsLoggedin] = useState(false);
+
+useEffect(()=>{
+  //call api route to check if logged in, if logged in is true setIsLoggedin(true)
+  
+}, [])
+
   return (
+
     <Router>
       <MobileNav></MobileNav>
       <div className="row">
@@ -30,13 +38,13 @@ function App() {
               <Route exact path="/about" component={About} />
               <Route exact path="/checkout" component={Checkout} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/gallery" component={GalleryPage} />
+              <Route exact path="/gallery" render={(props) => <GalleryPage isLoggedin={isLoggedin}  {...props}/>} />
               <Route exact path="/services" component={Services} />
               <Route path="/items/:id" component={Itempage} />
               <Route exact path="/cart" component={Cart} />
 
               {/* client routes to update website */}
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/login" render={(props) => <Login isLoggedIn={isLoggedin} setIsLoggedin={setIsLoggedin}  {...props}/>} />
               <Route exact path="/register" component={Register} />
 
               <Route>
@@ -44,11 +52,11 @@ function App() {
               </Route>
             </Switch>
           </Wrapper>
-       
+
         </div>
       </div>
-
     </Router>
+
   );
 }
 
