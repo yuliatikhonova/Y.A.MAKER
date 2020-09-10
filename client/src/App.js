@@ -13,7 +13,7 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Itempage from "./pages/Item";
-import MobileNav from "./components/MobileNav"
+import MobileNav from "./components/MobileNav";
 
 function App() {
   return (
@@ -34,7 +34,6 @@ function App() {
               <Route exact path="/services" component={Services} />
               <Route path="/items/:id" component={Itempage} />
               <Route exact path="/cart" component={Cart} />
-
 
               {/* client routes to update website */}
               <Route exact path="/login" component={Login} />
