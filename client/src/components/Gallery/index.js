@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import ItemDataService from "../../utils/API.js";
 import { Link } from "react-router-dom";
+import "./style.css";
+
+
 
 export default class ItemsList extends Component {
   constructor(props) {
@@ -75,51 +78,29 @@ export default class ItemsList extends Component {
     const { searchName, items, currentItem, currentIndex } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search by itemName"
-              value={searchName}
-              onChange={this.onChangeSearchName}
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={this.searchName}
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <h4>Items List</h4>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-10 mx-auto">
+            {/* <h4>Items List</h4> */}
 
-          <div className="card-deck">
-            {items &&
-              items.map((item, index) => (
-                <Link
-                  to={"/items/" + item.id}
-                >
-                  <div
-                    className={
-                      "card " +
-                      (index === currentIndex ? "active" : "")
-                    }
-                    key={item.key}
-                  >
-                    <img src={item.imageUpload} className="card-img-top" alt={item.itemName}>
+            <div className=" ">
+              {items &&
+                items.map((item, index) => (
+
+                  
+                    <Link
+                      to={"/items/" + item.id}
+                    >
+                    <img className="goonie" src={item.imageUpload}  alt={item.itemName}>
                     </img>
-                  </div>
-                </Link>
+                    </Link>
+                
+
               ))}
           </div>
         </div>
       </div>
+      </div >
     );
   }
 }
