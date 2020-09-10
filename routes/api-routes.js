@@ -201,14 +201,14 @@ module.exports = function (app) {
 
   //routes for cart/checkout===================================
     app.get("/api/cart", (req, res) => {
-      db.cart.findAll({where: {UserId: req.userId}})
+      db.Cart.findAll()
       .then(data=> {
         res.json(data);
       });
     });
 
     app.post("/api/cart", (req, res) =>{
-      db.cart.create({
+      db.Cart.create({
         UserId: User.id,
         ItemId: Item.id
       })
