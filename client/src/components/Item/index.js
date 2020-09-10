@@ -54,7 +54,7 @@ export default class Item extends Component {
       <div className="item-deets">
         <div className="d-flex product-area">
           <div className="col-5 product">
-            <img src={currentItem.imageUpload} alt="table" />
+            <img className="item-pic" src={currentItem.imageUpload} alt="table" />
           </div>
           <div className=" col-5 discription">
             <div className="d-flex">
@@ -62,7 +62,7 @@ export default class Item extends Component {
                 <h1 className="item-deets">{currentItem.itemName}</h1>
               </div>
               <div className="col-2 d-flex">
-                <h1 className="d-flex item-deets" >{currentItem.itemPrice}</h1>
+                <h1 className="d-flex item-deets" >${currentItem.itemPrice}</h1>
               </div>
             </div>
             <p className="product-description item-deets">{currentItem.itemDescription}</p>
