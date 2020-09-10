@@ -9,7 +9,9 @@ export default class GalleryModal extends Component {
     this.onChangePrice = this.onChangePrice.bind(this);
     this.onChangeImage = this.onChangeImage.bind(this);
     this.saveItem = this.saveItem.bind(this);
-
+    this.retrieveItems = this.retrieveItems.bind(this);
+    this.refreshList = this.refreshList.bind(this);
+    
     this.state = {
       id: null,
       itemName: "",
@@ -71,6 +73,26 @@ export default class GalleryModal extends Component {
       });
   }
 
+  retrieveItems() {
+    ItemDataService.getAll()
+      .then(response => {
+        this.setState({
+          items: response.data
+        });
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  refreshList() {
+    this.retrieveItems();
+    this.setState({
+      currentItem: null,
+      currentIndex: -1
+    });
+  }
 
   render() {
     return(
