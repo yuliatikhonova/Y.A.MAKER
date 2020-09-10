@@ -36,3 +36,6 @@
     .product-description {
         line-height: 40px;
     }
+    .item-pic {
+        width: 500px;
+    }
