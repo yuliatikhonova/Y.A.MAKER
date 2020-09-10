@@ -38,7 +38,7 @@ useEffect(()=>{
               <Route exact path="/about" component={About} />
               <Route exact path="/checkout" component={Checkout} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/gallery" render={(props) => <GalleryPage isLoggedin={isLoggedin}  {...props}/>} />
+              <Route exact path="/gallery" render={(props) => <GalleryPage isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} {...props}/>} />
               <Route exact path="/services" component={Services} />
               <Route path="/items/:id" component={Itempage} />
               <Route exact path="/cart" component={Cart} />
