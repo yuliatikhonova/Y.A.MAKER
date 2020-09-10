@@ -11,7 +11,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 40rem;
-    width: 68rem;
+    /* width: 68rem; */
     margin-top: 65px;
 
 }
@@ -43,8 +43,9 @@
 }
 @media only screen and (max-width: 991px) {
     .hero-img-services {
-        background-image: url(/images/service-mobile.jpg);
+        background-image: url(/images/forrest-mobile.png);
         margin-top: 0px;
+        height: 100vh;
   
     }
     .header-one-style, .para-style, .head-five, .service-list {

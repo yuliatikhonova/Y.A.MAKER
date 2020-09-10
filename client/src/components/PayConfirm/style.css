@@ -1,0 +1,26 @@
+ .checkMark {
+    width: 60px;
+}
+
+.payIcon{
+    text-align: center;
+}
+
+.payment {
+font-family: athelas, serif;
+font-weight: 400;
+font-style: normal;
+text-decoration: none; 
+line-height: 80px;
+text-align: center;
+}
+
+.payment-button{
+font-family: athelas, serif;
+font-weight: 400;
+font-style: normal;
+text-decoration: none; 
+height: 50px;
+width: 150px;
+cursor: pointer;
+}
