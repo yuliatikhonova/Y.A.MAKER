@@ -5,14 +5,12 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        ItemId: {
-            type: DataTypes.INTEGER,
-        },
         UserId: {
             type: DataTypes.INTEGER,
         }
-
     });
+
+    
 
     // Cart.associate = models => {
     //     Cart.belongsTo(models.User, {

@@ -202,7 +202,9 @@ module.exports = function (app) {
   //routes for cart/checkout===================================
     app.get("/api/cart", (req, res) => {
       console.log("IN CART");
-      db.Cart.findAll()
+      db.Cart.findAll({
+        include: item
+      })
       .then(data=> {
         res.json(data);
       });
