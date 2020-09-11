@@ -26,7 +26,3 @@ module.exports = (sequelize, DataTypes) => {
 
     return Cart;
 };
-// change so that items belong to the cart
-// cart hasmany items
-// cart belongs to user
-// user hasOne cart

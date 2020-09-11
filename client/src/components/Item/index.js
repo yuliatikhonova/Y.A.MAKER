@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ItemDataService from "../../utils/API.js";
 import "./style.css";
+import { post } from "jquery";
 
 export default class Item extends Component {
   constructor(props) {
@@ -22,6 +23,13 @@ export default class Item extends Component {
 
   componentDidMount() {
     this.getItem(this.props.itemId);
+  }
+
+  handleFormSubmit(event) {
+    // send currentItem to cart page
+    // post to api/cart
+    event.preventDefault();
+    
   }
 
   getItem(id) {
@@ -66,13 +74,14 @@ export default class Item extends Component {
               </div>
             </div>
             <p className="product-description item-deets">{currentItem.itemDescription}</p>
+
             <div className="button-spot mt-5"
               onChange={currentItem.handleFormSubmit}
               value={currentItem.add}
               name="add to cart"
               id="add"
             >
-              <button onClick={currentItem.handleFormSubmit} className="btn cart-button ">ADD TO CART</button>
+              <button onClick={currentItem.handleFormSubmit(currentItem.id)} className="btn cart-button ">ADD TO CART</button>
             </div>
           </div>
         </div>
