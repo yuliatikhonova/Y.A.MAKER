@@ -4,13 +4,13 @@ import "./style.css";
 
 function About() {
     return (
-        <section className="container">
+        <section className="container-fluid">
         <div className="row">
-            <div className="col mt-5">
+            <div className="col mt-5 justify-content-center">
                 <img src="/images/about-us.jpg" alt="images of carpenters at work in a wood shop"
-                    className="hero-image-about"/>
+                    className="d-flex hero-image-about"/>
             </div>
-            <div className="col mt-5 about-txt">
+            <div className="col mt-5 about-txt justify-content-center">
                 <h1 className="text-about">Since 1986</h1>
                 <p className="text-about">
                     Hand Crafted Heirloom continues to pride itself with, on time delivery and exemplary
