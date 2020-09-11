@@ -1,0 +1,24 @@
+.sad {
+    width: 60px;
+}
+
+.sadIcon{
+    text-align: center;
+}
+
+.error {
+    align-self: center;
+    margin: 20px;
+    font-family: athelas, serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 68px;
+
+}
+
+.nopage {
+    text-align: center;
+}
+

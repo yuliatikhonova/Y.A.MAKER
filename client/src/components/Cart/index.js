@@ -65,30 +65,29 @@ class Cart extends React.Component {
         };
     }
 
-
-
-
     componentDidMount() {
-        fetch("/api/cart")
-
-            .then(res => res.json())
-            .then(
+        console.log("Calling Cart");
+         fetch("/api/cart")
+            .then(res =>  
+            res.json())
+             .then(
                 (result) => {
+                    console.log(result);
                     this.setState({
                         isLoaded: true,
                         items: result
                     });
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+                })
+        //         // Note: it's important to handle errors here
+        //         // instead of a catch() block so that we don't swallow
+        //         // exceptions from actual bugs in components.
+        //         (error) => {
+        //             this.setState({
+        //                 isLoaded: true,
+        //                 error
+        //             });
+        //         }
+        //     )
 
 
     }
@@ -104,7 +103,7 @@ class Cart extends React.Component {
                 <ul>
                     {items.map(item => (
                         <li key={item.name}>
-                            {item.imageUpload} {item.itemname} {item.itemprice}
+                            {item.imageUpload} {item.itemName} {item.itemPrice}
                         </li>
                     ))}
                 </ul>

@@ -1,3 +1,5 @@
+
+
 module.exports = (sequelize, Sequelize) => {
   const Item = sequelize.define("item", {
     itemName: {
@@ -24,12 +26,13 @@ module.exports = (sequelize, Sequelize) => {
   });
 
   Item.associate = models => {
-    Item.belongsTo(models.Cart, {
+    Item.hasMany(models.Cart, {
       foreignKey: {
         allowNull: false
       }
     });
   };
+
 
   return Item;
 };

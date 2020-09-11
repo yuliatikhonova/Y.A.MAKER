@@ -4,6 +4,10 @@ html, body {
     /* overflow: hidden; */
 
 }
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 @media only screen and (max-width: 991px) {
     .side-area {
       display: none;

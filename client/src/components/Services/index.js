@@ -6,7 +6,7 @@ function Services() {
     return (
         <section className="hero-img-services mx-auto">
                 <div className="row">
-                    <div className="col-8 text-area services mt-5">
+                    <div className="col-md-8 col-sm text-area services mt-5 p-5">
                         <h1 className="header-one-style">Special Commisions</h1>
                         <p className="para-style">
                             At HandCrafted Heirloom servicing our customers is our top priority. If you don’t find what
@@ -14,7 +14,7 @@ function Services() {
                             <br/>
                             We specialize in
                         </p>
-                        <ul>
+                        <ul className="servicesPage-list">
                             <li className= "service-list">Furniture</li>
                             <li className= "service-list">Toys</li>
                             <li className= "service-list">Plaques</li>

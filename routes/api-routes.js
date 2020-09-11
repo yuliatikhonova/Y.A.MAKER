@@ -201,18 +201,21 @@ module.exports = function (app) {
 
   //routes for cart/checkout===================================
     app.get("/api/cart", (req, res) => {
-      db.Cart.findAll()
+      console.log("IN CART");
+      db.Cart.findAll({
+        include: item
+      })
       .then(data=> {
         res.json(data);
       });
     });
 
     app.post("/api/cart", (req, res) =>{
+      console.log(req.body);
       db.Cart.create({
-        UserId: User.id,
-        ItemId: Item.id
+        ItemId: req.body.item,
+        UserId: 1
       })
     })
-
 };
 //===========================================================

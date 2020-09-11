@@ -91,6 +91,8 @@ export default class Contact extends Component {
                                 title="Please enter your Name"
                                 value={this.state.name}
                                 onChange={this.handleName}
+                                required
+
                             />
                             <input type="phone"
                                 name="phone"
@@ -100,6 +102,8 @@ export default class Contact extends Component {
                                 title="Please enter your phone number"
                                 value={this.state.phone}
                                 onChange={this.handlePhone}
+                                required
+
                             />
                             <input type="email"
                                 name="email"
@@ -118,12 +122,11 @@ export default class Contact extends Component {
                                 rows="5"
                                 value={this.state.message}
                                 onChange={this.handleMessage}
+                                required
+                                
                             ></textarea>
+                             <button type="submit" className="btn contact-button float-right mt-4">Submit</button>
                         </div>
-
-                 
-
-                    <button type="submit" className="btn contact-button">Submit</button>
 
                     </div>
                 </form>
