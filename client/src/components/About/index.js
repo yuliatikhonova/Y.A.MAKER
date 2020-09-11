@@ -8,7 +8,7 @@ function About() {
         <div className="row">
             <div className="col mt-5 justify-content-center">
                 <img src="/images/about-us.jpg" alt="images of carpenters at work in a wood shop"
-                    className="d-flex hero-image-about"/>
+                    className="hero-image-about"/>
             </div>
             <div className="col mt-5 about-txt justify-content-center">
                 <h1 className="text-about">Since 1986</h1>
