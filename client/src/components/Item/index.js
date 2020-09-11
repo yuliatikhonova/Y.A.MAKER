@@ -26,10 +26,10 @@ export default class Item extends Component {
   }
 
   handleFormSubmit(event) {
-    // send currentItem to cart page
-    // post to api/cart
     event.preventDefault();
-    
+    var bodyItem= {item:this.state.currentItem.id}
+    fetch("/api/cart", {method:"post", headers: {    'Accept': 'application/json', 'Content-Type': 'application/json'}, body:JSON.stringify(bodyItem)})
+
   }
 
   getItem(id) {
@@ -81,7 +81,7 @@ export default class Item extends Component {
               name="add to cart"
               id="add"
             >
-              <button onClick={currentItem.handleFormSubmit(currentItem.id)} className="btn cart-button ">ADD TO CART</button>
+              <button onClick={(e)=> this.handleFormSubmit(e)} className="btn cart-button ">ADD TO CART</button>
             </div>
           </div>
         </div>

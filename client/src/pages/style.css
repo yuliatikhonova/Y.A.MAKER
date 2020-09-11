@@ -1,12 +1,12 @@
-.exclamation {
+.sad {
     width: 60px;
 }
 
-.payIcon{
+.sadIcon{
     text-align: center;
 }
 
-.payment-sorry {
+.error {
     align-self: center;
     margin: 20px;
     font-family: athelas, serif;
@@ -18,7 +18,7 @@
 
 }
 
-.transaction {
+.nopage {
     text-align: center;
 }
 

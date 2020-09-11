@@ -6,14 +6,14 @@ function NoMatch() {
         <section className="container">
             <div className="row">
                 <div className="mx-auto mt-5">
-                    <header className="payment-sorry">
-                        Error
-                    </header>
-                    <div className="payIcon">
-                        <img className="exclamation" src="/images/nomatch.svg" alt="exclamation" />
+                    <h1 className="error">
+                    404
+                    </h1>
+                    <div className="sadIcon mt-5">
+                        <img className="sad" src="/images/nomatch.svg" alt="sad face" />
                     </div>
-                    <div className="transaction">
-                        <h1>404 Page Not Found</h1>
+                    <div className="nopage mt-5">
+                        <h2>Page Not Found</h2>
                     </div>
                 </div>
             </div>
