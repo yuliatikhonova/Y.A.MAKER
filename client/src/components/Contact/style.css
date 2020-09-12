@@ -27,6 +27,11 @@
     font-style: normal;
     text-decoration: none;
 }
+.contact-button:hover {
+    background-color: black;
+    color: white;
+    }
+
 @media only screen and (max-width: 991px) {
     .hero-image-contact {
         background-image: url(/images/mobile-main.jpg);
