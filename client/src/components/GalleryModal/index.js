@@ -11,7 +11,7 @@ export default class GalleryModal extends Component {
     this.saveItem = this.saveItem.bind(this);
     this.retrieveItems = this.retrieveItems.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    
+
     this.state = {
       id: null,
       itemName: "",
@@ -66,13 +66,14 @@ export default class GalleryModal extends Component {
           submitted: true
         });
         // this.props.fetchImages();
+        
         // this.props.closeModal();
+        this.refreshList();
       })
       .catch(e => {
         console.log(e);
       });
   }
-
   retrieveItems() {
     ItemDataService.getAll()
       .then(response => {
@@ -93,7 +94,6 @@ export default class GalleryModal extends Component {
       currentIndex: -1
     });
   }
-
   render() {
     return(
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -152,7 +152,7 @@ export default class GalleryModal extends Component {
           <button type="submit"
             className="btn btn-primary"
             id="submit-btn"
-            onClick={this.saveItem}>Add</button>
+            onClick={this.saveItem} data-dismiss="exampleModal">Add</button>
         </div>
       </div>
     </form>
