@@ -35,7 +35,7 @@ module.exports = function (sequelize, DataTypes) {
   // User.associate = models => {
   //   User.hasOne(models.Cart, {
   //     foreignKey: {
-  //       allowNull: false
+  //       allowNull: true
   //     }
   //   });
   // };

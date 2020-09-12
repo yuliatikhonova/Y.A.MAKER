@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import Paypal from "../Paypal/Paypal";
 import axios from "axios";
+import ItemDataService from "../../utils/API";
+import Item from "../Item";
 
 
 
@@ -67,30 +69,28 @@ class Cart extends React.Component {
 
     componentDidMount() {
         console.log("Calling Cart");
-         fetch("/api/cart")
-            .then(res =>  
-            res.json())
-             .then(
+        fetch("/api/cart")
+            .then(res => res.json())
+            .then(
                 (result) => {
-                    console.log(result);
+                    console.log(result)
                     this.setState({
                         isLoaded: true,
                         items: result
                     });
-                })
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
         //         // Note: it's important to handle errors here
         //         // instead of a catch() block so that we don't swallow
         //         // exceptions from actual bugs in components.
-        //         (error) => {
-        //             this.setState({
-        //                 isLoaded: true,
-        //                 error
-        //             });
-        //         }
-        //     )
-
-
     }
+
 
     render() {
         const { error, isLoaded, items } = this.state;
@@ -102,12 +102,12 @@ class Cart extends React.Component {
             return (<>
                 <ul>
                     {items.map(item => (
-                        <li key={item.name}>
-                            {item.imageUpload} {item.itemName} {item.itemPrice}
+                        <li key={item.Item.itemName}>
+                            {item.Item.imageUpload} {item.Item.itemName} {item.Item.itemPrice}
                         </li>
                     ))}
                 </ul>
-                <Paypal toPay={items.reduce((previous, current) => { return previous + current.itemPrice }, 0)} />
+                <Paypal toPay={items.reduce((previous, current) => { return previous + current.Item.itemPrice }, 0)} />
             </>
             );
         }

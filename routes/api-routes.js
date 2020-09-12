@@ -52,6 +52,7 @@ const uploadcdny = (req, res, next) => {
 const db = require("../models");
 const passport = require("../config/passport");
 const item = require("../models/item");
+const user = require("../models/user");
 cloudinary.config({
   cloud_name: cloudName,
   api_key: apiKey,
@@ -203,7 +204,7 @@ module.exports = function (app) {
     app.get("/api/cart", (req, res) => {
       console.log("IN CART");
       db.Cart.findAll({
-        include: item
+        include: "Item"
       })
       .then(data=> {
         res.json(data);
@@ -214,7 +215,7 @@ module.exports = function (app) {
       console.log(req.body);
       db.Cart.create({
         ItemId: req.body.item,
-        UserId: 1
+        // UserId: User.id
       })
     })
 };
