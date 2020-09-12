@@ -1,26 +1,11 @@
 // Requiring our models and passport as we've configured it
 require("dotenv").config();
-const fs = require("fs");
-const cloudName = process.env.CLOUDINARY_NAME;
-const crypto = require("crypto");
-const apiKey = process.env.CLOUDINARY_KEY;
-const apiSecret = process.env.CLOUDINARY_SECRET;
-const cloudinary = require("cloudinary");
-const mime = require("mime");
-const multer = require("multer");
 
 const nodemailer = require('nodemailer');
 
 
 const db = require("../models");
 const passport = require("../config/passport");
-const item = require("../models/item");
-const user = require("../models/user");
-cloudinary.config({
-  cloud_name: cloudName,
-  api_key: apiKey,
-  api_secret: apiSecret
-});
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
