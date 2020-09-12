@@ -5,12 +5,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        UserId: {
-            type: DataTypes.INTEGER,
-        }
     });
-
-    
 
     // Cart.associate = models => {
     //     Cart.belongsTo(models.User, {
@@ -19,6 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     //         }
     //     });
     // };
+
+    Cart.associate = models => {
+        Cart.belongsTo(models.Item, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
+
+
+
 
     return Cart;
 };
