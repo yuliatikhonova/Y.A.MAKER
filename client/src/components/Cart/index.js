@@ -10,53 +10,45 @@ import Item from "../Item";
 
 
 
-// function Cart(props) {
-//     return (
-//         <div className="cart-body">
-//             <div className="icon-area">
-//                 <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
-//             </div>
-//             <div className="row">
+// <div className="cart-body">
+//     <div className="icon-area">
+//         <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
+//     </div>
+//     <div className="row">
 
-//                 <div className="col-lg-10 product-area">
-//                     <div className="col">
+//         <div className="col-lg-10 product-area">
+//             <div className="col">
 
-//                         <table class="table">
-//                             <thead>
-//                                 <tr>
-//                                     <th scope="col">ITEM NAME</th>
-//                                     <th scope="col">PRICE</th>
-//                                     <th scope="col">QTY</th>
-//                                     <th scope="col">TOTAL</th>
-//                                 </tr>
-//                             </thead>
-//                             <tbody>
-//                                 <tr>
-//                                     <th scope="row"><img src="./images/table.jpg" alt="table" className="cart-item" />
-//                                         <span onClick={() => props.removeItem(props.id)} className="remove">
-//                                             𝘅
-//                                         </span>
+//                 <table class="table">
+//                     <thead>
+//                         <tr>
+//                             <th scope="col">ITEM NAME</th>
+//                             <th scope="col">PRICE</th>
+//                             <th scope="col">QTY</th>
+//                             <th scope="col">TOTAL</th>
+//                         </tr>
+//                     </thead>
+//                     <tbody>
+//                         <tr>
+//                             <th scope="row"><img src="./images/table.jpg" alt="table" className="cart-item" />
+//                                 <span onClick={() => props.removeItem(props.id)} className="remove">
+//                                     𝘅
+//                                 </span>
 
-//                                     </th>
+//                             </th>
 
-//                                     <td className="cart-data">250</td>
-//                                     <td className="cart-data">1</td>
-//                                     <td className="cart-data">250</td>
-//                                 </tr>
-//                                 <tr>  </tr>
-//                             </tbody>
-//                         </table>
-//                     </div>
-
-//                 </div>
+//                             <td className="cart-data">250</td>
+//                             <td className="cart-data">1</td>
+//                             <td className="cart-data">250</td>
+//                         </tr>
+//                         <tr>  </tr>
+//                     </tbody>
+//                 </table>
 //             </div>
 
-//             <div className="cart-button-area">
-//             <Paypal />
-//             </div>
 //         </div>
-//     );
-// }
+//     </div>
+
 class Cart extends React.Component {
     constructor(props) {
         super(props);
@@ -100,14 +92,54 @@ class Cart extends React.Component {
             return <div>Loading...</div>;
         } else {
             return (<>
-                <ul>
-                    {items.map(item => (
-                        <li key={item.Item.itemName}>
-                            {item.Item.imageUpload} {item.Item.itemName} {item.Item.itemPrice}
-                        </li>
-                    ))}
-                </ul>
-                <Paypal toPay={items.reduce((previous, current) => { return previous + current.Item.itemPrice }, 0)} />
+                <div className="cart-body">
+                    <div className="icon-area">
+                        <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
+                    </div>
+                    <div className="row">
+
+                        <div className="col-lg-10 product-area">
+                            <div className="col">
+
+                                <table class="table">
+                                    {items.map(item => (
+                                        <div key={item.Item.itemName}>
+
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">QTY</th>
+                                                    <th scope="col">PRICE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" >
+                                                        <img src={item.Item.imageUpload} alt="table" className="cart-item" />
+                                                    </th>
+                                                    <td className="cart-data">1</td>
+                                                    <td className="cart-data">{item.Item.itemPrice}</td>
+                                                </tr>
+                                                <tr>  </tr>
+                                            </tbody>
+                                        </div>
+
+                                    ))}
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {/* <ul>
+                        {items.map(item => (
+                            <li key={item.Item.itemName}>
+                                {item.Item.imageUpload} {item.Item.itemName} {item.Item.itemPrice}
+                            </li>
+                        ))}
+                    </ul> */}
+                    <Paypal toPay={items.reduce((previous, current) => { return previous + current.Item.itemPrice }, 0)} />
+                </div>
             </>
             );
         }
