@@ -10,6 +10,7 @@ import Item from "../Item";
 
 
 
+
 // <div className="cart-body">
 //     <div className="icon-area">
 //         <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
@@ -83,6 +84,13 @@ class Cart extends React.Component {
         //         // exceptions from actual bugs in components.
     }
 
+    handleDelete = (itemId) => {
+        // Whatever you want to do with that item
+        axios.delete("/api/cart", { params: { id: itemId } }).then(response => {
+            console.log(response);
+        });
+    }
+
 
     render() {
         const { error, isLoaded, items } = this.state;
@@ -104,6 +112,8 @@ class Cart extends React.Component {
                                 <table class="table">
                                     {items.map(item => (
                                         <div key={item.Item.itemName}>
+                                            {/* <button className="deleteButton" onClick={() => this.handleDelete()}>
+                                                    Delete</button> */}
 
                                             <thead>
                                                 <tr>
@@ -138,12 +148,13 @@ class Cart extends React.Component {
                             </li>
                         ))}
                     </ul> */}
-                    <Paypal toPay={items.reduce((previous, current) => { return previous + current.Item.itemPrice }, 0)} />
+                    <Paypal toPay={items.reduce((previous, current) => { return previous + parseInt(current.Item.itemPrice) }, 0)} />
                 </div>
             </>
             );
         }
     }
 }
+
 
 export default Cart;
