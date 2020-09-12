@@ -28,11 +28,11 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const httpServer = http.createServer(app);
-// For http
-if (process.env.NODE_ENV = "production") {
-  httpServer.listen(process.env.PORT2 || 80);
-}
+// const httpServer = http.createServer(app);
+// // For http
+// if (process.env.NODE_ENV = "production") {
+//   httpServer.listen(process.env.PORT2 || 80);
+// }
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
