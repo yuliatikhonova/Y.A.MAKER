@@ -81,14 +81,14 @@ module.exports = function (app) {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.USER,
+        user: process.env.EMAIL,
         pass: process.env.PASSWORD
       }
     })
 
     let mailOptions = {
       from: data.email,
-      to: process.env.USER,
+      to: process.env.EMAIL,
       subject: `Message from ${data.name}`,
 
 
