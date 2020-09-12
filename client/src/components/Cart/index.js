@@ -3,58 +3,52 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import Paypal from "../Paypal/Paypal";
 import axios from "axios";
+import ItemDataService from "../../utils/API";
+import Item from "../Item";
 
 
 
 
 
-// function Cart(props) {
-//     return (
-//         <div className="cart-body">
-//             <div className="icon-area">
-//                 <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
-//             </div>
-//             <div className="row">
+// <div className="cart-body">
+//     <div className="icon-area">
+//         <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
+//     </div>
+//     <div className="row">
 
-//                 <div className="col-lg-10 product-area">
-//                     <div className="col">
+//         <div className="col-lg-10 product-area">
+//             <div className="col">
 
-//                         <table class="table">
-//                             <thead>
-//                                 <tr>
-//                                     <th scope="col">ITEM NAME</th>
-//                                     <th scope="col">PRICE</th>
-//                                     <th scope="col">QTY</th>
-//                                     <th scope="col">TOTAL</th>
-//                                 </tr>
-//                             </thead>
-//                             <tbody>
-//                                 <tr>
-//                                     <th scope="row"><img src="./images/table.jpg" alt="table" className="cart-item" />
-//                                         <span onClick={() => props.removeItem(props.id)} className="remove">
-//                                             𝘅
-//                                         </span>
+//                 <table class="table">
+//                     <thead>
+//                         <tr>
+//                             <th scope="col">ITEM NAME</th>
+//                             <th scope="col">PRICE</th>
+//                             <th scope="col">QTY</th>
+//                             <th scope="col">TOTAL</th>
+//                         </tr>
+//                     </thead>
+//                     <tbody>
+//                         <tr>
+//                             <th scope="row"><img src="./images/table.jpg" alt="table" className="cart-item" />
+//                                 <span onClick={() => props.removeItem(props.id)} className="remove">
+//                                     𝘅
+//                                 </span>
 
-//                                     </th>
+//                             </th>
 
-//                                     <td className="cart-data">250</td>
-//                                     <td className="cart-data">1</td>
-//                                     <td className="cart-data">250</td>
-//                                 </tr>
-//                                 <tr>  </tr>
-//                             </tbody>
-//                         </table>
-//                     </div>
-
-//                 </div>
+//                             <td className="cart-data">250</td>
+//                             <td className="cart-data">1</td>
+//                             <td className="cart-data">250</td>
+//                         </tr>
+//                         <tr>  </tr>
+//                     </tbody>
+//                 </table>
 //             </div>
 
-//             <div className="cart-button-area">
-//             <Paypal />
-//             </div>
 //         </div>
-//     );
-// }
+//     </div>
+
 class Cart extends React.Component {
     constructor(props) {
         super(props);
@@ -65,23 +59,18 @@ class Cart extends React.Component {
         };
     }
 
-
-
-
     componentDidMount() {
+        console.log("Calling Cart");
         fetch("/api/cart")
-
             .then(res => res.json())
             .then(
                 (result) => {
+                    console.log(result)
                     this.setState({
                         isLoaded: true,
                         items: result
                     });
                 },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
                 (error) => {
                     this.setState({
                         isLoaded: true,
@@ -89,9 +78,11 @@ class Cart extends React.Component {
                     });
                 }
             )
-
-
+        //         // Note: it's important to handle errors here
+        //         // instead of a catch() block so that we don't swallow
+        //         // exceptions from actual bugs in components.
     }
+
 
     render() {
         const { error, isLoaded, items } = this.state;
@@ -101,14 +92,54 @@ class Cart extends React.Component {
             return <div>Loading...</div>;
         } else {
             return (<>
-                <ul>
-                    {items.map(item => (
-                        <li key={item.name}>
-                            {item.imageUpload} {item.itemname} {item.itemprice}
-                        </li>
-                    ))}
-                </ul>
-                <Paypal toPay={items.reduce((previous, current) => { return previous + current.itemPrice }, 0)} />
+                <div className="cart-body">
+                    <div className="icon-area">
+                        <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
+                    </div>
+                    <div className="row">
+
+                        <div className="col-lg-10 product-area">
+                            <div className="col">
+
+                                <table class="table">
+                                    {items.map(item => (
+                                        <div key={item.Item.itemName}>
+
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">QTY</th>
+                                                    <th scope="col">PRICE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" >
+                                                        <img src={item.Item.imageUpload} alt="table" className="cart-item" />
+                                                    </th>
+                                                    <td className="cart-data">1</td>
+                                                    <td className="cart-data">{item.Item.itemPrice}</td>
+                                                </tr>
+                                                <tr>  </tr>
+                                            </tbody>
+                                        </div>
+
+                                    ))}
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {/* <ul>
+                        {items.map(item => (
+                            <li key={item.Item.itemName}>
+                                {item.Item.imageUpload} {item.Item.itemName} {item.Item.itemPrice}
+                            </li>
+                        ))}
+                    </ul> */}
+                    <Paypal toPay={items.reduce((previous, current) => { return previous + current.Item.itemPrice }, 0)} />
+                </div>
             </>
             );
         }

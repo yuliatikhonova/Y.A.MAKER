@@ -7,21 +7,24 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
+    // Cart.associate = models => {
+    //     Cart.belongsTo(models.User, {
+    //         foreignKey: {
+    //             allowNull: true
+    //         }
+    //     });
+    // };
+
     Cart.associate = models => {
-        Cart.belongsTo(models.User, {
+        Cart.belongsTo(models.Item, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
 
-    // Cart.associate = models => {
-    //     Cart.hasMany(models.Item, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // };
+
+
 
 
     return Cart;

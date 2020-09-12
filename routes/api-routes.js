@@ -15,6 +15,7 @@ const nodemailer = require('nodemailer');
 const db = require("../models");
 const passport = require("../config/passport");
 const item = require("../models/item");
+const user = require("../models/user");
 cloudinary.config({
   cloud_name: cloudName,
   api_key: apiKey,
@@ -136,18 +137,21 @@ module.exports = function (app) {
 
   //routes for cart/checkout===================================
     app.get("/api/cart", (req, res) => {
-      db.Cart.findAll()
+      console.log("IN CART");
+      db.Cart.findAll({
+        include: "Item"
+      })
       .then(data=> {
         res.json(data);
       });
     });
 
     app.post("/api/cart", (req, res) =>{
+      console.log(req.body);
       db.Cart.create({
-        UserId: User.id,
-        ItemId: Item.id
+        ItemId: req.body.item,
+        // UserId: User.id
       })
     })
-
 };
 //===========================================================

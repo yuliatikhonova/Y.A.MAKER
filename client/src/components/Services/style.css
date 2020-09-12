@@ -41,6 +41,10 @@
     height: 45px;
     margin-left: 39%;
 }
+.services-button:hover {
+    background-color: black;
+    color: white;
+    }
 @media only screen and (max-width: 991px) {
     .hero-img-services {
         background-image: url(/images/forrest-mobile.png);
@@ -59,13 +63,17 @@
         font-style: normal;
         text-decoration: none;
     }
+  
+    
     .header-one-style {
-        font-size: 3rem;
+        font-size: 40px;
+        margin-left: 0px;
         
     }
     .para-style {
         line-height: inherit;
         font-size: 17px;
+        text-align: left;
     }
     .head-five {
         text-align: center;
@@ -79,9 +87,15 @@
         
         width: 120px;
         height: 45px;
-        margin-left: 39%;
+        margin: 0 auto;
     }
     .services {
         margin: 0px;
+    }
+    .text-area {
+        text-align: center!important;
+    }
+    .servicesPage-list {
+        text-align: left;
     }
 }

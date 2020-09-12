@@ -6,6 +6,7 @@
      background-size: cover;
     margin: 25px;
     width: 98%;
+    margin-bottom: 0px;
  }
 .formContact {
     margin-top: 12%;
@@ -26,6 +27,11 @@
     font-style: normal;
     text-decoration: none;
 }
+.contact-button:hover {
+    background-color: black;
+    color: white;
+    }
+
 @media only screen and (max-width: 991px) {
     .hero-image-contact {
         background-image: url(/images/mobile-main.jpg);
@@ -36,6 +42,9 @@
     .container-fluid {
         padding: 0px;
 
+    }
+    .contact-button {
+        margin: 0 auto;
     }
 }
 @media only screen and (min-width: 992px) {
