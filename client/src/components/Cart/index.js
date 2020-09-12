@@ -96,17 +96,14 @@ class Cart extends React.Component {
                     <div className="icon-area">
                         <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
                     </div>
-                    <div className="row">
-
-                        <div className="col-lg-10 product-area">
-                            <div className="col">
-
+                            <div className="table-responsive">
                                 <table class="table">
                                     {items.map(item => (
                                         <div key={item.Item.itemName}>
 
                                             <thead>
                                                 <tr>
+                                                <th scope="col">{item.Item.itemName}</th>
                                                     <th scope="col">QTY</th>
                                                     <th scope="col">PRICE</th>
                                                 </tr>
@@ -122,15 +119,9 @@ class Cart extends React.Component {
                                                 <tr>  </tr>
                                             </tbody>
                                         </div>
-
                                     ))}
-
                                 </table>
                             </div>
-
-                        </div>
-                    </div>
-
                     {/* <ul>
                         {items.map(item => (
                             <li key={item.Item.itemName}>

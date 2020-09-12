@@ -21,4 +21,18 @@
 .nopage {
     text-align: center;
 }
-
+.mobile-cart-button {
+    display: none;
+}
+@media only screen and (max-width: 991px) {
+    .mobile-cart-button {
+        display: block;
+        font-family: athelas, serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    }
+    .icon-area {
+        display: none;
+    }
+}
