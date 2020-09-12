@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ItemDataService from "../../utils/API.js";
 import { Link } from "react-router-dom";
 import "./style.css";
-
+import GalleryModal from "../GalleryModal"
 
 
 export default class ItemsList extends Component {
@@ -68,6 +68,7 @@ export default class ItemsList extends Component {
 
     return (
       <div className="container">
+        <GalleryModal refreshList={this.refreshList} open={this.props.modalOpen} setModalOpen={this.props.setModalOpen} />
         <div className="row">
           <div className="col-md-10 mx-auto">
             {/* <h4>Items List</h4> */}
@@ -76,19 +77,19 @@ export default class ItemsList extends Component {
               {items &&
                 items.map((item, index) => (
 
-                  
-                    <Link
-                      to={"/items/" + item.id}
-                    >
-                    <img className="goonie" src={item.imageUpload}  alt={item.itemName}>
-                    </img>
-                    </Link>
-                
 
-              ))}
+                  <Link
+                    to={"/items/" + item.id}
+                  >
+                    <img className="goonie" src={item.imageUpload} alt={item.itemName}>
+                    </img>
+                  </Link>
+
+
+                ))}
+            </div>
           </div>
         </div>
-      </div>
       </div >
     );
   }
