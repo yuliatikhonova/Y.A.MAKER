@@ -10,7 +10,6 @@ export default class ItemsList extends Component {
     super(props);
     this.retrieveItems = this.retrieveItems.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveItem = this.setActiveItem.bind(this);
     this.searchName = this.searchName.bind(this);
 
     this.state = {
@@ -48,18 +47,8 @@ export default class ItemsList extends Component {
 
   refreshList() {
     this.retrieveItems();
-    this.setState({
-      currentItem: null,
-      currentIndex: -1
-    });
   }
 
-  setActiveItem(item, index) {
-    this.setState({
-      currentItem: item,
-      currentIndex: index
-    });
-  }
 
   searchName() {
     ItemDataService.findByName(this.state.searchName)

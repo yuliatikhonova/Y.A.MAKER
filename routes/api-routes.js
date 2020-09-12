@@ -11,43 +11,6 @@ const multer = require("multer");
 
 const nodemailer = require('nodemailer');
 
-const upload = multer({
-  storage: multer.diskStorage({
-    destination: "public/uploads",
-    filename: function (req, file, cb) {
-      crypto.pseudoRandomBytes(16, (err, raw) => {
-        cb(
-          null,
-          raw.toString("hex") + Date.now() + "." + mime.extension(file.mimetype)
-        );
-      });
-    }
-  })
-});
-
-const uploadcdny = (req, res, next) => {
-  if (req.file) {
-    console.log(req.file.filename);
-
-    cloudinary.uploader.upload(
-      "public/uploads/" + req.file.filename,
-      result => {
-        console.log(result);
-
-        fs.unlink("public/uploads/" + req.file.filename, err => {
-          if (err) {
-            throw err;
-          }
-          console.log("path/file.txt was deleted");
-        });
-        req.file.filename = result.url;
-        return next();
-      }
-    );
-  } else {
-    return next();
-  }
-};
 
 const db = require("../models");
 const passport = require("../config/passport");
@@ -169,35 +132,7 @@ module.exports = function (app) {
     res.send("Welcome to the api!");
   });
 
-  app.post(
-    "/api/post",
-    upload.single("imageUpload"),
-    uploadcdny,
-    (req, res) => {
-      console.log(req.file);
-      let hasImage = true;
-      if (req.file === undefined) {
-        req.file = {};
-        req.file.filename = null;
-      }
-      if (req.file.filename === null) {
-        hasImage = false;
-      } else {
-        req.file.filename = req.file.filename;
-      }
-      db.post
-        .create(
-          {
-            itemName: req.body.itemName,
-            itemPrice: req.body.itemPrice,
-            imageUpload: req.file.filename,
-            itemDescription: req.body.itemDescription
-          }
-        )
-    }
-  );
-  //app.delete("/api", isLoggedIn, controller.deleteCheckpoint);
-
+  
 
 
   //routes for cart/checkout===================================
