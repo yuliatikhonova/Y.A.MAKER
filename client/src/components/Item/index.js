@@ -59,12 +59,13 @@ export default class Item extends Component {
   render() {
     const { currentItem } = this.state;
     return (
-      <div className="item-deets">
+      <div className="container item-deets">
+        <div classname="row d-flex product-area">
         <div className="d-flex product-area">
-          <div className="col-5 product">
+          <div className="col-sm product">
             <img className="item-pic" src={currentItem.imageUpload} alt="table" />
           </div>
-          <div className=" col-5 discription">
+          <div className=" col-sm discription">
             <div className="d-flex">
               <div className="col-3 d-flex">
                 <h1 className="item-deets">{currentItem.itemName}</h1>
@@ -84,6 +85,9 @@ export default class Item extends Component {
               <button onClick={(e)=> this.handleFormSubmit(e)} className="btn cart-button ">ADD TO CART</button>
             </div>
           </div>
+
+        </div>
+        
         </div>
       </div>
     );
