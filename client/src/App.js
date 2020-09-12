@@ -13,6 +13,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Itempage from "./pages/Item";
 import MobileNav from "./components/MobileNav";
+import PayConfirmed from "./pages/PayConfirmed";
+import PayFailed from "./pages/PayFailed";
 
 function App(props) {
   const [isLoggedin, setIsLoggedin] = useState(false);
@@ -40,6 +42,8 @@ useEffect(()=>{
               <Route exact path="/services" component={Services} />
               <Route path="/items/:id" component={Itempage} />
               <Route exact path="/cart" component={Cart} />
+              <Route exact path="/payconfirmed" component={PayConfirmed} />
+              <Route exact path="/payfailed" component={PayFailed} />
 
               {/* client routes to update website */}
               <Route exact path="/login" render={(props) => <Login isLoggedIn={isLoggedin} setIsLoggedin={setIsLoggedin}  {...props}/>} />

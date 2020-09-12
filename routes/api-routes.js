@@ -121,22 +121,29 @@ module.exports = function (app) {
 
 
   //routes for cart/checkout===================================
-    app.get("/api/cart", (req, res) => {
-      console.log("IN CART");
-      db.Cart.findAll({
-        include: "Item"
-      })
-      .then(data=> {
+  app.get("/api/cart", (req, res) => {
+    console.log("IN CART");
+    db.Cart.findAll({
+      include: "Item"
+    })
+      .then(data => {
         res.json(data);
       });
-    });
+  });
 
-    app.post("/api/cart", (req, res) =>{
-      console.log(req.body);
-      db.Cart.create({
-        ItemId: req.body.item,
-        // UserId: User.id
-      })
-    })
+  app.post("/api/cart", (req, res) => {
+    console.log(req.body);
+    db.Cart.create({
+      ItemId: req.body.item,
+      // UserId: User.id
+    });
+  });
+
+  // app.delete("/api/cart", (req, res) => {
+  //   db.Cart.destroy({
+  //     where: req.id = 
+  //   });
+
+  // });
 };
 //===========================================================
