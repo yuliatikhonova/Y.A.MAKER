@@ -24,3 +24,23 @@ height: 50px;
 width: 150px;
 cursor: pointer;
 }
+
+.confirm-img{
+    background-image: url(/images/confirm-img.jpg);
+    background-repeat: no-repeat;
+    height: 90vh;
+    background-size: cover;
+   margin: 25px;
+   width: 98%;
+   margin-bottom: 0px;
+   color: white;
+}
+
+@media only screen and (max-width: 991px) {
+    .confirm-img {
+        background-image: url(/images/mobile-confirm.jpg);
+        width: 100%;
+        margin: 0px;
+    }
+
+}
