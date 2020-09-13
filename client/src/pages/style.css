@@ -1,9 +1,22 @@
-.sad {
-    width: 60px;
+
+.error-img{
+    background-image: url(/images/error-img.jpg);
+    background-repeat: no-repeat;
+    height: 90vh;
+    background-size: cover;
+   margin: 25px;
+   width: 98%;
+   margin-bottom: 0px;
+   color: white;
 }
 
-.sadIcon{
-    text-align: center;
+@media only screen and (max-width: 991px) {
+    .error-img {
+        background-image: url(/images/mobile-error.jpg);
+        width: 100%;
+        margin: 0px;
+    }
+
 }
 
 .error {
@@ -14,16 +27,18 @@
     font-style: normal;
     text-decoration: none;
     letter-spacing: 3px;
-    font-size: 68px;
+    font-size: 170px;
 
 }
 
 .nopage {
     text-align: center;
 }
+
 .mobile-cart-button {
     display: none;
 }
+
 @media only screen and (max-width: 991px) {
     .mobile-cart-button {
         display: block;
