@@ -14,7 +14,8 @@
         margin-top: 21px;
     }
     .product-area {
-        margin-top: 135px;
+        margin-top: 50px;
+        
     }
     .title-cost {
         margin-right: 216px;
@@ -44,6 +45,13 @@
     .product-description {
         line-height: 40px;
     }
-    .item-pic {
-        width: 500px;
+
+    @media only screen and (min-width: 992px) {
+        .item-pic {
+            max-width: 500px;
+        }
+        .product-area {
+            margin-top: 135px;
+            
+        }
     }

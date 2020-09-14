@@ -104,11 +104,7 @@ class Cart extends React.Component {
                     <div className="icon-area">
                         <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
                     </div>
-                    <div className="row">
-
-                        <div className="col-lg-10 product-area">
-                            <div className="col">
-
+                            <div className="table-responsive">
                                 <table class="table">
                                     {items.map(item => (
                                         <div key={item.Item.itemName}>
@@ -117,30 +113,28 @@ class Cart extends React.Component {
 
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">QTY</th>
-                                                    <th scope="col">PRICE</th>
+
+                                                    <th scope="col" className="text-center col-3">ITEM NAME</th>
+                                                    <th scope="col" className="text-center col-3">IMAGE</th>
+                                                    <th scope="col" className="text-center col-3">QTY</th>
+                                                    <th scope="col" className="text-center col-3">PRICE</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row" >
+                                                <td scope="row" className="col-3">{item.Item.itemName}</td>
+                                                    <td className="col-3">
                                                         <img src={item.Item.imageUpload} alt="table" className="cart-item" />
-                                                    </th>
-                                                    <td className="cart-data">1</td>
-                                                    <td className="cart-data">{item.Item.itemPrice}</td>
+                                                    </td>
+                                                    <td className="cart-data col-3">1</td>
+                                                    <td className="cart-data col-3">{item.Item.itemPrice}</td>
                                                 </tr>
                                                 <tr>  </tr>
                                             </tbody>
                                         </div>
-
                                     ))}
-
                                 </table>
                             </div>
-
-                        </div>
-                    </div>
-
                     {/* <ul>
                         {items.map(item => (
                             <li key={item.Item.itemName}>
