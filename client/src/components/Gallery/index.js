@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ItemDataService from "../../utils/API.js";
 import { Link } from "react-router-dom";
 import "./style.css";
-
+import GalleryModal from "../GalleryModal"
 
 
 export default class ItemsList extends Component {
@@ -10,7 +10,6 @@ export default class ItemsList extends Component {
     super(props);
     this.retrieveItems = this.retrieveItems.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveItem = this.setActiveItem.bind(this);
     this.searchName = this.searchName.bind(this);
 
     this.state = {
@@ -48,18 +47,8 @@ export default class ItemsList extends Component {
 
   refreshList() {
     this.retrieveItems();
-    this.setState({
-      currentItem: null,
-      currentIndex: -1
-    });
   }
 
-  setActiveItem(item, index) {
-    this.setState({
-      currentItem: item,
-      currentIndex: index
-    });
-  }
 
   searchName() {
     ItemDataService.findByName(this.state.searchName)
@@ -79,6 +68,7 @@ export default class ItemsList extends Component {
 
     return (
       <div className="container">
+        <GalleryModal refreshList={this.refreshList} open={this.props.modalOpen} setModalOpen={this.props.setModalOpen} />
         <div className="row">
           <div className="col-md-10 mx-auto">
             {/* <h4>Items List</h4> */}
@@ -87,19 +77,19 @@ export default class ItemsList extends Component {
               {items &&
                 items.map((item, index) => (
 
-                  
-                    <Link
-                      to={"/items/" + item.id}
-                    >
-                    <img className="goonie" src={item.imageUpload}  alt={item.itemName}>
-                    </img>
-                    </Link>
-                
 
-              ))}
+                  <Link
+                    to={"/items/" + item.id}
+                  >
+                    <img className="goonie" src={item.imageUpload} alt={item.itemName}>
+                    </img>
+                  </Link>
+
+
+                ))}
+            </div>
           </div>
         </div>
-      </div>
       </div >
     );
   }
