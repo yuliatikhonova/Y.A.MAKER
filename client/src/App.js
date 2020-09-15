@@ -19,10 +19,6 @@ import PayFailed from "./pages/PayFailed";
 function App(props) {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
-useEffect(()=>{
-  //call api route to check if logged in, if logged in is true setIsLoggedin(true)
-  
-}, [])
 
   return (
 
