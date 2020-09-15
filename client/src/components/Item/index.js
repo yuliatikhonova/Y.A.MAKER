@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ItemDataService from "../../utils/API.js";
 import "./style.css";
-import { post } from "jquery";
 
 export default class Item extends Component {
   constructor(props) {
