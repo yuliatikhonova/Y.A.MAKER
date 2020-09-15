@@ -42,8 +42,8 @@ useEffect(()=>{
               <Route exact path="/cart" component={Cart} />
 
               {/* client routes to update website */}
-              <Route exact path="/login" render={(props) => <Login isLoggedIn={isLoggedin} setIsLoggedin={setIsLoggedin}  {...props}/>} />
-              <Route exact path="/register" component={Register} />
+              <Route exact path="/login2" render={(props) => <Login isLoggedIn={isLoggedin} setIsLoggedin={setIsLoggedin}  {...props}/>} />
+              <Route exact path="/register2" component={Register} />
 
               <Route>
                 <NoMatch />
