@@ -149,7 +149,8 @@ export default class GalleryModal extends Component {
                 <button type="button"
                   className="btn btn-secondary"
                   data-dismiss="modal"
-                  id="close-btn">Cancel</button>
+                  id="close-btn"
+                  onClick={ this.setModalOpen(false) }>Cancel</button>
                 <button type="submit"
                   className="btn btn-primary"
                   id="submit-btn"
