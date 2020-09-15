@@ -10,6 +10,7 @@ import Item from "../Item";
 
 
 
+
 // <div className="cart-body">
 //     <div className="icon-area">
 //         <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
@@ -83,6 +84,13 @@ class Cart extends React.Component {
         //         // exceptions from actual bugs in components.
     }
 
+    handleDelete = (itemId) => {
+        // Whatever you want to do with that item
+        axios.delete("/api/cart", { params: { id: itemId } }).then(response => {
+            console.log(response);
+        });
+    }
+
 
     render() {
         const { error, isLoaded, items } = this.state;
@@ -96,41 +104,37 @@ class Cart extends React.Component {
                     <div className="icon-area">
                         <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
                     </div>
-                    <div className="row">
-
-                        <div className="col-lg-10 product-area">
-                            <div className="col">
-
+                            <div className="table-responsive">
                                 <table class="table">
                                     {items.map(item => (
                                         <div key={item.Item.itemName}>
+                                            {/* <button className="deleteButton" onClick={() => this.handleDelete()}>
+                                                    Delete</button> */}
 
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">QTY</th>
-                                                    <th scope="col">PRICE</th>
+
+                                                    <th scope="col" className="text-center col-3">ITEM NAME</th>
+                                                    <th scope="col" className="text-center col-3">IMAGE</th>
+                                                    <th scope="col" className="text-center col-3">QTY</th>
+                                                    <th scope="col" className="text-center col-3">PRICE</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row" >
+                                                <td scope="row" className="col-3">{item.Item.itemName}</td>
+                                                    <td className="col-3">
                                                         <img src={item.Item.imageUpload} alt="table" className="cart-item" />
-                                                    </th>
-                                                    <td className="cart-data">1</td>
-                                                    <td className="cart-data">{item.Item.itemPrice}</td>
+                                                    </td>
+                                                    <td className="cart-data col-3">1</td>
+                                                    <td className="cart-data col-3">{item.Item.itemPrice}</td>
                                                 </tr>
                                                 <tr>  </tr>
                                             </tbody>
                                         </div>
-
                                     ))}
-
                                 </table>
                             </div>
-
-                        </div>
-                    </div>
-
                     {/* <ul>
                         {items.map(item => (
                             <li key={item.Item.itemName}>
@@ -138,12 +142,13 @@ class Cart extends React.Component {
                             </li>
                         ))}
                     </ul> */}
-                    <Paypal toPay={items.reduce((previous, current) => { return previous + current.Item.itemPrice }, 0)} />
+                    <Paypal toPay={items.reduce((previous, current) => { return previous + parseInt(current.Item.itemPrice) }, 0)} />
                 </div>
             </>
             );
         }
     }
 }
+
 
 export default Cart;

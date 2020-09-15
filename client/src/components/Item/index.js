@@ -60,20 +60,17 @@ export default class Item extends Component {
     const { currentItem } = this.state;
     return (
       <div className="container item-deets">
-        <div classname="row d-flex product-area">
-        <div className="d-flex product-area">
-          <div className="col-sm product">
-            <img className="item-pic" src={currentItem.imageUpload} alt="table" />
+        <div className="row product-area d-flex align-items-center">
+  
+          <div className="col-md-6 product d-flex">
+            <img className="item-pic img-fluid" src={currentItem.imageUpload} alt="table" />
           </div>
-          <div className=" col-sm discription">
-            <div className="d-flex">
-              <div className="col-3 d-flex">
-                <h1 className="item-deets">{currentItem.itemName}</h1>
-              </div>
-              <div className="col-2 d-flex">
-                <h1 className="d-flex item-deets" >${currentItem.itemPrice}</h1>
-              </div>
-            </div>
+          <div className="col-md-6 discription d-flex flex-column">
+            
+
+                <h1 className="item-deets">{currentItem.itemName} <span className="item-deets" >${currentItem.itemPrice}</span> </h1>
+
+
             <p className="product-description item-deets">{currentItem.itemDescription}</p>
 
             <div className="button-spot mt-5"
@@ -86,7 +83,7 @@ export default class Item extends Component {
             </div>
           </div>
 
-        </div>
+        
         
         </div>
       </div>

@@ -34,3 +34,23 @@
     text-align: center;
 
 }
+
+.fail-img{
+    background-image: url(/images/fail-img.jpg);
+    background-repeat: no-repeat;
+    height: 90vh;
+    background-size: cover;
+   margin: 25px;
+   width: 98%;
+   margin-bottom: 0px;
+   color: white;
+}
+
+@media only screen and (max-width: 991px) {
+    .fail-img {
+        background-image: url(/images/mobile-fail.jpg);
+        width: 100%;
+        margin: 0px;
+    }
+
+}

@@ -1,22 +1,27 @@
 import React, { useState } from 'react'
-//import Pic from "./client/public/images/pic.png";
+import Pic from "./Pic.jpg";
 import axios from 'axios'
+
 const styles = {
   button: {
     margin: "350px",
     fontFamily: "athelas, serif",
     fontWeight: 400,
     fontStyle: "normal",
-    textDecoration: "none"
+    textDecoration: "none",
+    color: "white",
+    borderColor: "white"
   },
   pageStyle: {
     fontFamily: "athelas, serif",
     fontWeight: 400,
     fontStyle: "normal",
-    textDecoration: "none"
+    textDecoration: "none",
+    color: "white"
   },
   backdrop: {
-    //backgroundImage: `url(${Pic})`
+    backgroundImage: `url(${Pic})`,
+    backgroundSize: "cover"
   }
 };
 function Login(props) {
