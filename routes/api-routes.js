@@ -103,23 +103,7 @@ module.exports = function (app) {
     smtpTransport.close();
 
   })
-
-  //===========================================================Adding to bucket list
-
-  function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.json({ error: "401:Not authenticated" });
-  }
-
-  app.get("/", (req, res) => {
-    res.send("Welcome to the api!");
-  });
-
   
-
-
   //routes for cart/checkout===================================
   app.get("/api/cart", (req, res) => {
     console.log("IN CART");
