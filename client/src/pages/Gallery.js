@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ItemsList from "../components/Gallery";
-import GalleryModal from "../components/GalleryModal/";
 import axios from 'axios'
 
 
