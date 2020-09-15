@@ -7,6 +7,12 @@ const nodemailer = require('nodemailer');
 const db = require("../models");
 const passport = require("../config/passport");
 
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.json({ isAuthenticated: false });
+}
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -103,7 +109,7 @@ module.exports = function (app) {
     smtpTransport.close();
 
   })
-  
+
   //routes for cart/checkout===================================
   app.get("/api/cart", (req, res) => {
     console.log("IN CART");
@@ -122,7 +128,10 @@ module.exports = function (app) {
       // UserId: User.id
     });
   });
-
+  
+  app.get("/api/isAuthenticated", isLoggedIn, (req, res) => {
+    res.json({ isAuthenticated: true });
+  })
   // app.delete("/api/cart", (req, res) => {
   //   db.Cart.destroy({
   //     where: req.id = 
