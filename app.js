@@ -22,12 +22,6 @@ let corsOptions = {
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 
-// parse requests of content-type - application/json
-app.use(bodyParser.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-
 // const httpServer = http.createServer(app);
 // // For http
 // if (process.env.NODE_ENV = "production") {
@@ -51,9 +45,10 @@ app.use(passport.session());
 
 // Requiring our routes
 require("./routes/api/items")(app);
-// require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
-
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
