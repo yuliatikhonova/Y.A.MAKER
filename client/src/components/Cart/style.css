@@ -31,3 +31,7 @@
 .cart-data {
     vertical-align: middle;
 }
+.cart-size {
+    width: 80%;  
+    margin: 0 auto;
+}
