@@ -35,3 +35,15 @@
     width: 80%;  
     margin: 0 auto;
 }
+.pp-button {
+    width: 15%;
+    margin: 0 auto;
+}
+@media only screen and (max-width: 991px) {
+    .pp-button {
+        width: 43%;
+        margin: 0 auto;
+        padding: 0;
+    
+    }
+}

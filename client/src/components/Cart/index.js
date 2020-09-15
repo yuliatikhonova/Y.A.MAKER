@@ -144,7 +144,9 @@ class Cart extends React.Component {
                             </li>
                         ))}
                     </ul> */}
+                    <div className="col pp-button mt-5"> 
                     <Paypal toPay={items.reduce((previous, current) => { return previous + parseInt(current.Item.itemPrice) }, 0)} />
+                    </div>
                 </div>
             </>
             );
