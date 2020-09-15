@@ -5,7 +5,6 @@ const path = require('path');//package
 const basename = path.basename(module.filename);//returns the last portion of a path
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];// connecting to config.json
-const dbConfig = require("../config/db.config.js");
 const Sequelize = require("sequelize");
 
 const db = {};

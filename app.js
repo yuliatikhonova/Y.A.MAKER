@@ -4,7 +4,6 @@ const express = require("express");
 const session = require("express-session");
 const path = require('path');
 const http = require('http');
-const bodyParser = require("body-parser");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
@@ -30,9 +29,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
 app.use(cors(corsOptions));
 
 // We need to use sessions to keep track of our user's login status
@@ -47,7 +43,7 @@ app.use(passport.session());
 require("./routes/api/items")(app);
 require("./routes/api-routes.js")(app);
 app.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
