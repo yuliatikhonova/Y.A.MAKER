@@ -6,7 +6,7 @@ import Paypal from "../Paypal/Paypal";
 function PayFail() {
   return (
     <section className="container">
-      <div className="row">
+      <div className="row fail-img">
         <div className="mx-auto mt-5">
           <h1 className="payment-sorry">
             We're Sorry

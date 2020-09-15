@@ -1,5 +1,7 @@
+
+
 module.exports = (sequelize, Sequelize) => {
-  const Item = sequelize.define("item", {
+  const Item = sequelize.define("Item", {
     itemName: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -24,12 +26,13 @@ module.exports = (sequelize, Sequelize) => {
   });
 
   Item.associate = models => {
-    Item.belongsTo(models.Cart, {
+    Item.hasOne(models.Cart, {
       foreignKey: {
         allowNull: false
       }
     });
   };
+
 
   return Item;
 };

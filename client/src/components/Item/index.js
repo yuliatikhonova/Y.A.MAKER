@@ -24,6 +24,13 @@ export default class Item extends Component {
     this.getItem(this.props.itemId);
   }
 
+  handleFormSubmit(event) {
+    event.preventDefault();
+    var bodyItem= {item:this.state.currentItem.id}
+    fetch("/api/cart", {method:"post", headers: {    'Accept': 'application/json', 'Content-Type': 'application/json'}, body:JSON.stringify(bodyItem)})
+
+  }
+
   getItem(id) {
     ItemDataService.get(id)
       .then(response => {
@@ -51,30 +58,32 @@ export default class Item extends Component {
   render() {
     const { currentItem } = this.state;
     return (
-      <div className="item-deets">
-        <div className="d-flex product-area">
-          <div className="col-5 product">
-            <img src={currentItem.imageUpload} alt="table" />
+      <div className="container item-deets">
+        <div className="row product-area d-flex align-items-center">
+  
+          <div className="col-md-6 product d-flex">
+            <img className="item-pic img-fluid" src={currentItem.imageUpload} alt="table" />
           </div>
-          <div className=" col-5 discription">
-            <div className="d-flex">
-              <div className="col-3 d-flex">
-                <h1 className="item-deets">{currentItem.itemName}</h1>
-              </div>
-              <div className="col-2 d-flex">
-                <h1 className="d-flex item-deets" >{currentItem.itemPrice}</h1>
-              </div>
-            </div>
+          <div className="col-md-6 discription d-flex flex-column">
+            
+
+                <h1 className="item-deets">{currentItem.itemName} <span className="item-deets" >${currentItem.itemPrice}</span> </h1>
+
+
             <p className="product-description item-deets">{currentItem.itemDescription}</p>
+
             <div className="button-spot mt-5"
               onChange={currentItem.handleFormSubmit}
               value={currentItem.add}
               name="add to cart"
               id="add"
             >
-              <button onClick={currentItem.handleFormSubmit} className="btn cart-button ">ADD TO CART</button>
+              <button onClick={(e)=> this.handleFormSubmit(e)} className="btn cart-button ">ADD TO CART</button>
             </div>
           </div>
+
+        
+        
         </div>
       </div>
     );

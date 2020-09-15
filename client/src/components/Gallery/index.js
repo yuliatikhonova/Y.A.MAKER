@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import ItemDataService from "../../utils/API.js";
 import { Link } from "react-router-dom";
+import "./style.css";
+import GalleryModal from "../GalleryModal"
+
 
 export default class ItemsList extends Component {
   constructor(props) {
     super(props);
     this.retrieveItems = this.retrieveItems.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveItem = this.setActiveItem.bind(this);
-    this.searchName = this.searchName.bind(this);
 
     this.state = {
       items: [],
@@ -22,21 +23,12 @@ export default class ItemsList extends Component {
     this.retrieveItems();
   }
 
-  onChangeSearchName(e) {
-    const searchName = e.target.value;
-
-    this.setState({
-      searchName: searchName
-    });
-  }
-
   retrieveItems() {
     ItemDataService.getAll()
       .then(response => {
         this.setState({
           items: response.data
         });
-        console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -45,81 +37,26 @@ export default class ItemsList extends Component {
 
   refreshList() {
     this.retrieveItems();
-    this.setState({
-      currentItem: null,
-      currentIndex: -1
-    });
-  }
-
-  setActiveItem(item, index) {
-    this.setState({
-      currentItem: item,
-      currentIndex: index
-    });
-  }
-
-  searchName() {
-    ItemDataService.findByName(this.state.searchName)
-      .then(response => {
-        this.setState({
-          items: response.data
-        });
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
   }
 
   render() {
-    const { searchName, items, currentItem, currentIndex } = this.state;
+    const { items } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search by itemName"
-              value={searchName}
-              onChange={this.onChangeSearchName}
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={this.searchName}
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <h4>Items List</h4>
-
-          <div className="card-deck">
-            {items &&
-              items.map((item, index) => (
-                <Link
-                  to={"/items/" + item.id}
-                >
-                  <div
-                    className={
-                      "card " +
-                      (index === currentIndex ? "active" : "")
-                    }
-                    key={item.key}
-                  >
-                    <img src={item.imageUpload} className="card-img-top" alt={item.itemName}>
+      <div className="container">
+        <GalleryModal refreshList={this.refreshList} open={this.props.modalOpen} setModalOpen={this.props.setModalOpen} />
+        <div className="row">
+          <div className="col-md-10 mx-auto">
+              {items &&
+                items.map((item) => (
+                  <Link to={"/items/" + item.id}>
+                    <img className="goonie" src={item.imageUpload} alt={item.itemName}>
                     </img>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }

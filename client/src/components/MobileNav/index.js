@@ -10,7 +10,7 @@ function MobileNav() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="mx-auto mobile-logo">
             <Link to="/">
-                <img alt="logo for HandCrafted Heirloom LLC " src="./images/logo-black.svg" className="nav-logo mt-4" />
+                <img alt="logo for HandCrafted Heirloom LLC " src="../images/logo-black.svg" className="nav-logo mt-4" />
             </Link>
             </div>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">

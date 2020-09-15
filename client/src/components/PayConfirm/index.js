@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function PayConfirm() {
   return (
     <section className="container">
-      <div className="row">
+      <div className="row confirm-img">
         <div className="mx-auto mt-5">
           <h2 className="payment">
             Thank You For Your Order

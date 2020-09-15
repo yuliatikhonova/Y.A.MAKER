@@ -5,23 +5,17 @@ const path = require('path');//package
 const basename = path.basename(module.filename);//returns the last portion of a path
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];// connecting to config.json
-const dbConfig = require("../config/db.config.js");
 const Sequelize = require("sequelize");
 
 const db = {};
 
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
-  operatorsAliases: false,
+let sequelize;
 
-  pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle
-  }
-});
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable]);
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 fs
   //used to synchronously read the contents of a given directory. The method returns an array with all the file names or objects in the directory.

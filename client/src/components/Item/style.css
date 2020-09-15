@@ -14,7 +14,8 @@
         margin-top: 21px;
     }
     .product-area {
-        margin-top: 135px;
+        margin-top: 50px;
+        
     }
     .title-cost {
         margin-right: 216px;
@@ -30,9 +31,27 @@
         border-color: black;
         width: 160px;
         height: 48px;
-        font-size: 20px;
-        border-radius: 0;
+        font-size: 15px;
+        border-radius: 7px;
+        font-family: athelas, serif;
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+    }
+    .cart-button:hover {
+    background-color: black;
+    color: white;
     }
     .product-description {
         line-height: 40px;
+    }
+
+    @media only screen and (min-width: 992px) {
+        .item-pic {
+            max-width: 500px;
+        }
+        .product-area {
+            margin-top: 135px;
+            
+        }
     }
