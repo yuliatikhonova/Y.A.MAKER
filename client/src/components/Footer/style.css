@@ -6,3 +6,9 @@
 .nav-icons {
     height: 15px;
 }
+@media only screen and (max-width: 991px) {
+    .footer {
+        position: static; 
+       
+    }  
+}
