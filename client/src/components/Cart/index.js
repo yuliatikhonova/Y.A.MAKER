@@ -101,40 +101,42 @@ class Cart extends React.Component {
         } else {
             return (<>
                 <div className="cart-body">
-                    <div className="icon-area">
+                    <div className="icon-area mb-4">
                         <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
                     </div>
-                            <div className="table-responsive">
-                                <table class="table">
-                                    {items.map(item => (
-                                        <div key={item.Item.itemName}>
-                                            {/* <button className="deleteButton" onClick={() => this.handleDelete()}>
+                    <div className="table-responsive text-center">
+                        <table className="table cart-size">
+                            <thead>
+                                <tr className="">
+
+                                    <th scope="col">ITEM NAME</th>
+                                    <th scope="col">IMAGE</th>
+                                    <th scope="col">QTY</th>
+                                    <th scope="col">PRICE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {items.map(item => (
+                                    <>
+                                        {/* <button className="deleteButton" onClick={() => this.handleDelete()}>
                                                     Delete</button> */}
 
-                                            <thead>
-                                                <tr>
 
-                                                    <th scope="col" className="text-center col-3">ITEM NAME</th>
-                                                    <th scope="col" className="text-center col-3">IMAGE</th>
-                                                    <th scope="col" className="text-center col-3">QTY</th>
-                                                    <th scope="col" className="text-center col-3">PRICE</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                <td scope="row" className="col-3">{item.Item.itemName}</td>
-                                                    <td className="col-3">
-                                                        <img src={item.Item.imageUpload} alt="table" className="cart-item" />
-                                                    </td>
-                                                    <td className="cart-data col-3">1</td>
-                                                    <td className="cart-data col-3">{item.Item.itemPrice}</td>
-                                                </tr>
-                                                <tr>  </tr>
-                                            </tbody>
-                                        </div>
+                                        <tr key={item.Item.itemName} className="">
+                                            <td>{item.Item.itemName}</td>
+                                            <td>
+                                                <img src={item.Item.imageUpload} alt="table" className="cart-item" />
+                                            </td>
+                                            <td className="cart-data">1</td>
+                                            <td className="cart-data">{item.Item.itemPrice}</td>
+                                        </tr>
+                                       
+                                    
+                                        </>
                                     ))}
-                                </table>
-                            </div>
+                                    </tbody>
+                               </table>
+                    </div>
                     {/* <ul>
                         {items.map(item => (
                             <li key={item.Item.itemName}>
