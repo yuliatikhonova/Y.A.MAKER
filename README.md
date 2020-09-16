@@ -9,18 +9,20 @@
   
   Deployed Link: (must be heroku link)
 
+### Routes
+  The screenshot below shows the routes for the application. The routes that involve a login are for the modal so the owner of the website has easy access to edit the gallery page.  
 
-### screenshot
+![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/Routes.png)
 
-![]()
+### Cloudinary
+  The function  shown below uses cloudinary for image uploads. 
 
-### screenshot
+![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/cloudinary.png)
 
-![]()
+### Gallery 
+  The screen shot below is from the gallery component. It maps through the items in the database and diaplays them as images on the page. If the user clicks on a gallery item it will take them to the items page for that image. If the owner is logged in they will see the modal option to edit the images on the gallery page. 
 
-### screenshot
-
-![]()
+![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/gallery.png)
 
 ### gif
 
