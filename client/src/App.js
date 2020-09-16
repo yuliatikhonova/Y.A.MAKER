@@ -19,7 +19,6 @@ import PayFailed from "./pages/PayFailed";
 function App(props) {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
-
   return (
 
     <Router>
