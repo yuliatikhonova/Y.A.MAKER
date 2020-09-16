@@ -24,20 +24,22 @@ const styles = {
     backgroundSize: "cover"
   }
 };
+
 function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   function loginUser(email, password) {
     axios.post("/api/login", { email, password })
       .then((data) => {
-       props.setIsLoggedin(true)
-       props.history.push("/gallery")//how to route to the page
+        props.setIsLoggedin(true)
+        props.history.push("/gallery")//how to route to the page
       })
       // If there's an error, log the error
       .catch(function (err) {
         console.log(err);
       });
   }
+
   function handleSubmit(e) {
     e.preventDefault();
     let userData = { email, password };
@@ -49,6 +51,7 @@ function Login(props) {
     setEmail("");
     setPassword("");
   }
+
   return (
     <div className="container mt-5">
       <div style={styles.backdrop} className="row mt-5">
@@ -82,4 +85,5 @@ function Login(props) {
     </div>
   );
 }
+
 export default Login;

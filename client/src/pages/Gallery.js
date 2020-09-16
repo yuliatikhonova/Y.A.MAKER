@@ -4,7 +4,6 @@ import api from '../utils/API';
 import GalleryModal from "../components/GalleryModal/";
 import axios from 'axios'
 
-
 function GalleryPage(props) {
     const [modalOpen, setModalOpen] = useState(false)
 
