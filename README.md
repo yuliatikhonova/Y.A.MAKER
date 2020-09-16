@@ -24,10 +24,14 @@
 
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/gallery.png)
 
-### gif
+### Desktop View
 
-![]()
+![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/desktop-view.gif)
 
-### gif
+### Mobile View
 
-![]()
+![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/mobile-view.gif)
+
+### Media Query
+
+![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/Media-query.gif)
