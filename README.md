@@ -12,15 +12,15 @@
 
 ### screenshot
 
-![]()
+![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/Routes.png)
 
 ### screenshot
 
-![]()
+![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/cloudinary.png)
 
 ### screenshot
 
-![]()
+![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/gallery.png)
 
 ### gif
 
