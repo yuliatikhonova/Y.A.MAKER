@@ -19,13 +19,7 @@ import PayFailed from "./pages/PayFailed";
 function App(props) {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
-useEffect(()=>{
-  //call api route to check if logged in, if logged in is true setIsLoggedin(true)
-  
-}, [])
-
   return (
-
     <Router>
       <MobileNav></MobileNav>
       <div className="row">
@@ -38,7 +32,7 @@ useEffect(()=>{
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/gallery" render={(props) => <GalleryPage isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} {...props}/>} />
+              <Route exact path="/gallery" render={(props) => <GalleryPage isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} {...props} />} />
               <Route exact path="/services" component={Services} />
               <Route path="/items/:id" component={Itempage} />
               <Route exact path="/cart" component={Cart} />
@@ -46,7 +40,7 @@ useEffect(()=>{
               <Route exact path="/payfailed" component={PayFailed} />
 
               {/* client routes to update website */}
-              <Route exact path="/login" render={(props) => <Login isLoggedIn={isLoggedin} setIsLoggedin={setIsLoggedin}  {...props}/>} />
+              <Route exact path="/login" render={(props) => <Login isLoggedIn={isLoggedin} setIsLoggedin={setIsLoggedin}  {...props} />} />
               <Route exact path="/register" component={Register} />
 
               <Route>
@@ -54,11 +48,9 @@ useEffect(()=>{
               </Route>
             </Switch>
           </Wrapper>
-
         </div>
       </div>
     </Router>
-
   );
 }
 

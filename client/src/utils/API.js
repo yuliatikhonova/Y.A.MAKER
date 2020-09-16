@@ -28,6 +28,10 @@ class ItemDataService {
   findByTitle(itemName) {
     return http.get(`/items?itemName=${itemName}`);
   }
+
+  isLoggedin() {
+    return http.get('/isAuthenticated');
+  }
 }
 
 export default new ItemDataService();

@@ -6,50 +6,6 @@ import axios from "axios";
 import ItemDataService from "../../utils/API";
 import Item from "../Item";
 
-
-
-
-
-
-// <div className="cart-body">
-//     <div className="icon-area">
-//         <img src="/images/bag-icon.png" alt="shopping bag" className="icon" />
-//     </div>
-//     <div className="row">
-
-//         <div className="col-lg-10 product-area">
-//             <div className="col">
-
-//                 <table class="table">
-//                     <thead>
-//                         <tr>
-//                             <th scope="col">ITEM NAME</th>
-//                             <th scope="col">PRICE</th>
-//                             <th scope="col">QTY</th>
-//                             <th scope="col">TOTAL</th>
-//                         </tr>
-//                     </thead>
-//                     <tbody>
-//                         <tr>
-//                             <th scope="row"><img src="./images/table.jpg" alt="table" className="cart-item" />
-//                                 <span onClick={() => props.removeItem(props.id)} className="remove">
-//                                     𝘅
-//                                 </span>
-
-//                             </th>
-
-//                             <td className="cart-data">250</td>
-//                             <td className="cart-data">1</td>
-//                             <td className="cart-data">250</td>
-//                         </tr>
-//                         <tr>  </tr>
-//                     </tbody>
-//                 </table>
-//             </div>
-
-//         </div>
-//     </div>
-
 class Cart extends React.Component {
     constructor(props) {
         super(props);
@@ -79,18 +35,13 @@ class Cart extends React.Component {
                     });
                 }
             )
-        //         // Note: it's important to handle errors here
-        //         // instead of a catch() block so that we don't swallow
-        //         // exceptions from actual bugs in components.
     }
 
     handleDelete = (itemId) => {
-        // Whatever you want to do with that item
         axios.delete("/api/cart", { params: { id: itemId } }).then(response => {
             console.log(response);
         });
     }
-
 
     render() {
         const { error, isLoaded, items } = this.state;
@@ -118,10 +69,6 @@ class Cart extends React.Component {
                             <tbody>
                                 {items.map(item => (
                                     <>
-                                        {/* <button className="deleteButton" onClick={() => this.handleDelete()}>
-                                                    Delete</button> */}
-
-
                                         <tr key={item.Item.itemName} className="">
                                             <td>{item.Item.itemName}</td>
                                             <td>
@@ -130,20 +77,11 @@ class Cart extends React.Component {
                                             <td className="cart-data">1</td>
                                             <td className="cart-data">{item.Item.itemPrice}</td>
                                         </tr>
-                                       
-                                    
-                                        </>
-                                    ))}
-                                    </tbody>
-                               </table>
+                                    </>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
-                    {/* <ul>
-                        {items.map(item => (
-                            <li key={item.Item.itemName}>
-                                {item.Item.imageUpload} {item.Item.itemName} {item.Item.itemPrice}
-                            </li>
-                        ))}
-                    </ul> */}
                     <div className="col pp-button mt-5"> 
                     <Paypal toPay={items.reduce((previous, current) => { return previous + parseInt(current.Item.itemPrice) }, 0)} />
                     </div>
@@ -153,6 +91,5 @@ class Cart extends React.Component {
         }
     }
 }
-
 
 export default Cart;

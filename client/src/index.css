@@ -1,9 +1,7 @@
 html, body {
     height: 100vh;
-    /* height: 100%; */
-    /* overflow: hidden; */
-
 }
+
 .row {
   margin-left: 0px;
   margin-right: 0px;
@@ -40,6 +38,7 @@ html, body {
       padding: 0;
     }
   }
+  
   .side-area{
     padding: 0;
   }

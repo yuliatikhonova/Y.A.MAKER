@@ -65,8 +65,6 @@ export default class GalleryModal extends Component {
           imageUpload: response.data.imageUpload,
           submitted: true
         });
-        // this.props.fetchImages();
-
         this.props.refreshList();
         this.props.setModalOpen(false);
       })
@@ -97,7 +95,7 @@ export default class GalleryModal extends Component {
   render() {
     if (this.props.open) {
       return (
-        <div className="modal" style={{display:"block"}} id="exampleModal" name="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel">
+        <div className="modal" style={{ display: "block" }} id="exampleModal" name="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel">
           <form className="modal-dialog" id="newPostForm">
             <div className="modal-content">
               <div className="modal-header">
@@ -149,7 +147,8 @@ export default class GalleryModal extends Component {
                 <button type="button"
                   className="btn btn-secondary"
                   data-dismiss="modal"
-                  id="close-btn">Cancel</button>
+                  id="close-btn"
+                  onClick={() => this.props.setModalOpen(false)}>Cancel</button>
                 <button type="submit"
                   className="btn btn-primary"
                   id="submit-btn"

@@ -1,12 +1,9 @@
 import React from "react";
-//import { Link } from "react-router-dom";
 import "./style.css";
 
 function Home() {
     return (
-
         <div className="main-img-home">
-
             <div className="hero-text-home">
                 <span className="bespoke">BESPOKE</span>
                 <span className="hand-crafted">Hand Crafted</span>
@@ -16,8 +13,6 @@ function Home() {
             </div>
 
         </div>
-
-
     );
 }
 

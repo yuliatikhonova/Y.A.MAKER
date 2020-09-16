@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ItemsList from "../components/Gallery";
+import api from '../utils/API';
 import GalleryModal from "../components/GalleryModal/";
 import axios from 'axios'
 
-
 function GalleryPage(props) {
     const [modalOpen, setModalOpen] = useState(false)
+
+    useEffect(() => {
+        //call api route to check if logged in, if logged in is true 
+        api.isLoggedin().then((res) => {
+            props.setIsLoggedin(res.data.isAuthenticated);
+        });
+    }, [])
+
     function logingOut() {
         axios.get("/logout")
             .then((data) => {

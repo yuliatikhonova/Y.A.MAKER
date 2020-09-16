@@ -2,18 +2,22 @@
 require("dotenv").config();
 
 const nodemailer = require('nodemailer');
-
-
 const db = require("../models");
 const passport = require("../config/passport");
 
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.json({ isAuthenticated: false });
+}
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
-    res.json({//res.json(req.user);
+    res.json({
       email: req.user.email,
       id: req.user.id
     });
@@ -56,7 +60,7 @@ module.exports = function (app) {
     }
   });
 
-  //===========================================================Form to send to the email
+  //=====================Form to send to the email
 
   app.post('/api/form', (req, res) => {
     let data = req.body;
@@ -75,8 +79,6 @@ module.exports = function (app) {
       from: data.email,
       to: process.env.EMAIL,
       subject: `Message from ${data.name}`,
-
-
       html: `
         <h3> Information </h3>
             <ul>
@@ -84,14 +86,12 @@ module.exports = function (app) {
                 <li>Phone number: ${data.phone}</li>
                 <li>Email: ${data.email}</li>
             </ul>
-
             <h3>Message</h3>
             <p>${data.message}</p>
         `
     };
 
     smtpTransport.sendMail(mailOptions, (error, response) => {
-
       if (error) {
         res.send(error)
       }
@@ -101,24 +101,7 @@ module.exports = function (app) {
     });
 
     smtpTransport.close();
-
   })
-
-  //===========================================================Adding to bucket list
-
-  function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.json({ error: "401:Not authenticated" });
-  }
-
-  app.get("/", (req, res) => {
-    res.send("Welcome to the api!");
-  });
-
-  
-
 
   //routes for cart/checkout===================================
   app.get("/api/cart", (req, res) => {
@@ -135,15 +118,10 @@ module.exports = function (app) {
     console.log(req.body);
     db.Cart.create({
       ItemId: req.body.item,
-      // UserId: User.id
     });
   });
 
-  // app.delete("/api/cart", (req, res) => {
-  //   db.Cart.destroy({
-  //     where: req.id = 
-  //   });
-
-  // });
+  app.get("/api/isAuthenticated", isLoggedIn, (req, res) => {
+    res.json({ isAuthenticated: true });
+  })
 };
-//===========================================================
