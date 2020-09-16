@@ -20,6 +20,7 @@
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/cloudinary.png)
 
 ### Gallery 
+  The screen shot below is from the gallery component. It maps through the items in the database and diaplays them as images on the page. If the user clicks on a gallery item it will take them to the items page for that image. If the owner is logged in they will see the modal option to edit the images on the gallery page. 
 
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/gallery.png)
 
