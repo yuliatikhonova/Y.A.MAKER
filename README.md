@@ -9,13 +9,13 @@
   
   Deployed Link: (must be heroku link)
 
-
 ### Routes
   The screenshot below shows the routes for the application. The routes that involve a login are for the modal so the owner of the website has easy access to edit the gallery page.  
 
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/Routes.png)
 
 ### Cloudinary
+  The function  shown below uses cloudinary for image uploads. 
 
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/cloudinary.png)
 
