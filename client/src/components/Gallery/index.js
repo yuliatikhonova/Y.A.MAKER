@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import GalleryModal from "../GalleryModal"
 
-
 export default class ItemsList extends Component {
   constructor(props) {
     super(props);
@@ -47,13 +46,13 @@ export default class ItemsList extends Component {
         <GalleryModal refreshList={this.refreshList} open={this.props.modalOpen} setModalOpen={this.props.setModalOpen} />
         <div className="row">
           <div className="col-md-10 mx-auto">
-              {items &&
-                items.map((item) => (
-                  <Link to={"/items/" + item.id}>
-                    <img className="goonie" src={item.imageUpload} alt={item.itemName}>
-                    </img>
-                  </Link>
-                ))}
+            {items &&
+              items.map((item) => (
+                <Link to={"/items/" + item.id}>
+                  <img className="goonie" src={item.imageUpload} alt={item.itemName}>
+                  </img>
+                </Link>
+              ))}
           </div>
         </div>
       </div >

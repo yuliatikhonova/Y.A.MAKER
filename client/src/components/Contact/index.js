@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { Link } from "react-router-dom";
 import "./style.css";
 
 export default class Contact extends Component {
@@ -58,11 +57,9 @@ export default class Contact extends Component {
             .catch(() => {
                 console.log("message not sent");
             })
-
     }
 
     //Resetting the initial data
-
     resetForm = () => {
         this.setState({
             name: "",
@@ -92,7 +89,6 @@ export default class Contact extends Component {
                                 value={this.state.name}
                                 onChange={this.handleName}
                                 required
-
                             />
                             <input type="phone"
                                 name="phone"
@@ -103,7 +99,6 @@ export default class Contact extends Component {
                                 value={this.state.phone}
                                 onChange={this.handlePhone}
                                 required
-
                             />
                             <input type="email"
                                 name="email"
@@ -123,17 +118,12 @@ export default class Contact extends Component {
                                 value={this.state.message}
                                 onChange={this.handleMessage}
                                 required
-                                
                             ></textarea>
-                             <button type="submit" className="btn contact-button float-right mt-4">Submit</button>
+                            <button type="submit" className="btn contact-button float-right mt-4">Submit</button>
                         </div>
-
                     </div>
                 </form>
-
-
             </section >
-
         );
     }
 }

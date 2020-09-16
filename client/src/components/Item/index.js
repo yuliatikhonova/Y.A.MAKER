@@ -26,8 +26,8 @@ export default class Item extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
-    var bodyItem= {item:this.state.currentItem.id}
-    fetch("/api/cart", {method:"post", headers: {    'Accept': 'application/json', 'Content-Type': 'application/json'}, body:JSON.stringify(bodyItem)})
+    var bodyItem = { item: this.state.currentItem.id }
+    fetch("/api/cart", { method: "post", headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(bodyItem) })
 
   }
 
@@ -60,30 +60,21 @@ export default class Item extends Component {
     return (
       <div className="container item-deets">
         <div className="row product-area d-flex align-items-center">
-  
           <div className="col-md-6 product d-flex">
             <img className="item-pic img-fluid" src={currentItem.imageUpload} alt="table" />
           </div>
           <div className="col-md-6 discription d-flex flex-column">
-            
-
-                <h1 className="item-deets">{currentItem.itemName} <span className="item-deets" >${currentItem.itemPrice}</span> </h1>
-
-
+            <h1 className="item-deets">{currentItem.itemName} <span className="item-deets" >${currentItem.itemPrice}</span> </h1>
             <p className="product-description item-deets">{currentItem.itemDescription}</p>
-
             <div className="button-spot mt-5"
               onChange={currentItem.handleFormSubmit}
               value={currentItem.add}
               name="add to cart"
               id="add"
             >
-              <button onClick={(e)=> this.handleFormSubmit(e)} className="btn cart-button ">ADD TO CART</button>
+              <button onClick={(e) => this.handleFormSubmit(e)} className="btn cart-button ">ADD TO CART</button>
             </div>
           </div>
-
-        
-        
         </div>
       </div>
     );
