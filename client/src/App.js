@@ -20,7 +20,6 @@ function App(props) {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
   return (
-
     <Router>
       <MobileNav></MobileNav>
       <div className="row">
@@ -33,7 +32,7 @@ function App(props) {
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/gallery" render={(props) => <GalleryPage isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} {...props}/>} />
+              <Route exact path="/gallery" render={(props) => <GalleryPage isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} {...props} />} />
               <Route exact path="/services" component={Services} />
               <Route path="/items/:id" component={Itempage} />
               <Route exact path="/cart" component={Cart} />
@@ -41,7 +40,7 @@ function App(props) {
               <Route exact path="/payfailed" component={PayFailed} />
 
               {/* client routes to update website */}
-              <Route exact path="/login" render={(props) => <Login isLoggedIn={isLoggedin} setIsLoggedin={setIsLoggedin}  {...props}/>} />
+              <Route exact path="/login" render={(props) => <Login isLoggedIn={isLoggedin} setIsLoggedin={setIsLoggedin}  {...props} />} />
               <Route exact path="/register" component={Register} />
 
               <Route>
@@ -49,11 +48,9 @@ function App(props) {
               </Route>
             </Switch>
           </Wrapper>
-
         </div>
       </div>
     </Router>
-
   );
 }
 
