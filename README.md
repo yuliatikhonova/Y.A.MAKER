@@ -15,12 +15,12 @@
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/Routes.png)
 
 ### Cloudinary
-  The function  shown below uses cloudinary for image uploads. 
+  The function shown below uses cloudinary for image uploads. 
 
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/cloudinary.png)
 
 ### Gallery 
-  The screen shot below is from the gallery component. It maps through the items in the database and diaplays them as images on the page. If the user clicks on a gallery item it will take them to the items page for that image. If the owner is logged in they will see the modal option to edit the images on the gallery page. 
+  The screenshot below is from the gallery component. It maps through the items in the database and displays them as images on the page. If the user clicks on a gallery item it will take them to the items page for that image. If the owner is logged in they will see the modal option to edit the images on the gallery page. 
 
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/gallery.png)
 
@@ -35,6 +35,6 @@
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/mobile-view.gif)
 
 ### Media Query
-  We used media query's for the background images on our pages. As you can see when the page shrinks the image changes. These differances can also be see between the mobile and desktop view gifs for the same pages.
-
+  We used media queries for the background images on our pages. As you can see when the page shrinks the image changes. These differences can also be seen between the mobile and desktop view gifs for the same pages.
+  
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/Media-query.gif)
