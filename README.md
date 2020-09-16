@@ -7,7 +7,7 @@
 
   "The Handcrafted Heirloom" is a custom made website for a local woodworking business in Arizona. This website will serve as a storefront that allows customers to view and purchase handmade wood crafted goods. Customers are also able to request a personalized commissioned piece. This website will allow for the expansion of the clients customer base beyond his local area, as well as promote his business on a global scale. 
   
-  Deployed Link: (must be heroku link)
+  Deployed Link: https://shrouded-everglades-61786.herokuapp.com/ 
 
 ### Routes
   The screenshot below shows the routes for the application. The routes that involve a login are for the modal so the owner of the website has easy access to edit the gallery page.  
