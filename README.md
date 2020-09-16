@@ -25,13 +25,16 @@
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/gallery.png)
 
 ### Desktop View
+  The gif below displays the desktop view of the pages from the navbar.
 
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/desktop-view.gif)
 
 ### Mobile View
+  The gif below displays the mobile view of the application. 
 
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/mobile-view.gif)
 
 ### Media Query
+  We used media query's for the background images on our pages. As you can see when the page shrinks the image changes. These differances can also be see between the mobile and desktop view gifs for the same pages.
 
 ![](https://github.com/yuliatikhonova/Y.A.MAKER/blob/readme/client/public/readme-imgs/Media-query.gif)
