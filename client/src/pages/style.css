@@ -1,13 +1,12 @@
-
 .error-img{
     background-image: url(/images/error-img.jpg);
     background-repeat: no-repeat;
     height: 90vh;
     background-size: cover;
-   margin: 25px;
-   width: 98%;
-   margin-bottom: 0px;
-   color: white;
+    margin: 25px;
+    width: 98%;
+    margin-bottom: 0px;
+    color: white;
 }
 
 @media only screen and (max-width: 991px) {
@@ -16,7 +15,6 @@
         width: 100%;
         margin: 0px;
     }
-
 }
 
 .error {
@@ -28,7 +26,6 @@
     text-decoration: none;
     letter-spacing: 3px;
     font-size: 170px;
-
 }
 
 .nopage {
@@ -41,8 +38,8 @@
 
 @media only screen and (max-width: 991px) {
     .mobile-cart-button {
-        display: block;
-        font-family: athelas, serif;
+    display: block;
+    font-family: athelas, serif;
     font-weight: 400;
     font-style: normal;
     text-decoration: none;

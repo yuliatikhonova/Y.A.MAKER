@@ -2,8 +2,6 @@
 require("dotenv").config();
 
 const nodemailer = require('nodemailer');
-
-
 const db = require("../models");
 const passport = require("../config/passport");
 
@@ -19,7 +17,7 @@ module.exports = function (app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
-    res.json({//res.json(req.user);
+    res.json({
       email: req.user.email,
       id: req.user.id
     });
@@ -62,7 +60,7 @@ module.exports = function (app) {
     }
   });
 
-  //===========================================================Form to send to the email
+  //=====================Form to send to the email
 
   app.post('/api/form', (req, res) => {
     let data = req.body;
@@ -81,8 +79,6 @@ module.exports = function (app) {
       from: data.email,
       to: process.env.EMAIL,
       subject: `Message from ${data.name}`,
-
-
       html: `
         <h3> Information </h3>
             <ul>
@@ -90,14 +86,12 @@ module.exports = function (app) {
                 <li>Phone number: ${data.phone}</li>
                 <li>Email: ${data.email}</li>
             </ul>
-
             <h3>Message</h3>
             <p>${data.message}</p>
         `
     };
 
     smtpTransport.sendMail(mailOptions, (error, response) => {
-
       if (error) {
         res.send(error)
       }
@@ -107,7 +101,6 @@ module.exports = function (app) {
     });
 
     smtpTransport.close();
-
   })
 
   //routes for cart/checkout===================================
@@ -125,18 +118,10 @@ module.exports = function (app) {
     console.log(req.body);
     db.Cart.create({
       ItemId: req.body.item,
-      // UserId: User.id
     });
   });
-  
+
   app.get("/api/isAuthenticated", isLoggedIn, (req, res) => {
     res.json({ isAuthenticated: true });
   })
-  // app.delete("/api/cart", (req, res) => {
-  //   db.Cart.destroy({
-  //     where: req.id = 
-  //   });
-
-  // });
 };
-//===========================================================

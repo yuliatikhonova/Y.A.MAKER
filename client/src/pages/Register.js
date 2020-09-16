@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-//import Pic from "./client/public/images/pic.png";
 import axios from 'axios'
 
 function Register(props) {
@@ -35,7 +34,6 @@ function Register(props) {
             <div className="col-md-12">
                 <h3 >Sign up with your email and password</h3>
             </div>
-
             <form className="signup" onSubmit={handleSubmit}>
                 <br />
                 <div className="form-row">
@@ -49,7 +47,6 @@ function Register(props) {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)} />
                     </div>
-
                     <div className="col">
                         <label htmlFor="exampleInputPassword1">Password</label>
                         <input
@@ -60,17 +57,15 @@ function Register(props) {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)} />
                     </div>
-
                 </div>
-
                 <div className="sign-up row-md-4">
                     <div className="col-md-12">
                         <button type="submit" className="sign-up btn btn-outline-dark btn-lg mt-3">Sign Up</button>
                     </div>
                 </div>
-
             </form>
         </main>
     );
 }
+
 export default Register;

@@ -1,7 +1,6 @@
 const db = require("../models");
 const Item = db.items;
 const Op = require('sequelize');
-
 const fs = require("fs");
 const cloudName = process.env.CLOUDINARY_NAME;
 const crypto = require("crypto");
@@ -53,6 +52,7 @@ cloudinary.config({
   api_key: apiKey,
   api_secret: apiSecret
 });
+
 // Create and Save a new Item
 exports.create = [
   upload.single("imageUpload"),
@@ -75,6 +75,7 @@ exports.create = [
     } else {
       req.file.filename = req.file.filename;
     }
+
     // Create a Item
     const item = {
       itemName: req.body.itemName,

@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 import Paypal from "../Paypal/Paypal";
 
-
 function PayFail() {
   return (
     <section className="container">
@@ -29,7 +28,6 @@ function PayFail() {
         </div>
       </div>
     </section>
-
   );
 }
 

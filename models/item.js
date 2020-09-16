@@ -1,5 +1,3 @@
-
-
 module.exports = (sequelize, Sequelize) => {
   const Item = sequelize.define("Item", {
     itemName: {
@@ -32,7 +30,6 @@ module.exports = (sequelize, Sequelize) => {
       }
     });
   };
-
 
   return Item;
 };
